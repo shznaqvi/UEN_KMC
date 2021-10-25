@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name="edu.aku.hassannaqvi.uen_kmc.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/app_icon"
@@ -24,10 +24,14 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
-
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_kmc.ui.LoginActivity"
+            android:name=".ui.SectionF3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SectionF2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.splashscreen"
@@ -40,7 +44,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f2.xml" value="0.30101180438448566" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f3.xml" value="0.3033135089209856" />
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/drawable/grad_lable.xml" value="0.22447916666666667" />
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/drawable/ic_menu_hamburger.xml" value="0.22447916666666667" />
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/drawable/ic_upload.xml" value="0.22447916666666667" />
@@ -18,7 +21,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="15" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
