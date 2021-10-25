@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">UEN KMC</string>
+
+    <!--// APP LEVEL strings-->
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="options">Options</string>
+    <string name="action_database">Database Manager</string>
+    <string name="action_data_sync">Sync Data</string>
+    <string name="btnLogin">Login</string>
+    <string name="country">Language (Click to change)</string>
+    <string name="downData">Download Data</string>
+    <string name="open_household_form">OPEN HOUSEHOLD FORM</string>
+    <string name="download_data">Download Data</string>
+    <string name="upload_data">Upload Data</string>
+    <string name="folder_not_created"> Folder Not Created </string>
+    <string name="network_conn_error"> Network connection not available ! </string>
+    <string name="invalid_password"> Invalid Password </string>
+    <string name="username_required"> Username is required. </string>
+    <string name="incorrect_username_or_password">Incorrect Username or Password</string>
+
+
+    <string name="istatus"> Result of Household Questionnaire interview </string>
+    <string name="istatusi"> Discuss any result not completed with team leader </string>
+    <string name="istatus01"> Completed </string>
+    <string name="istatus02"> No household member at home or no competent respondent at home at time of visit </string>
+    <string name="istatus03"> Entire household is absent for extended period </string>
+    <string name="istatus04"> Refused </string>
+    <string name="istatus05"> Dwelling vacant or address not a dwelling </string>
+    <string name="istatus06"> Dwelling not found </string>
+    <string name="istatus07"> No Child or adolescent 18 years or below present in the HH </string>
+    <string name="istatus08"> No MWRA 18 or above of age live in this household ? </string>
+    <string name="istatus96"> Other (Specify) </string>
+</resources>
