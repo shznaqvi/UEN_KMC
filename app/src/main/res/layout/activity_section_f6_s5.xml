@@ -962,7 +962,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1152,6 +1152,7 @@
 
                             android:visibility='@{f6515h.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -1172,6 +1173,7 @@
 
                             android:visibility='@{f6515d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -1532,6 +1534,7 @@
 
                             android:visibility='@{f6520d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -1842,6 +1845,7 @@
 
                             android:visibility='@{f6524d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton

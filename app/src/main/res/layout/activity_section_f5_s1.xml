@@ -297,7 +297,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -376,7 +376,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -418,7 +418,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

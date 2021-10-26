@@ -26,75 +26,99 @@
         tools:replace="android:allowBackup">
         <activity
             android:name=".ui.sections.SectionF802Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF9S6Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF9S5Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF9S4Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF9S3Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF9S1Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF801Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF7S6Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF7S4Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF7S3Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF7S1Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S7Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S6Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S5Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S4Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S3Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S2Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF6S1Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF5S4Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF5S3Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF5S2Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF5S1Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF3Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.sections.SectionF2Activity"
+            android:theme="@style/AppThemeEnglish1"
             android:exported="true" />
         <activity
             android:name=".ui.LoginActivity"

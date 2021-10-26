@@ -444,6 +444,7 @@
 
                             android:visibility='@{f9406m.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -464,6 +465,7 @@
 
                             android:visibility='@{f9406h.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -484,6 +486,7 @@
 
                             android:visibility='@{f9406d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
                     </RadioGroup>
                 </LinearLayout>
@@ -526,6 +529,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
+                        app:minValue="1"
 
                         app:type="range" />
                 </LinearLayout>
@@ -821,6 +825,7 @@
 
                             android:visibility='@{f9412h.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -841,6 +846,7 @@
 
                             android:visibility='@{f9412d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
                     </RadioGroup>
                 </LinearLayout>

@@ -95,7 +95,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -263,7 +263,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -296,7 +296,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
 
                     <TextView
@@ -312,7 +312,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -507,7 +507,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -549,7 +549,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -591,7 +591,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -780,7 +780,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1464,7 +1464,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1637,6 +1637,7 @@
 
                             android:visibility='@{f5221w.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -1657,6 +1658,7 @@
 
                             android:visibility='@{f5221d.checked? View.VISIBLE : View.GONE}'
                             app:maxValue="100"
+                            app:minValue="1"
                             app:type="range" />
 
                         <RadioButton
@@ -1702,7 +1704,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
 
                     <TextView
@@ -1718,7 +1720,7 @@
                         android:inputType="number"
                         android:maxLength="3"
                         app:maxValue="100"
-
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
