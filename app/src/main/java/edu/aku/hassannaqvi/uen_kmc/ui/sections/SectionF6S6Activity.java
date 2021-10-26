@@ -9,17 +9,17 @@ import androidx.databinding.DataBindingUtil;
 
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF5S1Binding;
+import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF6S6Binding;
 
-public class SectionF5S1Activity extends AppCompatActivity {
-    private static final String TAG = "SectionF5S1Activity";
-    ActivitySectionF5S1Binding bi;
+public class SectionF6S6Activity extends AppCompatActivity {
+    private static final String TAG = "SectionF6S6Activity";
+    ActivitySectionF6S6Binding bi;
     private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f5_s1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f6_s6);
         bi.setCallback(this);
         bi.setForm(form);
     }
