@@ -84,10 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
-            case R.id.openForm:
+/*            case R.id.openForm:
                 MainApp.form = new Form();
-//                       startActivity(new Intent(this, IdentificationActivity.class));
-                break;
+                startActivity(new Intent(this, SectionF2Activity.class));
+                break;*/
             case R.id.seca1:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF2Activity.class));

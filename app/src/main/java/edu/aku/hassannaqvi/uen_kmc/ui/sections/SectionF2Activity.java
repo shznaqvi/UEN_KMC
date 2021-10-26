@@ -12,7 +12,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+
 import edu.aku.hassannaqvi.uen_kmc.R;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF2Binding;
@@ -29,22 +32,43 @@ public class SectionF2Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f2);
         bi.setCallback(this);
         bi.setForm(form);
+        setSupportActionBar(bi.toolbar);
 
+    }
+
+    private boolean insertNewRecord() {
+        if (!form.getUid().equals("")) return true;
+        long rowId = 0;
+        try {
+            rowId = db.addForm(form);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        form.setId(String.valueOf(rowId));
+        if (rowId > 0) {
+            form.setUid(form.getDeviceId() + form.getId());
+            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
+            return true;
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
 
     private boolean updateDB() {
-        db = MainApp.appInfo.getDbHelper();
-        long updcount = 0;
-        /*try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SH2B, form.sH2btoString());
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = 0;
+        try {
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SF2, form.sF2toString());
         } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, R.string.upd_db + e.getMessage());
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }*/
-        if (updcount > 0) return true;
-        else {
+        }
+        if (updcount == 1) {
+            return true;
+        } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -62,10 +86,11 @@ public class SectionF2Activity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
+        if (!insertNewRecord()) return;
         saveDraft();
         if (updateDB()) {
             finish();
-//            startActivity(new Intent(this, MwraListActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, form.getF2304().equals("2") ? EndingActivity.class : SectionF2Activity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
