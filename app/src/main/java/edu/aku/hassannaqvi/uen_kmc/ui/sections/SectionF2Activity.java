@@ -1,4 +1,6 @@
-package edu.aku.hassannaqvi.uen_kmc.ui;
+package edu.aku.hassannaqvi.uen_kmc.ui.sections;
+
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF2Binding;
+import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF2Activity extends AppCompatActivity {
     private static final String TAG = "SectionF2Activity";
@@ -25,6 +28,7 @@ public class SectionF2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f2);
         bi.setCallback(this);
+        bi.setForm(form);
 
     }
 

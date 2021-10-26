@@ -3,12 +3,13 @@
     <data>
 
         <import type="android.view.View" />
-        <!--<variable
+        <variable
             name="form"
-            type="edu.aku.hassannaqvi.uen.models.Form" />-->
+            type="edu.aku.hassannaqvi.uen_kmc.models.Form" />
+
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.uen_kmc.ui.SectionF3Activity" />
+            type="edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3Activity" />
     </data>
 
     <ScrollView
