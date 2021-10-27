@@ -108,7 +108,8 @@
                         android:id="@+id/f5101"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5101" />
+                        android:hint="@string/f5101"
+                        android:text="@={form.f5101}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -145,7 +146,8 @@
                         android:id="@+id/f5102"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5102" />
+                        android:hint="@string/f5102"
+                        android:text="@={form.f5102}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -182,7 +184,8 @@
                         android:id="@+id/f5103"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5103" />
+                        android:hint="@string/f5103"
+                        android:text="@={form.f5103}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -219,7 +222,8 @@
                         android:id="@+id/f5104"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5104" />
+                        android:hint="@string/f5104"
+                        android:text="@={form.f5104}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -256,7 +260,8 @@
                         android:id="@+id/f5105"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5105" />
+                        android:hint="@string/f5105"
+                        android:text="@={form.f5105}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -296,8 +301,11 @@
                         android:hint="@string/f5106"
                         android:inputType="number"
                         android:maxLength="3"
-                        app:maxValue="100"
+                        android:text="@={form.f5106}"
+
+
                         app:minValue="1"
+                        app:maxValue="100"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -335,7 +343,8 @@
                         android:id="@+id/f5107"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5107" />
+                        android:hint="@string/f5107"
+                        android:text="@={form.f5107}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -375,8 +384,11 @@
                         android:hint="@string/f5108"
                         android:inputType="number"
                         android:maxLength="3"
-                        app:maxValue="100"
+                        android:text="@={form.f5108}"
+
+
                         app:minValue="1"
+                        app:maxValue="100"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -417,8 +429,11 @@
                         android:hint="@string/f5109"
                         android:inputType="number"
                         android:maxLength="3"
-                        app:maxValue="100"
+                        android:text="@={form.f5109}"
+
+
                         app:minValue="1"
+                        app:maxValue="100"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -456,7 +471,8 @@
                         android:id="@+id/f5110"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5110" />
+                        android:hint="@string/f5110"
+                        android:text="@={form.f5110}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -493,7 +509,8 @@
                         android:id="@+id/f5111"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5111" />
+                        android:hint="@string/f5111"
+                        android:text="@={form.f5111}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -530,7 +547,8 @@
                         android:id="@+id/f5112"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f5112" />
+                        android:hint="@string/f5112"
+                        android:text="@={form.f5112}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -572,12 +590,16 @@
                             android:id="@+id/f5113a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{form.f5113.equals(`1`)}"
+                            android:onClick="@{()->form.setF5113(`1`)}"
                             android:text="@string/f5113a" />
 
                         <RadioButton
                             android:id="@+id/f5113b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{form.f5113.equals(`2`)}"
+                            android:onClick="@{()->form.setF5113(`2`)}"
                             android:text="@string/f5113b" />
                     </RadioGroup>
                 </LinearLayout>

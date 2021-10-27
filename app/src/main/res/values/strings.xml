@@ -859,9 +859,9 @@
     <string name="f7306">Is the baby have rapid/fast breathing? (greater than 60 breath/min)</string>
     <string name="f7306a">Yes</string>
     <string name="f7306b">No</string>
-    <string name="f73t4">Look For Chest in drawing</string>
+    <string name="f73t4">Look For Chest in drawing (Look onto the chest of baby without clothes)</string>
     <string name="f7307">Is the baby have severe chest in-drawing</string>
-    <string name="f7307t">(Look onto the chest of baby without clothes)</string>
+    <string name="f7307t"></string>
     <string name="f7307a">Yes</string>
     <string name="f7307b">No</string>
     <string name="f73t5">Check For Jaundice (Examination will be done by data collector/medical officer)</string>

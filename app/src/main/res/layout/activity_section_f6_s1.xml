@@ -107,7 +107,8 @@
                         android:id="@+id/f6101"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f6101" />
+                        android:hint="@string/f6101"
+                        android:text="@={form.f6101}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -144,7 +145,8 @@
                         android:id="@+id/f6102"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f6102" />
+                        android:hint="@string/f6102"
+                        android:text="@={form.f6102}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -181,7 +183,8 @@
                         android:id="@+id/f6103"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f6103" />
+                        android:hint="@string/f6103"
+                        android:text="@={form.f6103}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -218,7 +221,8 @@
                         android:id="@+id/f4104"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f4104" />
+                        android:hint="@string/f4104"
+                        android:text="@={form.f4104}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -255,7 +259,8 @@
                         android:id="@+id/f6105"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f6105" />
+                        android:hint="@string/f6105"
+                        android:text="@={form.f6105}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -292,7 +297,8 @@
                         android:id="@+id/f6106"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/f6106" />
+                        android:hint="@string/f6106"
+                        android:text="@={form.f6106}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
