@@ -1147,7 +1147,8 @@
             <!-- f5415  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf5415"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f5202.equals(`1`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1222,7 +1223,8 @@
             <!-- f5416  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf5416"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f5202.equals(`2`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"

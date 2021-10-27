@@ -2787,6 +2787,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF5409(String f5409) {
         this.f5409 = f5409;
+        setF540996x(f5409.equals("96") ? this.f540996x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f5409);
     }
 
@@ -2827,6 +2828,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF5411(String f5411) {
         this.f5411 = f5411;
+        setF541196x(f5411.equals("96") ? this.f541196x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f5411);
     }
 
