@@ -30,7 +30,7 @@
             android:theme="@style/CustomToolbarTheme"
             app:popupTheme="@style/CustomPopupTheme"
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
-            app:title="@string/section1identificationandenrollmentinformation_mainheading"
+            app:title="@string/f2title"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
         <ScrollView
