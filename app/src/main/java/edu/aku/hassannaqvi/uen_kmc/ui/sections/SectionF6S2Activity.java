@@ -59,7 +59,7 @@ public class SectionF6S2Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionF6S3Activity.class).putExtra("complete", true));
+            startActivity(new Intent(this, form.getF6205().equals("2") ? EndingActivity.class : SectionF6S3Activity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
