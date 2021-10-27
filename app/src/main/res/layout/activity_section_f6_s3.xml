@@ -80,8 +80,8 @@
                         android:text="@={form.f6301}"
 
 
-                        app:minValue="1"
                         app:maxValue="100"
+                        app:minValue="1"
                         app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -142,7 +142,8 @@
             <!-- f6303  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf6303"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f6302.equals(`2`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -288,7 +289,8 @@
             <!-- f6305  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf6305"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f6304.equals(`2`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"

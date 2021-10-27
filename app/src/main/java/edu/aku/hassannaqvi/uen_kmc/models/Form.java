@@ -3181,6 +3181,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6302(String f6302) {
         this.f6302 = f6302;
+        setF6303(f6302.equals("1") ? this.f6303 : "");
         notifyPropertyChanged(BR.f6302);
     }
 
@@ -3201,6 +3202,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6304(String f6304) {
         this.f6304 = f6304;
+        setF6305(f6304.equals("1") ? this.f6305 : "");
         notifyPropertyChanged(BR.f6304);
     }
 
@@ -3371,6 +3373,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6415(String f6415) {
         this.f6415 = f6415;
+        setF6416(f6415.equals("2") ? this.f6416 : "");
+        setF6417(f6415.equals("2") ? this.f6417 : "");
         notifyPropertyChanged(BR.f6415);
     }
 
@@ -3381,6 +3385,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6416(String f6416) {
         this.f6416 = f6416;
+        setF6417(f6416.equals("2") ? this.f6417 : "");
         notifyPropertyChanged(BR.f6416);
     }
 
@@ -3421,6 +3426,11 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6502(String f6502) {
         this.f6502 = f6502;
+        setF6503a(!f6502.equals("1") ? this.f6503a : "");
+        setF6503b(!f6502.equals("1") ? this.f6503b : "");
+        setF6503c(!f6502.equals("1") ? this.f6503c : "");
+        setF6503d(!f6502.equals("1") ? this.f6503d : "");
+        setF650396(!f6502.equals("1") ? this.f650396 : "");
         notifyPropertyChanged(BR.f6502);
     }
 
@@ -3440,6 +3450,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF6503a(String f6503a) {
+        if (this.f6503a.equals(f6503a)) return; // for all checkboxes
         this.f6503a = f6503a;
         notifyPropertyChanged(BR.f6503a);
     }
@@ -3450,6 +3461,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF6503b(String f6503b) {
+        if (this.f6503b.equals(f6503b)) return; // for all checkboxes
         this.f6503b = f6503b;
         notifyPropertyChanged(BR.f6503b);
     }
@@ -3460,6 +3472,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF6503c(String f6503c) {
+        if (this.f6503c.equals(f6503c)) return; // for all checkboxes
         this.f6503c = f6503c;
         notifyPropertyChanged(BR.f6503c);
     }
@@ -3470,6 +3483,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF6503d(String f6503d) {
+        if (this.f6503d.equals(f6503d)) return; // for all checkboxes
         this.f6503d = f6503d;
         notifyPropertyChanged(BR.f6503d);
     }
@@ -3480,7 +3494,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF650396(String f650396) {
+        if (this.f650396.equals(f650396)) return; // for all checkboxes
         this.f650396 = f650396;
+        setF650396x(f650396.equals("96") ? this.f650396x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f650396);
     }
 
@@ -3501,6 +3517,86 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6504(String f6504) {
         this.f6504 = f6504;
+        setF650496x(f6504.equals("96") ? this.f650496x : ""); // for all skips, mention all skipped questions
+
+        setF6505a(!f6504.equals("5") ? this.f6505a : "");
+        setF6505b(!f6504.equals("5") ? this.f6505b : "");
+        setF6505c(!f6504.equals("5") ? this.f6505c : "");
+        setF6505d(!f6504.equals("5") ? this.f6505d : "");
+        setF6505e(!f6504.equals("5") ? this.f6505e : "");
+        setF650596(!f6504.equals("5") ? this.f650596 : "");
+
+        setF6506(!f6504.equals("5") ? this.f6506 : "");
+        setF6507(!f6504.equals("5") ? this.f6507 : "");
+        setF6508(!f6504.equals("5") ? this.f6508 : "");
+        setF6509(!f6504.equals("5") ? this.f6509 : "");
+        setF6510(!f6504.equals("5") ? this.f6510 : "");
+
+        setF6511a(!f6504.equals("5") ? this.f6511a : "");
+        setF6511b(!f6504.equals("5") ? this.f6511b : "");
+        setF6511c(!f6504.equals("5") ? this.f6511c : "");
+        setF6511d(!f6504.equals("5") ? this.f6511d : "");
+        setF6511e(!f6504.equals("5") ? this.f6511e : "");
+        setF6511f(!f6504.equals("5") ? this.f6511f : "");
+        setF6511g(!f6504.equals("5") ? this.f6511g : "");
+        setF6511h(!f6504.equals("5") ? this.f6511h : "");
+        setF6511i(!f6504.equals("5") ? this.f6511i : "");
+        setF6511j(!f6504.equals("5") ? this.f6511j : "");
+        setF6511k(!f6504.equals("5") ? this.f6511k : "");
+        setF651196(!f6504.equals("5") ? this.f651196 : "");
+
+
+        setF6512(!f6504.equals("5") ? this.f6512 : "");
+        setF6513(!f6504.equals("5") ? this.f6513 : "");
+        setF6514(!f6504.equals("5") ? this.f6514 : "");
+
+        setF6515(!f6504.equals("5") ? this.f6515 : "");
+
+        setF6516a(!f6504.equals("5") ? this.f6516a : "");
+        setF6516b(!f6504.equals("5") ? this.f6516b : "");
+        setF6516c(!f6504.equals("5") ? this.f6516c : "");
+        setF6516d(!f6504.equals("5") ? this.f6516d : "");
+        setF6516e(!f6504.equals("5") ? this.f6516e : "");
+        setF651696(!f6504.equals("5") ? this.f651696 : "");
+
+        setF6517(!f6504.equals("5") ? this.f6517 : "");
+
+        setF6518a(!f6504.equals("5") ? this.f6518a : "");
+        setF6518b(!f6504.equals("5") ? this.f6518b : "");
+        setF6518c(!f6504.equals("5") ? this.f6518c : "");
+        setF6518d(!f6504.equals("5") ? this.f6518d : "");
+        setF6518e(!f6504.equals("5") ? this.f6518e : "");
+        setF6518f(!f6504.equals("5") ? this.f6518f : "");
+        setF6518g(!f6504.equals("5") ? this.f6518g : "");
+        setF651896(!f6504.equals("5") ? this.f651896 : "");
+
+        setF6519(!f6504.equals("5") ? this.f6519 : "");
+
+        setF6520(!f6504.equals("5") ? this.f6520 : "");
+        setF6520dx(!f6504.equals("5") ? this.f6520dx : "");
+
+        setF6521a(!f6504.equals("5") ? this.f6521a : "");
+        setF6521b(!f6504.equals("5") ? this.f6521b : "");
+        setF6521c(!f6504.equals("5") ? this.f6521c : "");
+        setF6521d(!f6504.equals("5") ? this.f6521d : "");
+        setF6521e(!f6504.equals("5") ? this.f6521e : "");
+        setF6521f(!f6504.equals("5") ? this.f6521f : "");
+        setF6521g(!f6504.equals("5") ? this.f6521g : "");
+        setF6521h(!f6504.equals("5") ? this.f6521h : "");
+        setF6521i(!f6504.equals("5") ? this.f6521i : "");
+        setF6521j(!f6504.equals("5") ? this.f6521j : "");
+        setF652198(!f6504.equals("5") ? this.f652196 : "");
+        setF652196(!f6504.equals("5") ? this.f652198 : "");
+
+        setF6522(!f6504.equals("5") ? this.f6522 : "");
+        setF6523(!f6504.equals("5") ? this.f6523 : "");
+
+        setF6524(!f6504.equals("5") ? this.f6524 : "");
+        setF6524dx(!f6504.equals("5") ? this.f6524dx : "");
+
+        setF6525(!f6504.equals("5") ? this.f6525 : "");
+
+
         notifyPropertyChanged(BR.f6504);
     }
 
@@ -3841,6 +3937,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6515(String f6515) {
         this.f6515 = f6515;
+        setF6515hx(f6515.equals("1") ? this.f6515hx : "");
+        setF6515dx(f6515.equals("2") ? this.f6515dx : "");
         notifyPropertyChanged(BR.f6515);
     }
 

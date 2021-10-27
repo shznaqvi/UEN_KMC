@@ -112,8 +112,6 @@
                         android:inputType="number"
                         android:maxLength="3"
                         android:text="@={form.f5301}"
-
-
                         app:maxValue="100"
                         app:minValue="1"
                         app:type="range" />
