@@ -87,16 +87,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SNO, form.getSno());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
-        values.put(FormsTable.COLUMN_SF5, form.sF5toString());
-/*        values.put(FormsTable.COLUMN_SA3, form.sA3toString());
-        values.put(FormsTable.COLUMN_SB1, form.sB1toString());
-        values.put(FormsTable.COLUMN_SC2, form.sC2toString());
-        values.put(FormsTable.COLUMN_SD1, form.sD1toString());
-        values.put(FormsTable.COLUMN_SE1, form.sE1toString());
-        values.put(FormsTable.COLUMN_SF1, form.sF1toString());
         values.put(FormsTable.COLUMN_SF2, form.sF2toString());
-        values.put(FormsTable.COLUMN_SF3, form.sF3toString());*/
-
+        values.put(FormsTable.COLUMN_SF3, form.sF3toString());
+        values.put(FormsTable.COLUMN_SF5, form.sF5toString());
+        values.put(FormsTable.COLUMN_SF6, form.sF6toString());
+        values.put(FormsTable.COLUMN_SF7, form.sF7toString());
+        values.put(FormsTable.COLUMN_SF8, form.sF8toString());
+        values.put(FormsTable.COLUMN_SF9, form.sF9toString());
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
 

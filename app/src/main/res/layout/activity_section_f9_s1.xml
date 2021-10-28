@@ -312,243 +312,251 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- f9203  CheckBox   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf9203"
-                style="@style/cardView">
+            <LinearLayout
+                android:id="@+id/fldGrpCVf731701"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{form.f9202.equals(`1`)? View.GONE : View.VISIBLE}">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_f9203" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/f9203" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/f9203check"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:tag="0">
-
-                        <CheckBox
-                            android:id="@+id/f9203a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203a.equals(`1`)}"
-                            android:onClick="@{()->form.setF9203a(form.f9203a.equals(`1`)?``:`1`)}"
-                            android:text="@string/f9203a" />
-
-                        <CheckBox
-                            android:id="@+id/f9203b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203b.equals(`2`)}"
-                            android:onClick="@{()->form.setF9203b(form.f9203b.equals(`2`)?``:`2`)}"
-                            android:text="@string/f9203b" />
-
-                        <CheckBox
-                            android:id="@+id/f9203c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203c.equals(`3`)}"
-                            android:onClick="@{()->form.setF9203c(form.f9203c.equals(`3`)?``:`3`)}"
-                            android:text="@string/f9203c" />
-
-                        <CheckBox
-                            android:id="@+id/f9203d"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203d.equals(`4`)}"
-                            android:onClick="@{()->form.setF9203d(form.f9203d.equals(`4`)?``:`4`)}"
-                            android:text="@string/f9203d" />
-
-                        <CheckBox
-                            android:id="@+id/f9203e"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203e.equals(`5`)}"
-                            android:onClick="@{()->form.setF9203e(form.f9203e.equals(`5`)?``:`5`)}"
-                            android:text="@string/f9203e" />
-
-                        <CheckBox
-                            android:id="@+id/f9203f"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203f.equals(`6`)}"
-                            android:onClick="@{()->form.setF9203f(form.f9203f.equals(`6`)?``:`6`)}"
-                            android:text="@string/f9203f" />
-
-                        <CheckBox
-                            android:id="@+id/f9203g"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203g.equals(`7`)}"
-                            android:onClick="@{()->form.setF9203g(form.f9203g.equals(`7`)?``:`7`)}"
-                            android:text="@string/f9203g" />
-
-                        <CheckBox
-                            android:id="@+id/f9203h"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203h.equals(`8`)}"
-                            android:onClick="@{()->form.setF9203h(form.f9203h.equals(`8`)?``:`8`)}"
-                            android:text="@string/f9203h" />
-
-                        <CheckBox
-                            android:id="@+id/f9203i"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9203i.equals(`9`)}"
-                            android:onClick="@{()->form.setF9203i(form.f9203i.equals(`9`)?``:`9`)}"
-                            android:text="@string/f9203i" />
-
-                        <CheckBox
-                            android:id="@+id/f920396"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f920396.equals(`96`)}"
-                            android:onClick="@{()->form.setF920396(form.f920396.equals(`96`)?``:`96`)}"
-                            android:text="@string/f920396" />
-
-                        <EditText
-                            android:id="@+id/f920396x"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                            android:hint="@string/f920396"
-                            android:tag="f920396"
-                            android:text="@={form.f920396x}"
-                            android:visibility='@{f920396.checked? View.VISIBLE : View.GONE}' />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f9204  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf9204"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <!-- f9203  CheckBox   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf9203"
+                    style="@style/cardView">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_f9204" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="@string/f9204" />
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_f9203" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/f9203" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/f9203check"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:tag="0">
+
+                            <CheckBox
+                                android:id="@+id/f9203a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203a.equals(`1`)}"
+                                android:onClick="@{()->form.setF9203a(form.f9203a.equals(`1`)?``:`1`)}"
+                                android:text="@string/f9203a" />
+
+                            <CheckBox
+                                android:id="@+id/f9203b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203b.equals(`2`)}"
+                                android:onClick="@{()->form.setF9203b(form.f9203b.equals(`2`)?``:`2`)}"
+                                android:text="@string/f9203b" />
+
+                            <CheckBox
+                                android:id="@+id/f9203c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203c.equals(`3`)}"
+                                android:onClick="@{()->form.setF9203c(form.f9203c.equals(`3`)?``:`3`)}"
+                                android:text="@string/f9203c" />
+
+                            <CheckBox
+                                android:id="@+id/f9203d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203d.equals(`4`)}"
+                                android:onClick="@{()->form.setF9203d(form.f9203d.equals(`4`)?``:`4`)}"
+                                android:text="@string/f9203d" />
+
+                            <CheckBox
+                                android:id="@+id/f9203e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203e.equals(`5`)}"
+                                android:onClick="@{()->form.setF9203e(form.f9203e.equals(`5`)?``:`5`)}"
+                                android:text="@string/f9203e" />
+
+                            <CheckBox
+                                android:id="@+id/f9203f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203f.equals(`6`)}"
+                                android:onClick="@{()->form.setF9203f(form.f9203f.equals(`6`)?``:`6`)}"
+                                android:text="@string/f9203f" />
+
+                            <CheckBox
+                                android:id="@+id/f9203g"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203g.equals(`7`)}"
+                                android:onClick="@{()->form.setF9203g(form.f9203g.equals(`7`)?``:`7`)}"
+                                android:text="@string/f9203g" />
+
+                            <CheckBox
+                                android:id="@+id/f9203h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203h.equals(`8`)}"
+                                android:onClick="@{()->form.setF9203h(form.f9203h.equals(`8`)?``:`8`)}"
+                                android:text="@string/f9203h" />
+
+                            <CheckBox
+                                android:id="@+id/f9203i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9203i.equals(`9`)}"
+                                android:onClick="@{()->form.setF9203i(form.f9203i.equals(`9`)?``:`9`)}"
+                                android:text="@string/f9203i" />
+
+                            <CheckBox
+                                android:id="@+id/f920396"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f920396.equals(`96`)}"
+                                android:onClick="@{()->form.setF920396(form.f920396.equals(`96`)?``:`96`)}"
+                                android:text="@string/f920396" />
+
+                            <EditText
+                                android:id="@+id/f920396x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/f920396"
+                                android:tag="f920396"
+                                android:text="@={form.f920396x}"
+                                android:visibility='@{f920396.checked? View.VISIBLE : View.GONE}' />
+                        </LinearLayout>
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-                    <RadioGroup
-                        android:id="@+id/f9204"
+                <!-- f9204  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf9204"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/f9204h"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f9204.equals(`1`)}"
-                            android:onClick="@{()->form.setF9204(`1`)}"
-                            android:text="@string/f9204h" />
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f9204hx"
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_f9204" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/f9204" />
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/f9204"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f9204h"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:tag="f9204h"
-                            android:text="@={form.f9204hx}"
+                            android:layout_height="wrap_content">
 
-                            android:visibility='@{f9204h.checked? View.VISIBLE : View.GONE}'
+                            <RadioButton
+                                android:id="@+id/f9204h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9204.equals(`1`)}"
+                                android:onClick="@{()->form.setF9204(`1`)}"
+                                android:text="@string/f9204h" />
 
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f9204hx"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/f9204h"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:tag="f9204h"
+                                android:text="@={form.f9204hx}"
 
-                        <RadioButton
-                            android:id="@+id/f9204m"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9204.equals(`2`)}"
-                            android:onClick="@{()->form.setF9204(`2`)}"
-                            android:text="@string/f9204m" />
+                                android:visibility='@{f9204h.checked? View.VISIBLE : View.GONE}'
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f9204mx"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f9204m"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:tag="f9204m"
-                            android:text="@={form.f9204mx}"
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
 
-                            android:visibility='@{f9204m.checked? View.VISIBLE : View.GONE}'
+                            <RadioButton
+                                android:id="@+id/f9204m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9204.equals(`2`)}"
+                                android:onClick="@{()->form.setF9204(`2`)}"
+                                android:text="@string/f9204m" />
 
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f9204mx"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/f9204m"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:tag="f9204m"
+                                android:text="@={form.f9204mx}"
 
-                        <RadioButton
-                            android:id="@+id/f9204d"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="@{form.f9204.equals(`3`)}"
-                            android:onClick="@{()->form.setF9204(`3`)}"
-                            android:text="@string/f9204d" />
+                                android:visibility='@{f9204m.checked? View.VISIBLE : View.GONE}'
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f9204dx"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f9204d"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:tag="f9204d"
-                            android:text="@={form.f9204dx}"
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
 
-                            android:visibility='@{f9204d.checked? View.VISIBLE : View.GONE}'
+                            <RadioButton
+                                android:id="@+id/f9204d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f9204.equals(`3`)}"
+                                android:onClick="@{()->form.setF9204(`3`)}"
+                                android:text="@string/f9204d" />
 
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f9204dx"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/f9204d"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:tag="f9204d"
+                                android:text="@={form.f9204dx}"
+
+                                android:visibility='@{f9204d.checked? View.VISIBLE : View.GONE}'
+
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
+                        </RadioGroup>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
 
             <!--EndButton LinearLayout-->

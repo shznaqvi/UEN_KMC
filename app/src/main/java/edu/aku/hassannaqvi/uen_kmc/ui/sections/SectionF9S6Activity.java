@@ -4,6 +4,7 @@ import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +34,16 @@ public class SectionF9S6Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f9_s6);
         bi.setCallback(this);
         bi.setForm(form);
+    }
+
+    public void setF9Skip(CharSequence s, int i, int i1, int i2) {
+        if (TextUtils.isEmpty(bi.f9603.getText()))
+            return;
+        if (Integer.parseInt(bi.f9603.getText().toString()) == 0) {
+            bi.fldGrpCVf9604.setVisibility(View.GONE);
+        } else {
+            bi.fldGrpCVf9604.setVisibility(View.VISIBLE);
+        }
     }
 
 
