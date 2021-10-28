@@ -6354,6 +6354,20 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7501(String f7501) {
         this.f7501 = f7501;
+        setF7502a(f7501.equals("2") ? this.f7502a : "");
+        setF7502b(f7501.equals("2") ? this.f7502b : "");
+        setF7502c(f7501.equals("2") ? this.f7502c : "");
+        setF7502d(f7501.equals("2") ? this.f7502d : "");
+        setF7502e(f7501.equals("2") ? this.f7502e : "");
+        setF7502f(f7501.equals("2") ? this.f7502f : "");
+        setF7502g(f7501.equals("2") ? this.f7502g : "");
+        setF750296(f7501.equals("2") ? this.f750296 : "");
+
+        setF7503(f7501.equals("2") ? this.f7503 : "");
+
+        setF7504d(f7501.equals("2") ? this.f7504d : "");
+        setF7504h(f7501.equals("2") ? this.f7504h : "");
+        setF7504m(f7501.equals("2") ? this.f7504m : "");
         notifyPropertyChanged(BR.f7501);
     }
 
@@ -6373,6 +6387,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502a(String f7502a) {
+        if (this.f7502a.equals(f7502a)) return; // for all checkboxes
         this.f7502a = f7502a;
         notifyPropertyChanged(BR.f7502a);
     }
@@ -6383,6 +6398,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502b(String f7502b) {
+        if (this.f7502b.equals(f7502b)) return; // for all checkboxes
         this.f7502b = f7502b;
         notifyPropertyChanged(BR.f7502b);
     }
@@ -6393,6 +6409,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502c(String f7502c) {
+        if (this.f7502c.equals(f7502c)) return; // for all checkboxes
         this.f7502c = f7502c;
         notifyPropertyChanged(BR.f7502c);
     }
@@ -6403,6 +6420,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502d(String f7502d) {
+        if (this.f7502d.equals(f7502d)) return; // for all checkboxes
         this.f7502d = f7502d;
         notifyPropertyChanged(BR.f7502d);
     }
@@ -6413,6 +6431,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502e(String f7502e) {
+        if (this.f7502e.equals(f7502e)) return; // for all checkboxes
         this.f7502e = f7502e;
         notifyPropertyChanged(BR.f7502e);
     }
@@ -6423,6 +6442,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502f(String f7502f) {
+        if (this.f7502f.equals(f7502f)) return; // for all checkboxes
         this.f7502f = f7502f;
         notifyPropertyChanged(BR.f7502f);
     }
@@ -6433,6 +6453,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7502g(String f7502g) {
+        if (this.f7502g.equals(f7502g)) return; // for all checkboxes
         this.f7502g = f7502g;
         notifyPropertyChanged(BR.f7502g);
     }
@@ -6443,7 +6464,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF750296(String f750296) {
+        if (this.f750296.equals(f750296)) return; // for all checkboxes
         this.f750296 = f750296;
+        setF750296x(f750296.equals("96") ? this.f750296x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f750296);
     }
 
@@ -6504,6 +6527,13 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7505(String f7505) {
         this.f7505 = f7505;
+        setF7506a(f7505.equals("1") ? this.f7506a : "");
+        setF7506b(f7505.equals("1") ? this.f7506b : "");
+        setF7506c(f7505.equals("1") ? this.f7506c : "");
+        setF7506d(f7505.equals("1") ? this.f7506d : "");
+        setF750696(f7505.equals("1") ? this.f750696 : "");
+
+        setF7507(f7505.equals("1") ? this.f7507 : "");
         notifyPropertyChanged(BR.f7505);
     }
 
@@ -6523,6 +6553,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7506a(String f7506a) {
+        if (this.f7506a.equals(f7506a)) return; // for all checkboxes
         this.f7506a = f7506a;
         notifyPropertyChanged(BR.f7506a);
     }
@@ -6533,6 +6564,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7506b(String f7506b) {
+        if (this.f7506b.equals(f7506b)) return; // for all checkboxes
         this.f7506b = f7506b;
         notifyPropertyChanged(BR.f7506b);
     }
@@ -6543,6 +6575,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7506c(String f7506c) {
+        if (this.f7506c.equals(f7506c)) return; // for all checkboxes
         this.f7506c = f7506c;
         notifyPropertyChanged(BR.f7506c);
     }
@@ -6553,6 +6586,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7506d(String f7506d) {
+        if (this.f7506d.equals(f7506d)) return; // for all checkboxes
         this.f7506d = f7506d;
         notifyPropertyChanged(BR.f7506d);
     }
@@ -6563,7 +6597,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF750696(String f750696) {
+        if (this.f750696.equals(f750696)) return; // for all checkboxes
         this.f750696 = f750696;
+        setF750696x(f750696.equals("96") ? this.f750696x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f750696);
     }
 
@@ -6604,6 +6640,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7508(String f7508) {
         this.f7508 = f7508;
+        setF7509(f7508.equals("2") ? this.f7509 : "");
         notifyPropertyChanged(BR.f7508);
     }
 
