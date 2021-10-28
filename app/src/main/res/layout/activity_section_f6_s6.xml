@@ -254,7 +254,8 @@
             <!-- f6604  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf6604"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f6603.equals(`2`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"

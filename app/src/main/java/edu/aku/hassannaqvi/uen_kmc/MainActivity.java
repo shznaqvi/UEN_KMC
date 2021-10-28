@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
     public void sectionPress(View view) {
 
         switch (view.getId()) {
-            case R.id.openForm:
+//            case R.id.openForm:
+            case R.id.seca1:
                 MainApp.idType = 1;
                 break;
         /*    case R.id.openAnthro:

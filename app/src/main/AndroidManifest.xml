@@ -135,6 +135,22 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+        <activity
+            android:name="edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name="edu.aku.hassannaqvi.uen_kmc.database.AndroidDatabaseManager"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>
