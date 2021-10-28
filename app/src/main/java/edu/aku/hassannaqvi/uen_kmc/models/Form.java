@@ -5458,6 +5458,17 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7202(String f7202) {
         this.f7202 = f7202;
+        setF7203a(f7202.equals("2") ? this.f7203a : "");
+        setF7203b(f7202.equals("2") ? this.f7203b : "");
+        setF7203c(f7202.equals("2") ? this.f7203c : "");
+        setF7203d(f7202.equals("2") ? this.f7203d : "");
+        setF7203e(f7202.equals("2") ? this.f7203e : "");
+        setF7203e(f7202.equals("2") ? this.f7203e : "");
+        setF7203f(f7202.equals("2") ? this.f7203f : "");
+        setF7203g(f7202.equals("2") ? this.f7203g : "");
+        setF7203h(f7202.equals("2") ? this.f7203h : "");
+        setF720396(f7202.equals("2") ? this.f720396 : "");
+        setF7204(f7202.equals("2") ? this.f7204 : "");
         notifyPropertyChanged(BR.f7202);
     }
 
@@ -5477,6 +5488,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203a(String f7203a) {
+        if (this.f7203a.equals(f7203a)) return; // for all checkboxes
         this.f7203a = f7203a;
         notifyPropertyChanged(BR.f7203a);
     }
@@ -5487,6 +5499,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203b(String f7203b) {
+        if (this.f7203b.equals(f7203b)) return; // for all checkboxes
         this.f7203b = f7203b;
         notifyPropertyChanged(BR.f7203b);
     }
@@ -5497,6 +5510,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203c(String f7203c) {
+        if (this.f7203c.equals(f7203c)) return; // for all checkboxes
         this.f7203c = f7203c;
         notifyPropertyChanged(BR.f7203c);
     }
@@ -5507,6 +5521,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203d(String f7203d) {
+        if (this.f7203d.equals(f7203d)) return; // for all checkboxes
         this.f7203d = f7203d;
         notifyPropertyChanged(BR.f7203d);
     }
@@ -5517,6 +5532,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203e(String f7203e) {
+        if (this.f7203e.equals(f7203e)) return; // for all checkboxes
         this.f7203e = f7203e;
         notifyPropertyChanged(BR.f7203e);
     }
@@ -5527,6 +5543,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203f(String f7203f) {
+        if (this.f7203f.equals(f7203f)) return; // for all checkboxes
         this.f7203f = f7203f;
         notifyPropertyChanged(BR.f7203f);
     }
@@ -5537,6 +5554,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203g(String f7203g) {
+        if (this.f7203g.equals(f7203g)) return; // for all checkboxes
         this.f7203g = f7203g;
         notifyPropertyChanged(BR.f7203g);
     }
@@ -5547,6 +5565,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203h(String f7203h) {
+        if (this.f7203h.equals(f7203h)) return; // for all checkboxes
         this.f7203h = f7203h;
         notifyPropertyChanged(BR.f7203h);
     }
@@ -5557,6 +5576,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF7203i(String f7203i) {
+        if (this.f7203i.equals(f7203i)) return; // for all checkboxes
         this.f7203i = f7203i;
         notifyPropertyChanged(BR.f7203i);
     }
@@ -5567,7 +5587,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setF720396(String f720396) {
+        if (this.f720396.equals(f720396)) return; // for all checkboxes
         this.f720396 = f720396;
+        setF720396x(f720396.equals("96") ? this.f720396x : ""); // for all skips, mention all skipped questions
         notifyPropertyChanged(BR.f720396);
     }
 
@@ -5588,6 +5610,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7204(String f7204) {
         this.f7204 = f7204;
+        setF7204hx(f7204.equals("1") ? this.f7204hx : "");
+        setF7204mx(f7204.equals("2") ? this.f7204mx : "");
         notifyPropertyChanged(BR.f7204);
     }
 
