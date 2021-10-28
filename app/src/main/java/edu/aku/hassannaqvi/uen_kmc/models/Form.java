@@ -5642,6 +5642,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7301(String f7301) {
         this.f7301 = f7301;
+        setF7302(f7301.equals("1") ? this.f7302 : "");
         notifyPropertyChanged(BR.f7301);
     }
 
@@ -5822,6 +5823,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7317(String f7317) {
         this.f7317 = f7317;
+        setF7318(f7317.equals("2") ? this.f7318 : "");
+        setF7319(f7317.equals("2") ? this.f7319 : "");
         notifyPropertyChanged(BR.f7317);
     }
 
@@ -5832,6 +5835,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF7318(String f7318) {
         this.f7318 = f7318;
+        setF7319(f7318.equals("2") ? this.f7319 : "");
         notifyPropertyChanged(BR.f7318);
     }
 
