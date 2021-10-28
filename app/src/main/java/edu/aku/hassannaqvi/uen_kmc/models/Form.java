@@ -5326,6 +5326,12 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6722(String f6722) {
         this.f6722 = f6722;
+        setF6723a(f6722.equals("2") ? this.f6723a : "");
+        setF6723b(f6722.equals("2") ? this.f6723b : "");
+        setF6723c(f6722.equals("2") ? this.f6723c : "");
+        setF6723d(f6722.equals("2") ? this.f6723d : "");
+        setF6723e(f6722.equals("2") ? this.f6723e : "");
+        setF672396(f6722.equals("2") ? this.f672396 : "");
         notifyPropertyChanged(BR.f6722);
     }
 
