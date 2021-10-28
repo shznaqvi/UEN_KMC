@@ -34,6 +34,7 @@ public class SectionF3Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setForm(form);
         setSupportActionBar(bi.toolbar);
+        db = MainApp.appInfo.dbHelper;
     }
 
 

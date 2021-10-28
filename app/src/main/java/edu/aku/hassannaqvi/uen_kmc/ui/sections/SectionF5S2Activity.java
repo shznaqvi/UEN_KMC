@@ -33,6 +33,7 @@ public class SectionF5S2Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f5_s2);
         bi.setCallback(this);
         bi.setForm(form);
+        db = MainApp.appInfo.dbHelper;
     }
 
 

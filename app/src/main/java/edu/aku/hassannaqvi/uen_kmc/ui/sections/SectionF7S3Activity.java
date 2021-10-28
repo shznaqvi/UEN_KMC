@@ -33,6 +33,7 @@ public class SectionF7S3Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f7_s3);
         bi.setCallback(this);
         bi.setForm(form);
+        db = MainApp.appInfo.dbHelper;
     }
 
 

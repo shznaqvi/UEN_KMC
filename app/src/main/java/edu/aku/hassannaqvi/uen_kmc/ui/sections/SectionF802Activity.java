@@ -33,6 +33,7 @@ public class SectionF802Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f8_02);
         bi.setCallback(this);
         bi.setForm(form);
+        db = MainApp.appInfo.dbHelper;
     }
 
 
