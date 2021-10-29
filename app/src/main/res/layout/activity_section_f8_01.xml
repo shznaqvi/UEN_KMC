@@ -1317,8 +1317,8 @@
                             android:id="@+id/f830896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f830896.equals(``)}"
-                            android:onClick="@{()->form.setF830896(form.f830896.equals(``)?``:``)}"
+                            android:checked="@{form.f830896.equals(`96`)}"
+                            android:onClick="@{()->form.setF830896(form.f830896.equals(`96`)?``:`96`)}"
                             android:text="@string/f830896" />
 
                         <EditText

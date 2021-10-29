@@ -40,6 +40,7 @@
     <string name="upd_db"> Updating Database...\t </string>
     <string name="backPress"> Back Press Not Allowed </string>
     <string name="invalid_response"> Invalid Response </string>
+    <string name="open_hh_form" translatable="false"> Open Survey Form </string>
 
 
     <string name="section1identificationandenrollmentinformation_mainheading">Section 1: Identification and Enrollment Information: </string>

@@ -14,6 +14,7 @@ import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
+import edu.aku.hassannaqvi.uen_kmc.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3Activity;
@@ -85,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.openForm:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, IdentificationActivity.class));
+                break;
             case R.id.seca1:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF2Activity.class));

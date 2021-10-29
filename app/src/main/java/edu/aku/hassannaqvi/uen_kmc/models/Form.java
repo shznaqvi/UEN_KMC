@@ -4412,17 +4412,17 @@ public class Form extends BaseObservable implements Observable {
     public void setF652198(String f652198) {
         if (this.f652198.equals(f652198)) return; // for all checkboxes
         this.f652198 = f652198;
-        setF6521a(f652198.equals("98") ? this.f6521a : "");
-        setF6521b(f652198.equals("98") ? this.f6521b : "");
-        setF6521c(f652198.equals("98") ? this.f6521c : "");
-        setF6521d(f652198.equals("98") ? this.f6521d : "");
-        setF6521e(f652198.equals("98") ? this.f6521e : "");
-        setF6521f(f652198.equals("98") ? this.f6521f : "");
-        setF6521g(f652198.equals("98") ? this.f6521g : "");
-        setF6521h(f652198.equals("98") ? this.f6521h : "");
-        setF6521i(f652198.equals("98") ? this.f6521i : "");
-        setF6521j(f652198.equals("98") ? this.f6521j : "");
-        setF652196(f652198.equals("98") ? this.f652196 : "");
+        setF6521a(!f652198.equals("98") ? this.f6521a : "");
+        setF6521b(!f652198.equals("98") ? this.f6521b : "");
+        setF6521c(!f652198.equals("98") ? this.f6521c : "");
+        setF6521d(!f652198.equals("98") ? this.f6521d : "");
+        setF6521e(!f652198.equals("98") ? this.f6521e : "");
+        setF6521f(!f652198.equals("98") ? this.f6521f : "");
+        setF6521g(!f652198.equals("98") ? this.f6521g : "");
+        setF6521h(!f652198.equals("98") ? this.f6521h : "");
+        setF6521i(!f652198.equals("98") ? this.f6521i : "");
+        setF6521j(!f652198.equals("98") ? this.f6521j : "");
+        setF652196(!f652198.equals("98") ? this.f652196 : "");
         notifyPropertyChanged(BR.f652198);
     }
 

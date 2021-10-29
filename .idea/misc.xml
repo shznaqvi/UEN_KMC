@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_identification.xml" value="0.3447609850313858" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f2.xml" value="0.30101180438448566" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f3.xml" value="0.3033135089209856" />
@@ -20,7 +21,7 @@
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6_s4.xml" value="0.2730401529636711" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6_s5.xml" value="0.13915416098226466" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6_s6.xml" value="0.33" />
-        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6_s7.xml" value="0.33" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6_s7.xml" value="0.17410387710314557" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6s1.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f6s2.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f7_s1.xml" value="0.371875" />
@@ -28,7 +29,7 @@
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f7_s4.xml" value="0.27251908396946567" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f7_s6.xml" value="0.3578125" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f8.xml" value="0.33" />
-        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f8_01.xml" value="0.2061200923787529" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f8_01.xml" value="0.33" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f8_02.xml" value="0.11617312072892938" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f9_s1.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_section_f9_s3.xml" value="0.26182618261826185" />
@@ -50,7 +51,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

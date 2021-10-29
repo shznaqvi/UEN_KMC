@@ -492,8 +492,8 @@
                             android:id="@+id/f840896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f840896.equals(``)}"
-                            android:onClick="@{()->form.setF840896(form.f840896.equals(``)?``:``)}"
+                            android:checked="@{form.f840896.equals(`96`)}"
+                            android:onClick="@{()->form.setF840896(form.f840896.equals(`96`)?``:`96`)}"
                             android:text="@string/f840896" />
 
                         <EditText
@@ -1126,8 +1126,8 @@
                             android:id="@+id/f850896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f850896.equals(``)}"
-                            android:onClick="@{()->form.setF850896(form.f850896.equals(``)?``:``)}"
+                            android:checked="@{form.f850896.equals(`96`)}"
+                            android:onClick="@{()->form.setF850896(form.f850896.equals(`96`)?``:`96`)}"
                             android:text="@string/f850896" />
 
                         <EditText
@@ -1760,8 +1760,8 @@
                             android:id="@+id/f860896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f860896.equals(``)}"
-                            android:onClick="@{()->form.setF860896(form.f860896.equals(``)?``:``)}"
+                            android:checked="@{form.f860896.equals(`96`)}"
+                            android:onClick="@{()->form.setF860896(form.f860896.equals(`96`)?``:`96`)}"
                             android:text="@string/f860896" />
 
                         <EditText
@@ -2394,8 +2394,8 @@
                             android:id="@+id/f870896"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{form.f870896.equals(``)}"
-                            android:onClick="@{()->form.setF870896(form.f870896.equals(``)?``:``)}"
+                            android:checked="@{form.f870896.equals(`96`)}"
+                            android:onClick="@{()->form.setF870896(form.f870896.equals(`96`)?``:`96`)}"
                             android:text="@string/f870896" />
 
                         <EditText
