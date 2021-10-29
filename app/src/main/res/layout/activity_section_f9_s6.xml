@@ -355,6 +355,7 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:onCheckedChanged="@{()->f9607.clearCheck() }"
                         android:id="@+id/f9605"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">

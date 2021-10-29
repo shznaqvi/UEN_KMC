@@ -1768,8 +1768,8 @@
                                 android:id="@+id/f5221w"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.f5221.equals(``)}"
-                                android:onClick="@{()->form.setF5221(``)}"
+                                android:checked="@{form.f5221.equals(`1`)}"
+                                android:onClick="@{()->form.setF5221(`1`)}"
                                 android:text="@string/f5221w" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1781,9 +1781,7 @@
                                 android:maxLength="3"
                                 android:tag="f5221w"
                                 android:text="@={form.f5221wx}"
-
                                 android:visibility='@{f5221w.checked? View.VISIBLE : View.GONE}'
-
                                 app:maxValue="100"
                                 app:minValue="1"
                                 app:type="range" />
@@ -1792,8 +1790,8 @@
                                 android:id="@+id/f5221d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.f5221.equals(``)}"
-                                android:onClick="@{()->form.setF5221(``)}"
+                                android:checked="@{form.f5221.equals(`2`)}"
+                                android:onClick="@{()->form.setF5221(`2`)}"
                                 android:text="@string/f5221d" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1805,9 +1803,7 @@
                                 android:maxLength="3"
                                 android:tag="f5221d"
                                 android:text="@={form.f5221dx}"
-
                                 android:visibility='@{f5221d.checked? View.VISIBLE : View.GONE}'
-
                                 app:maxValue="100"
                                 app:minValue="1"
                                 app:type="range" />

@@ -181,7 +181,9 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF9S6Activity.class));
                 break;
-
+            case R.id.dbManager:
+                startActivity(new Intent(this, AndroidDatabaseManager.class));
+                break;
         }
     }
 

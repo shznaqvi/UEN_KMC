@@ -2114,6 +2114,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF5221(String f5221) {
         this.f5221 = f5221;
+        setF5221wx(f5221.equals("1") ? this.f5221wx : "");
+        setF5221dx(f5221.equals("2") ? this.f5221dx : "");
         notifyPropertyChanged(BR.f5221);
     }
 
@@ -3426,11 +3428,11 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6502(String f6502) {
         this.f6502 = f6502;
-        setF6503a(!f6502.equals("1") ? this.f6503a : "");
-        setF6503b(!f6502.equals("1") ? this.f6503b : "");
-        setF6503c(!f6502.equals("1") ? this.f6503c : "");
-        setF6503d(!f6502.equals("1") ? this.f6503d : "");
-        setF650396(!f6502.equals("1") ? this.f650396 : "");
+        setF6503a(f6502.equals("2") ? this.f6503a : "");
+        setF6503b(f6502.equals("2") ? this.f6503b : "");
+        setF6503c(f6502.equals("2") ? this.f6503c : "");
+        setF6503d(f6502.equals("2") ? this.f6503d : "");
+        setF650396(f6502.equals("2") ? this.f650396 : "");
         notifyPropertyChanged(BR.f6502);
     }
 
@@ -3704,6 +3706,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6506(String f6506) {
         this.f6506 = f6506;
+        setF6507(f6506.equals("2") ? this.f6507 : "");
         notifyPropertyChanged(BR.f6506);
     }
 
@@ -3735,6 +3738,21 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6508(String f6508) {
         this.f6508 = f6508;
+        setF6509(f6508.equals("2") ? this.f6509 : "");
+        setF6510(f6508.equals("2") ? this.f6510 : "");
+
+        setF6511a(f6508.equals("2") ? this.f6511a : "");
+        setF6511b(f6508.equals("2") ? this.f6511b : "");
+        setF6511c(f6508.equals("2") ? this.f6511c : "");
+        setF6511d(f6508.equals("2") ? this.f6511d : "");
+        setF6511e(f6508.equals("2") ? this.f6511e : "");
+        setF6511f(f6508.equals("2") ? this.f6511f : "");
+        setF6511g(f6508.equals("2") ? this.f6511g : "");
+        setF6511g(f6508.equals("2") ? this.f6511g : "");
+        setF6511i(f6508.equals("2") ? this.f6511i : "");
+        setF6511j(f6508.equals("2") ? this.f6511j : "");
+        setF6511k(f6508.equals("2") ? this.f6511k : "");
+        setF651196(f6508.equals("2") ? this.f651196 : "");
         notifyPropertyChanged(BR.f6508);
     }
 
@@ -4078,6 +4096,35 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6517(String f6517) {
         this.f6517 = f6517;
+        setF6518a(f6517.equals("1") ? this.f6518a : "");
+        setF6518b(f6517.equals("1") ? this.f6518b : "");
+        setF6518c(f6517.equals("1") ? this.f6518c : "");
+        setF6518d(f6517.equals("1") ? this.f6518d : "");
+        setF6518e(f6517.equals("1") ? this.f6518e : "");
+        setF6518f(f6517.equals("1") ? this.f6518f : "");
+        setF6518g(f6517.equals("1") ? this.f6518g : "");
+        setF651896(f6517.equals("1") ? this.f651896 : "");
+
+        setF6519(f6517.equals("1") ? this.f6519 : "");
+        setF6520(f6517.equals("1") ? this.f6520 : "");
+
+        setF6521a(f6517.equals("1") ? this.f6521a : "");
+        setF6521b(f6517.equals("1") ? this.f6521b : "");
+        setF6521c(f6517.equals("1") ? this.f6521c : "");
+        setF6521d(f6517.equals("1") ? this.f6521d : "");
+        setF6521e(f6517.equals("1") ? this.f6521e : "");
+        setF6521f(f6517.equals("1") ? this.f6521f : "");
+        setF6521g(f6517.equals("1") ? this.f6521g : "");
+        setF6521h(f6517.equals("1") ? this.f6521h : "");
+        setF6521i(f6517.equals("1") ? this.f6521i : "");
+        setF6521j(f6517.equals("1") ? this.f6521j : "");
+        setF652198(f6517.equals("1") ? this.f652198 : "");
+        setF652196(f6517.equals("1") ? this.f651896 : "");
+
+        setF6522(f6517.equals("1") ? this.f6522 : "");
+        setF6523(f6517.equals("1") ? this.f6523 : "");
+        setF6524(f6517.equals("1") ? this.f6524 : "");
+        setF6525(f6517.equals("1") ? this.f6525 : "");
         notifyPropertyChanged(BR.f6517);
     }
 
@@ -4197,6 +4244,22 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6519(String f6519) {
         this.f6519 = f6519;
+        setF6520(f6519.equals("1") ? this.f6520 : "");
+
+        setF6521a(f6519.equals("1") ? this.f6521a : "");
+        setF6521b(f6519.equals("1") ? this.f6521b : "");
+        setF6521c(f6519.equals("1") ? this.f6521c : "");
+        setF6521d(f6519.equals("1") ? this.f6521d : "");
+        setF6521e(f6519.equals("1") ? this.f6521e : "");
+        setF6521f(f6519.equals("1") ? this.f6521f : "");
+        setF6521g(f6519.equals("1") ? this.f6521g : "");
+        setF6521h(f6519.equals("1") ? this.f6521h : "");
+        setF6521i(f6519.equals("1") ? this.f6521i : "");
+        setF6521j(f6519.equals("1") ? this.f6521j : "");
+        setF652196(f6519.equals("1") ? this.f652196 : "");
+        setF652198(f6519.equals("1") ? this.f652198 : "");
+
+        setF6522(f6519.equals("1") ? this.f6522 : "");
         notifyPropertyChanged(BR.f6519);
     }
 
@@ -4359,7 +4422,7 @@ public class Form extends BaseObservable implements Observable {
         setF6521h(f652198.equals("98") ? this.f6521h : "");
         setF6521i(f652198.equals("98") ? this.f6521i : "");
         setF6521j(f652198.equals("98") ? this.f6521j : "");
-        setF652196(f652198.equals("98") ? this.f652198 : "");
+        setF652196(f652198.equals("98") ? this.f652196 : "");
         notifyPropertyChanged(BR.f652198);
     }
 
@@ -4413,6 +4476,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF6523(String f6523) {
         this.f6523 = f6523;
+        setF6524(f6523.equals("1") ? this.f6524 : "");
+        setF6525(f6523.equals("1") ? this.f6525 : "");
         notifyPropertyChanged(BR.f6523);
     }
 

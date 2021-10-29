@@ -769,6 +769,7 @@
                         </LinearLayout>
 
                         <RadioGroup
+                            android:onCheckedChanged="@{()->f3401.clearCheck() + f3402.clearCheck() + f3403.clearCheck()}"
                             android:id="@+id/f3304"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
@@ -863,6 +864,7 @@
                             </LinearLayout>
 
                             <RadioGroup
+                                android:onCheckedChanged="@{()->f3402.clearCheck() }"
                                 android:id="@+id/f3401"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
