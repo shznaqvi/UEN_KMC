@@ -42,9 +42,6 @@
     <string name="invalid_response"> Invalid Response </string>
     <string name="open_hh_form" translatable="false"> Open Survey Form </string>
 
-    <!--
-        <string name="PORT_NUMBER"> 192.168.1.108 </string>
-    &lt;!&ndash;    <string name="DB_PASSWORD_PERSON"> 101.1.1.96 </string>&ndash;&gt;-->
 
 
     <string name="section1identificationandenrollmentinformation_mainheading">Section 1: Identification and Enrollment Information: </string>
