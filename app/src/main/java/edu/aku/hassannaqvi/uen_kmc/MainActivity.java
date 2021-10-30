@@ -40,6 +40,7 @@ import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF9S3Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF9S4Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF9S5Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF9S6Activity;
+import edu.aku.hassannaqvi.uen_kmc.utils.Utils;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -224,6 +225,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.item_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void showDebugDbAddress(View view) {
+        Utils.showDebugDBAddressLogToast(getApplicationContext());
     }
 
 }

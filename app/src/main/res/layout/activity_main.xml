@@ -606,6 +606,19 @@
                             android:text="Android Database Manager"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/blackOverlay"
+                            android:elevation="1dp"
+                            android:onClick="showDebugDbAddress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="Show Debug Address"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

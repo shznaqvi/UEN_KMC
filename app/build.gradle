@@ -83,6 +83,10 @@ android {
 
 
     buildTypes {
+        debug {
+            resValue("string", "PORT_NUMBER", "8080")
+            resValue("string", "DB_PASSWORD_PERSON", "a_password")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -131,5 +135,9 @@ dependencies {
 
     // Permissions Handeling
     implementation 'com.karumi:dexter:6.2.3'
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    debugImplementation 'com.amitshekhar.android:debug-db-encrypt:1.0.6'
 
 }
