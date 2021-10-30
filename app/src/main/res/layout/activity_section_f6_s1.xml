@@ -179,11 +179,13 @@
                             android:text="@string/f6103" />
                     </LinearLayout>
 
-                    <EditText
+                    <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/f6103"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/f6103"
+                        android:inputType="number"
+                        android:maxLength="11"
                         android:text="@={form.f6103}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
