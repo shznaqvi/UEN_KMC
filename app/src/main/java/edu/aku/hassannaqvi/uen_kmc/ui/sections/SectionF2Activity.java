@@ -90,7 +90,11 @@ public class SectionF2Activity extends AppCompatActivity {
         saveDraft();
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, form.getF2304().equals("2") ? EndingActivity.class : SectionF3Activity.class).putExtra("complete", true));
+            if (form.getF2304().equals("2"))
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+            else
+                startActivity(new Intent(this, SectionF3Activity.class).putExtra("complete", true));
+//            startActivity(new Intent(this, form.getF2304().equals("2") ? EndingActivity.class : SectionF3Activity.class).putExtra("complete", true).putExtra("complete", false));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
