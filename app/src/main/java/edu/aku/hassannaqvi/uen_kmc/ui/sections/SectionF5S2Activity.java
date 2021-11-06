@@ -76,6 +76,13 @@ public class SectionF5S2Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
+            return false;
+
+        if (Integer.parseInt(bi.f5209.getText().toString()) > Integer.parseInt(bi.f5210.getText().toString())) {
+            return Validator.emptyCustomTextBox(this, bi.f5210, "F5210 cannot be grater than F5209");
+        }
+
+        return true;
     }
 }

@@ -2071,6 +2071,12 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF5217(String f5217) {
         this.f5217 = f5217;
+        setF5218(f5217.equals("1") ? this.f5218 : "");
+        setF5219(f5217.equals("1") ? this.f5219 : "");
+        setF5220(f5217.equals("1") ? this.f5220 : "");
+        setF5221(f5217.equals("1") ? this.f5221 : "");
+        setF5222d(f5217.equals("1") ? this.f5222d : "");
+        setF5222w(f5217.equals("1") ? this.f5222w : "");
         notifyPropertyChanged(BR.f5217);
     }
 
@@ -11208,6 +11214,12 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_SF9, new JSONObject(sF9toString()));
 
         return json;
+    }
+
+    public void checkSkip() {
+        if (f2201.equals("1") && f2202.equals("1") && f2203.equals("1") && f2301.equals("2") && f2303.equals("2")) {
+            setF2304("2");
+        }
     }
 
 

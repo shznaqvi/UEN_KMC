@@ -34,6 +34,15 @@ public class SectionF2Activity extends AppCompatActivity {
         bi.setForm(form);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
+        setupSkips();
+    }
+
+    private void setupSkips() {
+
+        if (bi.f2201.equals("1") && bi.f2202.equals("1") && bi.f2203.equals("1") && bi.f2301.equals("2") && bi.f2303.equals("2")) {
+            bi.f2304a.setChecked(true);
+        }
+
     }
 
     private boolean insertNewRecord() {
@@ -94,7 +103,6 @@ public class SectionF2Activity extends AppCompatActivity {
                 startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
             else
                 startActivity(new Intent(this, SectionF3Activity.class).putExtra("complete", true));
-//            startActivity(new Intent(this, form.getF2304().equals("2") ? EndingActivity.class : SectionF3Activity.class).putExtra("complete", true).putExtra("complete", false));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
