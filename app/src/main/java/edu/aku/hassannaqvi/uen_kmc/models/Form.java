@@ -11216,11 +11216,11 @@ public class Form extends BaseObservable implements Observable {
         return json;
     }
 
-    public void checkSkip() {
+/*    public void checkSkip() {
         if (f2201.equals("1") && f2202.equals("1") && f2203.equals("1") && f2301.equals("2") && f2303.equals("2")) {
             setF2304("2");
         }
-    }
+    }*/
 
 
 }
