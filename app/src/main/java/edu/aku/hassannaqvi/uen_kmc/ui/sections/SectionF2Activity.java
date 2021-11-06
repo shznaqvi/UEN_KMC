@@ -39,9 +39,9 @@ public class SectionF2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        if (bi.f2201.equals("1") && bi.f2202.equals("1") && bi.f2203.equals("1") && bi.f2301.equals("2") && bi.f2303.equals("2")) {
+/*        if (bi.f2201.equals("1") && bi.f2202.equals("1") && bi.f2203.equals("1") && bi.f2301.equals("2") && bi.f2303.equals("2")) {
             bi.f2304a.setChecked(true);
-        }
+        }*/
 
     }
 
