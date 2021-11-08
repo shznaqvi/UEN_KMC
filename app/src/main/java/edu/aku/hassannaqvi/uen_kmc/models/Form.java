@@ -9067,6 +9067,14 @@ public class Form extends BaseObservable implements Observable {
     public void setF9413h(String f9413h) {
         if (this.f9413h.equals(f9413h)) return; // for all checkboxes
         this.f9413h = f9413h;
+        setF9413a(f9413h.equals("8") ? "" : this.f9413a);
+        setF9413b(f9413h.equals("8") ? "" : this.f9413b);
+        setF9413c(f9413h.equals("8") ? "" : this.f9413c);
+        setF9413d(f9413h.equals("8") ? "" : this.f9413d);
+        setF9413e(f9413h.equals("8") ? "" : this.f9413e);
+        setF9413f(f9413h.equals("8") ? "" : this.f9413f);
+        setF9413g(f9413h.equals("8") ? "" : this.f9413g);
+        setF941396(f9413h.equals("8") ? "" : this.f941396);
         notifyPropertyChanged(BR.f9413h);
     }
 
