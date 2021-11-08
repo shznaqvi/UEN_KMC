@@ -108,12 +108,15 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="@string/f5301"
+                            android:gravity="center"
+                            android:hint="###.##"
                             android:inputType="number"
                             android:maxLength="3"
                             android:text="@={form.f5301}"
-                            app:maxValue="104"
-                            app:minValue="70"
+                            app:mask="###.##"
+                            app:maxValue="104.00"
+                            app:minValue="070.00"
+                            app:pattern="^(\\d{3,3}\\.\\d{2,2})$"
                             app:type="range" />
                     </LinearLayout>
                 </LinearLayout>
@@ -224,31 +227,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_f5304" />
-
-                        <TextView
+                            style="@style/sub_labels"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:text="@string/f5304" />
                     </LinearLayout>
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f5304"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f5304"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        android:text="@={form.f5304}"
-
-
-                        app:maxValue="100"
-                        app:minValue="1"
-                        app:type="range" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -297,23 +281,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- f5s3t2  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf5s3t2"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/f5s3t2" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
             <!-- f5s3t2note  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf5s3t2note"
@@ -325,6 +292,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/sub_labels"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/f5s3t2note" />
@@ -392,7 +360,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf5307"
                 style="@style/cardView"
-                android:visibility="@{form.f5306.equals(`1`)? View.GONE : View.VISIBLE}">
+                android:visibility="@{form.f5306.equals(`2`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -228,9 +228,9 @@
     <string name="f5302">Heart rate (Beats per minute)</string>
     <string name="f5303">Respiratory rate (Breaths per min)</string>
     <string name="f5304">Note the weight taken at the time of birth in grams. If birth weight has not been taken, ask health care staff to measure it.</string>
-    <string name="f5305">Note the baby’s length taken at the time of birth in cm. If body length has not been taken, ask health care staff to measure it.</string>
+    <string name="f5305">Length of Baby</string>
     <string name="f5s3t2">CARE AT BIRTH </string>
-    <string name="f5s3t2note">To answer the following questions, review medical records and if incomplete information, ask the mother.</string>
+    <string name="f5s3t2note">CARE AT BIRTH (To answer the following questions, review medical records and if incomplete information, ask the mother.)</string>
     <string name="f5306">Did the baby cry immediately after birth?</string>
     <string name="f5306a">Yes</string>
     <string name="f5306b">No</string>
@@ -482,7 +482,7 @@
     <string name="f6305d">Pus discharge from the eyes</string>
     <string name="f6s4title">Section 4: Possible Serious Bacterial Infection</string>
     <string name="f6s4t1">Look For Body Temperature</string>
-    <string name="f6401">Temperature </string>
+    <string name="f6401">Temperature (second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f6401t">(second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f64011">1st  Reading</string>
     <string name="f64012">2nd Reading</string>
@@ -851,7 +851,7 @@
     <string name="f7302d">Distended abdomen (a sign of sepsis)</string>
     <string name="f73t1">Possible Serious Bacterial Infection</string>
     <string name="f73t2">Look For Body Temperature</string>
-    <string name="f7303">Temperature </string>
+    <string name="f7303">Temperature (second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f7303t">(second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f7303a">1st  Reading</string>
     <string name="f7303b">2nd Reading</string>

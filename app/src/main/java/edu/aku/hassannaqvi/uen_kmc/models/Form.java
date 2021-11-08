@@ -128,6 +128,7 @@ public class Form extends BaseObservable implements Observable {
     private String f5203d = "";
     private String f5203m = "";
     private String f5203y = "";
+    private String f5204 = "";
     private String f5204h = "";
     private String f5204m = "";
     private String f5205 = "";
@@ -1823,6 +1824,16 @@ public class Form extends BaseObservable implements Observable {
     }
 
     @Bindable
+    public String getF5204() {
+        return f5204;
+    }
+
+    public void setF5204(String f5204) {
+        this.f5204 = f5204;
+        notifyPropertyChanged(BR.f5204);
+    }
+
+    @Bindable
     public String getF5204h() {
         return f5204h;
     }
@@ -2222,7 +2233,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF5306(String f5306) {
         this.f5306 = f5306;
-        setF5307(f5306.equals("2") ? this.f5307 : "");
+        setF5307(f5306.equals("1") ? this.f5307 : "");
         notifyPropertyChanged(BR.f5306);
     }
 
@@ -5365,6 +5376,12 @@ public class Form extends BaseObservable implements Observable {
     public void setF6721f(String f6721f) {
         if (this.f6721f.equals(f6721f)) return; // for all checkboxes
         this.f6721f = f6721f;
+        setF6721a(f6721f.equals("98") ? "" : this.f6721a);
+        setF6721b(f6721f.equals("98") ? "" : this.f6721b);
+        setF6721c(f6721f.equals("98") ? "" : this.f6721c);
+        setF6721d(f6721f.equals("98") ? "" : this.f6721d);
+        setF6721e(f6721f.equals("98") ? "" : this.f6721e);
+        setF672196(f6721f.equals("98") ? "" : this.f672196);
         notifyPropertyChanged(BR.f6721f);
     }
 
@@ -8465,6 +8482,9 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF9315(String f9315) {
         this.f9315 = f9315;
+        setF9316(f9315.equals("1") ? this.f9316 : "");
+        setF9317(f9315.equals("1") ? this.f9317 : "");
+        setF9318(f9315.equals("1") ? this.f9318 : "");
         notifyPropertyChanged(BR.f9315);
     }
 
@@ -9372,6 +9392,8 @@ public class Form extends BaseObservable implements Observable {
         setF9606c(f9605.equals("1") ? this.f9606c : "");
         setF9606d(f9605.equals("1") ? this.f9606d : "");
         setF960696(f9605.equals("1") ? this.f960696 : "");
+        setF9607(f9605.equals("1") ? this.f9607 : "");
+        setF9609(f9605.equals("1") ? this.f9608 : "");
         notifyPropertyChanged(BR.f9605);
     }
 
@@ -9699,6 +9721,7 @@ public class Form extends BaseObservable implements Observable {
             this.f5203d = json.getString("f5203d");
             this.f5203m = json.getString("f5203m");
             this.f5203y = json.getString("f5203y");
+            this.f5204 = json.getString("f5204");
             this.f5204h = json.getString("f5204h");
             this.f5204m = json.getString("f5204m");
             this.f5205 = json.getString("f5205");
@@ -10491,6 +10514,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("f5203d", f5203d)
                 .put("f5203m", f5203m)
                 .put("f5203y", f5203y)
+                .put("f5204", f5204)
                 .put("f5204h", f5204h)
                 .put("f5204m", f5204m)
                 .put("f5205", f5205)

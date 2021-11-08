@@ -256,69 +256,87 @@
                             android:text="@string/f5203" />
                     </LinearLayout>
 
-                    <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
-                        android:id="@+id/h106"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="YYYY-MM-DD"
-                        android:text="@={form.h106}"
-                        app:dateFormat="yyyy-MM-dd"
-                        app:maxDate="CR_DATE"
-                        app:minDate="CR_DATE" />
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
-                    <TextView
+                        <TextView
+                            style="@style/sub_labels"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/f5203d" />
+
+                        <TextView
+                            style="@style/sub_labels"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/f5203m" />
+
+                        <TextView
+                            style="@style/sub_labels"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/f5203y" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f5203d" />
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f5203d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f5203d"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:text="@={form.f5203d}"
-                        app:maxValue="31"
-                        app:minValue="1"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/f5203m" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f5203m"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f5203m"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:text="@={form.f5203m}"
-                        app:maxValue="12"
-                        app:minValue="1"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/f5203y" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f5203y"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f5203y"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        android:text="@={form.f5203y}"
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/f5203d"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:text="@={form.f5203d}"
+                            app:maxValue="31"
+                            app:minValue="1"
+                            app:type="range" />
 
 
-                        app:maxValue="100"
-                        app:minValue="1"
-                        app:type="range" />
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/f5203m"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:text="@={form.f5203m}"
+                            app:maxValue="12"
+                            app:minValue="1"
+                            app:type="range" />
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/f5203y"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="####"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:text="@={form.f5203y}"
+                            app:maxValue="2021"
+                            app:minValue="2020"
+                            app:type="range" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -345,68 +363,79 @@
                             android:text="@string/Q_f5204" />
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
                             android:layout_height="wrap_content"
                             android:text="@string/f5204" />
+
+                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                            android:id="@+id/f5204"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:hint="HH:mm"
+                            android:text="@={form.f5204}"
+                            app:timeFormat="HH:mm" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <!--                    <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
 
-                        <TextView
-                            style="@style/sub_labels"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="@string/f5204h" />
+                                            <TextView
+                                                style="@style/sub_labels"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="@string/f5204h" />
 
-                        <TextView
-                            style="@style/sub_labels"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:text="@string/f5204m" />
+                                            <TextView
+                                                style="@style/sub_labels"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:text="@string/f5204m" />
 
-                    </LinearLayout>
+                                        </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f5204h"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:hint="@string/f5204h"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f5204h}"
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                                            <com.edittextpicker.aliazaz.EditTextPicker
+                                                android:id="@+id/f5204h"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:hint="@string/f5204h"
+                                                android:inputType="number"
+                                                android:maxLength="3"
+                                                android:text="@={form.f5204h}"
+                                                app:maxValue="100"
+                                                app:minValue="1"
+                                                app:type="range" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f5204m"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:hint="@string/f5204m"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f5204m}"
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                                            <com.edittextpicker.aliazaz.EditTextPicker
+                                                android:id="@+id/f5204m"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:gravity="center"
+                                                android:hint="@string/f5204m"
+                                                android:inputType="number"
+                                                android:maxLength="3"
+                                                android:text="@={form.f5204m}"
+                                                app:maxValue="100"
+                                                app:minValue="1"
+                                                app:type="range" />
 
-                    </LinearLayout>
+                                        </LinearLayout>-->
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -34,6 +35,31 @@ public class SectionF6S4Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setForm(form);
         db = MainApp.appInfo.dbHelper;
+    }
+
+
+    public void f6401OnTextChanged(CharSequence s, int start, int before, int count) {
+        if (!bi.f64011.isRangeTextValidate())
+            return;
+
+        if (Double.parseDouble(bi.f64011.getText().toString()) >= 38.00 || Double.parseDouble(bi.f64011.getText().toString()) <= 35.5) {
+            bi.f64012.setEnabled(true);
+        } else {
+            Clear.clearAllFields(bi.f64012);
+            bi.f64012.setEnabled(false);
+        }
+    }
+
+
+    public void f6402OnTextChanged(CharSequence s, int start, int before, int count) {
+        if (!bi.f6402.isRangeTextValidate())
+            return;
+        if (Integer.parseInt(bi.f6402.getText().toString()) >= 60) {
+            bi.fldGrpCVf6403.setVisibility(View.VISIBLE);
+        } else {
+            Clear.clearAllFields(bi.fldGrpCVf6403);
+            bi.fldGrpCVf6403.setVisibility(View.GONE);
+        }
     }
 
 

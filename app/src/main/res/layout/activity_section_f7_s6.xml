@@ -71,13 +71,15 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/f7501"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <RadioButton
                             android:id="@+id/f7501a"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7501.equals(`1`)}"
                             android:onClick="@{()->form.setF7501(`1`)}"
@@ -85,7 +87,8 @@
 
                         <RadioButton
                             android:id="@+id/f7501b"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7501.equals(`2`)}"
                             android:onClick="@{()->form.setF7501(`2`)}"
@@ -364,6 +367,7 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/f7505"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -371,7 +375,8 @@
 
                         <RadioButton
                             android:id="@+id/f7505a"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7505.equals(`1`)}"
                             android:onClick="@{()->form.setF7505(`1`)}"
@@ -379,7 +384,8 @@
 
                         <RadioButton
                             android:id="@+id/f7505b"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7505.equals(`2`)}"
                             android:onClick="@{()->form.setF7505(`2`)}"
@@ -586,13 +592,15 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/f7508"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <RadioButton
                             android:id="@+id/f7508a"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7508.equals(`1`)}"
                             android:onClick="@{()->form.setF7508(`1`)}"
@@ -600,7 +608,8 @@
 
                         <RadioButton
                             android:id="@+id/f7508b"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7508.equals(`2`)}"
                             android:onClick="@{()->form.setF7508(`2`)}"
@@ -611,6 +620,7 @@
 
             <!-- f7509  Input   -->
             <androidx.cardview.widget.CardView
+                android:visibility="@{form.f7508.equals(`1`)? View.GONE : View.VISIBLE}"
                 android:id="@+id/fldGrpCVf7509"
                 style="@style/cardView">
 

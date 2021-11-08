@@ -71,6 +71,7 @@
                     </LinearLayout>
 
                     <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/f7301"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -78,7 +79,8 @@
 
                         <RadioButton
                             android:id="@+id/f7301a"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7301.equals(`1`)}"
                             android:onClick="@{()->form.setF7301(`1`)}"
@@ -86,7 +88,8 @@
 
                         <RadioButton
                             android:id="@+id/f7301b"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:checked="@{form.f7301.equals(`2`)}"
                             android:onClick="@{()->form.setF7301(`2`)}"
@@ -176,6 +179,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/sub_labels"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/f73t1" />
@@ -193,6 +197,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/sub_labels"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/f73t2" />
@@ -209,52 +214,83 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f7303" />
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
 
-                    <TextView
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_f7303" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/f7303" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/f7303t" />
+                        android:orientation="horizontal">
 
-                    <TextView
+                        <TextView
+                            style="@style/sub_labels"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/f7303a" />
+
+                        <TextView
+                            style="@style/sub_labels"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/f7303b" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f7303a" />
+                        android:orientation="horizontal">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f7303a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f7303a"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        android:text="@={form.f7303a}"
-                        app:maxValue="100"
-                        app:minValue="1"
-                        app:type="range" />
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/f7303a"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##.##"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:onTextChanged="@{callback::f7303OnTextChanged}"
+                            android:text="@={form.f7303a}"
+                            app:mask="##.##"
+                            app:maxValue="40.00"
+                            app:minValue="35.00"
+                            app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
+                            app:type="range" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/f7303b" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/f7303b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/f7303b"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        android:text="@={form.f7303b}"
-
-
-                        app:maxValue="100"
-                        app:minValue="1"
-                        app:type="range" />
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/f7303b"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##.##"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:text="@={form.f7303b}"
+                            app:mask="##.##"
+                            app:maxValue="40.00"
+                            app:minValue="35.00"
+                            app:pattern="^(\\d{2,2}\\.\\d{2,2})$"
+                            app:type="range" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

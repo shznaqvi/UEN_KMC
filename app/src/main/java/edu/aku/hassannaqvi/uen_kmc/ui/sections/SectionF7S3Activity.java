@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -34,6 +35,19 @@ public class SectionF7S3Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setForm(form);
         db = MainApp.appInfo.dbHelper;
+    }
+
+
+    public void f7303OnTextChanged(CharSequence s, int start, int before, int count) {
+        if (!bi.f7303a.isRangeTextValidate())
+            return;
+
+        if (Double.parseDouble(bi.f7303a.getText().toString()) >= 38.00 || Double.parseDouble(bi.f7303a.getText().toString()) <= 35.5) {
+            bi.f7303b.setEnabled(true);
+        } else {
+            Clear.clearAllFields(bi.f7303b);
+            bi.f7303b.setEnabled(false);
+        }
     }
 
 

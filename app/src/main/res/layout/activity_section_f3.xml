@@ -675,12 +675,12 @@
                                 android:onClick="@{()->form.setF3302h(form.f3302h.equals(`8`)?``:`8`)}"
                                 android:text="@string/f3302h" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/f3302i"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.f3302.equals(`9`)}"
-                                android:onClick="@{()->form.setF3302(`9`)}"
+                                android:checked="@{form.f3302i.equals(`9`)}"
+                                android:onClick="@{()->form.setF3302i(form.f3302i.equals(`9`)?``:`9`)}"
                                 android:text="@string/f3302i" />
                         </LinearLayout>
                     </LinearLayout>
