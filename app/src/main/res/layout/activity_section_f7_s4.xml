@@ -963,6 +963,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413a.equals(`1`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413a(form.f7413a.equals(`1`)?``:`1`)}"
                                 android:text="@string/f7413a" />
 
@@ -971,6 +972,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413b.equals(`2`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413b(form.f7413b.equals(`2`)?``:`2`)}"
                                 android:text="@string/f7413b" />
 
@@ -979,6 +981,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413c.equals(`3`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413c(form.f7413c.equals(`3`)?``:`3`)}"
                                 android:text="@string/f7413c" />
 
@@ -987,6 +990,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413d.equals(`4`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413d(form.f7413d.equals(`4`)?``:`4`)}"
                                 android:text="@string/f7413d" />
 
@@ -995,6 +999,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413e.equals(`5`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413e(form.f7413e.equals(`5`)?``:`5`)}"
                                 android:text="@string/f7413e" />
 
@@ -1003,6 +1008,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413f.equals(`6`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413f(form.f7413f.equals(`6`)?``:`6`)}"
                                 android:text="@string/f7413f" />
 
@@ -1011,6 +1017,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f7413g.equals(`7`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF7413g(form.f7413g.equals(`7`)?``:`7`)}"
                                 android:text="@string/f7413g" />
 
@@ -1027,6 +1034,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f741396.equals(`96`)}"
+                                android:enabled="@{!form.f7413h.equals(`8`)}"
                                 android:onClick="@{()->form.setF741396(form.f741396.equals(`96`)?``:`96`)}"
                                 android:text="@string/f741396" />
 
