@@ -71,16 +71,16 @@
                     </LinearLayout>
 
                     <RadioGroup
-                        android:orientation="horizontal"
                         android:id="@+id/f7501"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/f7501a"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7501.equals(`1`)}"
                             android:onClick="@{()->form.setF7501(`1`)}"
                             android:text="@string/f7501a" />
@@ -88,8 +88,8 @@
                         <RadioButton
                             android:id="@+id/f7501b"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7501.equals(`2`)}"
                             android:onClick="@{()->form.setF7501(`2`)}"
                             android:text="@string/f7501b" />
@@ -272,67 +272,99 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/f7504" />
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
 
-                        <TextView
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_f7504" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/f7504" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/f7504d" />
+                            android:orientation="horizontal">
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f7504d"
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/f7504d" />
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/f7504h" />
+
+                            <TextView
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/f7504m" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/f7504d"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f7504d}"
+                            android:orientation="horizontal">
 
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f7504d"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="@string/f7504d"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="@={form.f7504d}"
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
 
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f7504h"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="@string/f7504h"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="@={form.f7504h}"
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/f7504h" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f7504h"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f7504h"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f7504h}"
-
-
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/f7504m" />
-
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f7504m"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f7504m"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f7504m}"
-
-
-                            app:maxValue="100"
-                            app:minValue="1"
-                            app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f7504m"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="@string/f7504m"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="@={form.f7504m}"
+                                app:maxValue="100"
+                                app:minValue="1"
+                                app:type="range" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -367,17 +399,17 @@
                     </LinearLayout>
 
                     <RadioGroup
-                        android:orientation="horizontal"
                         android:id="@+id/f7505"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:onCheckedChanged="@{()->f7507.clearCheck() }">
+                        android:onCheckedChanged="@{()->f7507.clearCheck() }"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/f7505a"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7505.equals(`1`)}"
                             android:onClick="@{()->form.setF7505(`1`)}"
                             android:text="@string/f7505a" />
@@ -385,8 +417,8 @@
                         <RadioButton
                             android:id="@+id/f7505b"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7505.equals(`2`)}"
                             android:onClick="@{()->form.setF7505(`2`)}"
                             android:text="@string/f7505b" />
@@ -592,16 +624,16 @@
                     </LinearLayout>
 
                     <RadioGroup
-                        android:orientation="horizontal"
                         android:id="@+id/f7508"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/f7508a"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7508.equals(`1`)}"
                             android:onClick="@{()->form.setF7508(`1`)}"
                             android:text="@string/f7508a" />
@@ -609,8 +641,8 @@
                         <RadioButton
                             android:id="@+id/f7508b"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:checked="@{form.f7508.equals(`2`)}"
                             android:onClick="@{()->form.setF7508(`2`)}"
                             android:text="@string/f7508b" />
@@ -620,9 +652,9 @@
 
             <!-- f7509  Input   -->
             <androidx.cardview.widget.CardView
-                android:visibility="@{form.f7508.equals(`1`)? View.GONE : View.VISIBLE}"
                 android:id="@+id/fldGrpCVf7509"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility="@{form.f7508.equals(`1`)? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
