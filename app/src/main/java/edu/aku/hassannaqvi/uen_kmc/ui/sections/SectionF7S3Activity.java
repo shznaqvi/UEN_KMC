@@ -38,7 +38,7 @@ public class SectionF7S3Activity extends AppCompatActivity {
     }
 
 
-    public void f7303OnTextChanged(CharSequence s, int start, int before, int count) {
+    public void f7303aOnTextChanged(CharSequence s, int start, int before, int count) {
         if (!bi.f7303a.isRangeTextValidate())
             return;
 
@@ -47,6 +47,17 @@ public class SectionF7S3Activity extends AppCompatActivity {
         } else {
             Clear.clearAllFields(bi.f7303b);
             bi.f7303b.setEnabled(false);
+        }
+    }
+
+    public void f7304OnTextChanged(CharSequence s, int start, int before, int count) {
+        if (!bi.f7304.isRangeTextValidate())
+            return;
+        if (Integer.parseInt(bi.f7304.getText().toString()) >= 60) {
+            bi.fldGrpCVf7305.setVisibility(View.VISIBLE);
+        } else {
+            Clear.clearAllFields(bi.fldGrpCVf7305);
+            bi.fldGrpCVf7305.setVisibility(View.GONE);
         }
     }
 

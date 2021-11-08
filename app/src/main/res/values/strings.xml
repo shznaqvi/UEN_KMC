@@ -1229,7 +1229,7 @@
     <string name="f9304d">Pus discharge from the eyes</string>
     <string name="f93t1">Possible Serious Bacterial Infection</string>
     <string name="f93t2">Look For Body Temperature</string>
-    <string name="f9305">Temperature </string>
+    <string name="f9305">Temperature (second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f9305ins">(second reading only if temp. is ≥38 oC or ≤35.5 oC)</string>
     <string name="f9305a">1st  Reading</string>
     <string name="f9305b">2nd Reading</string>
