@@ -741,7 +741,7 @@
                                     android:hint="@string/f240296"
                                     android:tag="f240296"
                                     android:text='@={form.f2402}'
-                                    android:visibility='@{f240296.checked? View.VISIBLE : View.GONE}' />
+                                    android:visibility='@{form.f2402.equals(`96`) ? View.VISIBLE : View.GONE}' />
                             </RadioGroup>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>

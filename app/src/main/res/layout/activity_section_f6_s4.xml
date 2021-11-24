@@ -14,42 +14,50 @@
             type="edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF6S4Activity" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/GrpName"
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/f6title"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            <!-- f6s4title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf6s4title"
-                style="@style/cardView">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <LinearLayout
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/sub_labels"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/f6s4title" />
 
-                    <TextView
+                <!-- f6s4t1  Title   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf6s4t1"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f6s4title" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f6s4t1  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf6s4t1"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:orientation="vertical">
 
                     <TextView
                         style="@style/sub_labels"
@@ -1156,6 +1164,7 @@
                     android:text="Save"
                     android:textColor="@color/white" />
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </layout>

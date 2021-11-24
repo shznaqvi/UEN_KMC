@@ -14,59 +14,50 @@
             type="edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF801Activity" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/GrpName"
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/f8title"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            <!-- f8title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8title"
-                style="@style/cardView">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <LinearLayout
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/sub_labels"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/f8s1title" />
 
-                    <TextView
+                <!-- f8101  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf8101"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f8title" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f8s1title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8s1title"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/f8s1title" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f8101  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8101"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -130,6 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/f8102"
+                        android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                         android:text="@={form.f8102}" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -237,32 +229,21 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- f8s2title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8s2title"
-                style="@style/cardView">
-
-                <LinearLayout
+                <TextView
+                    style="@style/sub_labels"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/f8s2title" />
 
-                    <TextView
+                <!-- f8201  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf8201"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f8s2title" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f8201  Input-Numeric   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8201"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -372,6 +353,7 @@
                     </LinearLayout>
 
                     <TextView
+                        style="@style/info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -706,7 +688,7 @@
                             android:hint="@string/f820896"
                             android:tag="f820896"
                             android:text="@={form.f820896x}"
-                            android:visibility='@{f820896.checked? View.VISIBLE : View.GONE}' />
+                            android:visibility='@{form.f820896.equals(`96`) ? View.VISIBLE : View.GONE}' />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -913,32 +895,21 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- f8s3title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8s3title"
-                style="@style/cardView">
-
-                <LinearLayout
+                <TextView
+                    style="@style/sub_labels"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="@string/f8s3title" />
 
-                    <TextView
+                <!-- f8301  Input-Numeric   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf8301"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f8s3title" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f8301  Input-Numeric   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf8301"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1048,6 +1019,7 @@
                     </LinearLayout>
 
                     <TextView
+                        style="@style/info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -1382,7 +1354,7 @@
                             android:hint="@string/f830896"
                             android:tag="f830896"
                             android:text="@={form.f830896x}"
-                            android:visibility='@{f830896.checked? View.VISIBLE : View.GONE}' />
+                            android:visibility='@{form.f830896.equals(`96`) ? View.VISIBLE : View.GONE}' />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -1620,6 +1592,7 @@
                     android:text="Save"
                     android:textColor="@color/white" />
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </layout>
