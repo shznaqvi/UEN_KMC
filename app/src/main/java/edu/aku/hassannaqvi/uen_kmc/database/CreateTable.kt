@@ -24,6 +24,7 @@ object CreateTable {
             + FormsTable.COLUMN_DEVICETAGID + " TEXT,"
             + FormsTable.COLUMN_SYNCED + " TEXT,"
             + FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + FormsTable.COLUMN_FORM_COMPLETE + " TEXT,"
             + FormsTable.COLUMN_APPVERSION + " TEXT,"
             + FormsTable.COLUMN_SF2 + " TEXT,"
             + FormsTable.COLUMN_SF3 + " TEXT,"

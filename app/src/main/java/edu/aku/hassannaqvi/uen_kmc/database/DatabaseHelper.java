@@ -85,8 +85,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_ENUM_BLOCK, form.getEbCode());
         values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_SNO, form.getSno());
+        values.put(FormsTable.COLUMN_SYNCED, form.getSynced());
+        values.put(FormsTable.COLUMN_SYNCED_DATE, form.getSyncDate());
+        values.put(FormsTable.COLUMN_FORM_COMPLETE, form.getFormComplete());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
+        values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
+        values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
+        values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
+        values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
         values.put(FormsTable.COLUMN_SF2, form.sF2toString());
         values.put(FormsTable.COLUMN_SF3, form.sF3toString());
         values.put(FormsTable.COLUMN_SF5, form.sF5toString());
@@ -94,12 +101,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SF7, form.sF7toString());
         values.put(FormsTable.COLUMN_SF8, form.sF8toString());
         values.put(FormsTable.COLUMN_SF9, form.sF9toString());
-
-        values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
-
-        values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
-        values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
-        values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -455,14 +456,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 */
 
     //get UnSyncedTables
-    public JSONArray getUnsyncedForms() {
+    public JSONArray getUnsyncedForms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
 
         String whereClause;
         //whereClause = null;
-        whereClause = FormsTable.COLUMN_SYNCED + " is null AND " +
+        whereClause = FormsTable.COLUMN_SYNCED + " = '' AND " +
                 FormsTable.COLUMN_ISTATUS + "!= ''";
 
         String[] whereArgs = null;
@@ -473,38 +474,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
-            c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                /** WorkManager Upload
-                 /*Form fc = new Form();
-                 allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-                Form form = new Form();
-                allForms.put(form.Hydrate(c).toJSONObject());
+        c = db.query(
+                FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            Form form = new Form().Hydrate(c);
+            allForms.put(form.toJSONObject());
 
 
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, "getUnsyncedForms: getUnsyncedForms " + e.getMessage()
-            );
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
         }
+        c.close();
+        db.close();
+
         Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + allForms);
         return allForms;

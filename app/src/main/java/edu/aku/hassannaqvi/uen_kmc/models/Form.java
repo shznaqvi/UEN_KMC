@@ -42,6 +42,7 @@ public class Form extends BaseObservable implements Observable {
     private String iStatus96x = "";
     private String synced = "";
     private String syncDate = "";
+    private String formComplete = "";
 
 
     // SECTION VARIABLES
@@ -978,6 +979,13 @@ public class Form extends BaseObservable implements Observable {
         this.syncDate = syncDate;
     }
 
+    public String getFormComplete() {
+        return formComplete;
+    }
+
+    public void setFormComplete(String formComplete) {
+        this.formComplete = formComplete;
+    }
    /* public String getsH2a() {
         return sH2a;
     }
@@ -9632,6 +9640,7 @@ public class Form extends BaseObservable implements Observable {
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS));
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED_DATE));
+        this.formComplete = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_FORM_COMPLETE));
 
         sF2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SF2)));
         sF3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SF3)));

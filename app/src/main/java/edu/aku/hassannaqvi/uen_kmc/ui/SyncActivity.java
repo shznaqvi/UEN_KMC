@@ -136,6 +136,8 @@ public class SyncActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.btnUpload:
+                bi.btnSync.setVisibility(View.GONE);
+                bi.btnUploadPhotos.setVisibility(View.GONE);
 
                 bi.activityTitle.setText("Upload Data");
 
@@ -148,11 +150,12 @@ public class SyncActivity extends AppCompatActivity {
 
                 // Forms
                 uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
-                MainApp.uploadData.add(db.getUnsyncedForms());
-
-                // Forms
-                uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
-                MainApp.uploadData.add(db.getUnsyncedForms());
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
 
 
                 MainApp.downloadData = new String[uploadData.size()];
@@ -160,7 +163,10 @@ public class SyncActivity extends AppCompatActivity {
                 setAdapter(uploadTables);
                 BeginUpload();
                 break;
+
             case R.id.btnSync:
+                bi.btnUpload.setVisibility(View.GONE);
+                bi.btnUploadPhotos.setVisibility(View.GONE);
 
                 bi.activityTitle.setText("Download Data");
 
@@ -296,6 +302,9 @@ public class SyncActivity extends AppCompatActivity {
                                 downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
                                 downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);
                                 syncListAdapter.updatesyncList(downloadTables);
+
+                                bi.btnUpload.setVisibility(View.VISIBLE);
+                                bi.btnUploadPhotos.setVisibility(View.VISIBLE);
 
 //                    pd.show();
                             } catch (JSONException e) {
@@ -513,6 +522,8 @@ public class SyncActivity extends AppCompatActivity {
     }
 
     public void UploadPhotos(View view) {
+        bi.btnSync.setVisibility(View.GONE);
+        bi.btnUpload.setVisibility(View.GONE);
         bi.dataLayout.setVisibility(View.GONE);
         bi.photoLayout.setVisibility(View.VISIBLE);
         bi.mTextViewS.setVisibility(View.VISIBLE);
