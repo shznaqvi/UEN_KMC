@@ -16,6 +16,7 @@ import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity;
+import edu.aku.hassannaqvi.uen_kmc.ui.WebViewActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF5S1Activity;
@@ -198,6 +199,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_database:
                 intent = new Intent(MainActivity.this, AndroidDatabaseManager.class);
+                startActivity(intent);
+                break;
+            case R.id.debugDB:
+                intent = new Intent(MainActivity.this, WebViewActivity.class);
                 startActivity(intent);
                 break;
             case R.id.onSync:
