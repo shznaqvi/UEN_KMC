@@ -337,7 +337,7 @@
                                 android:gravity="center"
                                 android:hint="####"
                                 android:inputType="number"
-                                android:maxLength="3"
+                                android:maxLength="4"
                                 android:text="@={form.f5203y}"
                                 app:maxValue="2021"
                                 app:minValue="2020"
