@@ -85,7 +85,7 @@ android {
     buildTypes {
         debug {
             resValue("string", "PORT_NUMBER", "8080")
-            resValue("string", "DB_PASSWORD_PERSON", "a_password")
+            resValue("string", "DB_PASSWORD_uen_kmc.db", "a_password")
         }
         release {
             minifyEnabled false
@@ -143,11 +143,11 @@ dependencies {
     implementation 'id.zelory:compressor:2.1.1'
 
     // Sqlcipher
-    implementation "net.zetetic:android-database-sqlcipher:4.4.3"
-    implementation "androidx.sqlite:sqlite-ktx:2.1.0"
-    implementation "androidx.sqlite:sqlite:2.1.0"
+    implementation "net.zetetic:android-database-sqlcipher:4.5.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
+    implementation "androidx.sqlite:sqlite:2.2.0"
 
     //Rooted
-    implementation 'com.scottyab:rootbeer-lib:0.0.8'
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
 
 }
