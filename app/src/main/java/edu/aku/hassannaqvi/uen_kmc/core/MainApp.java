@@ -3,13 +3,19 @@ package edu.aku.hassannaqvi.uen_kmc.core;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+
+import net.sqlcipher.database.SQLiteDatabase;
 
 import org.json.JSONArray;
 
@@ -27,13 +33,16 @@ public class MainApp extends Application {
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
     //public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
-    public static final String _IP = "http://cls-pae-fp51764";// .TEST server
+    public static final String _IP = "https://cls-pae-fp51764";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/uen_kmc/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_kmc/app/";
+    public static final String _EMPTY_ = "";
+    private static final String TAG = "MainApp";
+    public static String IBAHC = "";
 
     //Languages
     public static int English = 1;
@@ -43,6 +52,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static Form form;
+    public static int entryType = 0;
 /*
     public static FamilyMembers familyMember;
 */
@@ -160,6 +170,13 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        /*
+        RootBeer rootBeer = new RootBeer(this);
+        if (rootBeer.isRooted()) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }*/
+
         //Initiate DateTime
         //Initializ App info
         appInfo = new AppInfo(this);
@@ -167,6 +184,24 @@ public class MainApp extends Application {
         editor = sharedPref.edit();
         deviceid = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
+        initSecure();
+    }
+
+    private void initSecure() {
+        // Initialize SQLCipher library
+        SQLiteDatabase.loadLibs(this);
+
+        // Prepare encryption KEY
+        ApplicationInfo ai = null;
+        try {
+            ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
+            int TRATS = bundle.getInt("YEK_TRATS");
+            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

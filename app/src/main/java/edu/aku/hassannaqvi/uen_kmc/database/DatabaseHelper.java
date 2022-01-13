@@ -1,7 +1,7 @@
 package edu.aku.hassannaqvi.uen_kmc.database;
 
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.DATABASE_NAME;
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.DATABASE_VERSION;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENUMBLOCKS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FOODS_CONSUMPTION;
@@ -15,9 +15,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteException;
+import net.sqlcipher.database.SQLiteOpenHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,10 +29,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
+import edu.aku.hassannaqvi.uen_kmc.models.EntryLog;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.models.Users;
 import edu.aku.hassannaqvi.uen_kmc.models.VersionApp;
@@ -45,7 +49,11 @@ import edu.aku.hassannaqvi.uen_kmc.models.VersionApp;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    public static final String DATABASE_NAME = PROJECT_NAME + ".db";
+    public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_PASSWORD = IBAHC;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -76,7 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Long addForm(Form form) throws JSONException {
 
         // Gets the data repository in write mode
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
@@ -112,10 +120,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addEntryLog(EntryLog entryLog) throws SQLiteException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(EntryLogTable.COLUMN_PROJECT_NAME, entryLog.getProjectName());
+        values.put(EntryLogTable.COLUMN_UUID, entryLog.getUuid());
+        values.put(EntryLogTable.COLUMN_PSU_CODE, entryLog.getPsuCode());
+        values.put(EntryLogTable.COLUMN_HHID, entryLog.getHhid());
+        values.put(EntryLogTable.COLUMN_USERNAME, entryLog.getUserName());
+        values.put(EntryLogTable.COLUMN_SYSDATE, entryLog.getSysDate());
+        values.put(EntryLogTable.COLUMN_ISTATUS, entryLog.getiStatus());
+        values.put(EntryLogTable.COLUMN_ISTATUS96x, entryLog.getiStatus96x());
+        values.put(EntryLogTable.COLUMN_ENTRY_TYPE, entryLog.getEntryType());
+        values.put(EntryLogTable.COLUMN_ENTRY_DATE, entryLog.getEntryDate());
+        values.put(EntryLogTable.COLUMN_DEVICEID, entryLog.getDeviceId());
+        values.put(EntryLogTable.COLUMN_SYNCED, entryLog.getSynced());
+        values.put(EntryLogTable.COLUMN_SYNC_DATE, entryLog.getSyncDate());
+        values.put(EntryLogTable.COLUMN_APPVERSION, entryLog.getAppver());
+
+        long newRowId;
+        newRowId = db.insertOrThrow(
+                EntryLogTable.TABLE_NAME,
+                EntryLogTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
 
     //UPDATE in DB
     public int updatesFormColumn(String column, String value) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
         ContentValues values = new ContentValues();
         values.put(column, value);
@@ -131,7 +165,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public int updateEnding() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
         // New value for one column
         ContentValues values = new ContentValues();
@@ -151,7 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * Functions that dealing with table data
      * */
     public boolean doLogin(String username, String password) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = {
                 UsersTable.COLUMN_ID,
@@ -194,7 +228,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<Form> getFormsByDate(String sysdate) {
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = {
                 FormsTable._ID,
@@ -243,7 +277,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // istatus examples: (1) or (1,9) or (1,3,5)
     public Form getFormByAssessNo(String uid, String istatus) throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
 
@@ -285,7 +319,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<Cursor> getDatabaseManagerData(String Query) {
         //get writable database
-        SQLiteDatabase sqlDB = this.getWritableDatabase();
+        SQLiteDatabase sqlDB = this.getWritableDatabase(DATABASE_PASSWORD);
         String[] columns = new String[]{"message"};
         //an array list of cursor to save two cursors one has results from the query
         //other cursor stores error message if any errors are triggered
@@ -341,7 +375,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public int syncVersionApp(JSONObject VersionList) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(VersionTable.TABLE_NAME, null, null);
         long count = 0;
         try {
@@ -367,7 +401,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public int syncUser(JSONArray userList) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
         try {
@@ -457,7 +491,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //get UnSyncedTables
     public JSONArray getUnsyncedForms() throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
 
@@ -503,7 +537,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //update SyncedTables
     public void updateSyncedforms(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
 // New value for one column
         ContentValues values = new ContentValues();
@@ -524,7 +558,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList<Cursor> getData(String Query) {
         //get writable database
-        SQLiteDatabase sqlDB = this.getWritableDatabase();
+        SQLiteDatabase sqlDB = this.getWritableDatabase(DATABASE_PASSWORD);
         String[] columns = new String[]{"message"};
         //an array list of cursor to save two cursors one has results from the query
         //other cursor stores error message if any errors are triggered
@@ -605,7 +639,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      }
  */
     public Form getFormByClusterHHNo(String enumblock, String hh_no) throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
 
@@ -649,7 +683,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Collection<Form> getFormsByCluster(String cluster) {
 
         // String sysdate =  spDateT.substring(0, 8).trim()
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
         String whereClause = FormsTable.COLUMN_ENUM_BLOCK + " = ? ";
@@ -698,7 +732,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Collection<Form> getTodayForms(String sysdate) {
 
         // String sysdate =  spDateT.substring(0, 8).trim()
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
         String whereClause = FormsTable.COLUMN_SYSDATE + " Like ? ";
@@ -746,7 +780,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Collection<Form> getPendingForms() {
 
         // String sysdate =  spDateT.substring(0, 8).trim()
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
         String whereClause = FormsTable.COLUMN_ISTATUS + " = ?";
