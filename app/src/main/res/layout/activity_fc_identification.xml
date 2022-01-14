@@ -34,7 +34,7 @@
             android:theme="@style/CustomToolbarTheme"
             app:popupTheme="@style/CustomPopupTheme"
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
-            app:title="@string/section01lhwinformation_mainheading"
+            app:title="@string/f3title"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
 
