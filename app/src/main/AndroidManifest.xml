@@ -29,7 +29,11 @@
             android:name=".ui.WebViewActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.IdentificationActivity"
+            android:name=".ui.CMIdentificationActivity"
+            android:exported="true"
+            android:theme="@style/AppThemeEnglish1" />
+        <activity
+            android:name=".ui.FCIdentificationActivity"
             android:exported="true"
             android:theme="@style/AppThemeEnglish1" />
         <activity

@@ -42,6 +42,8 @@
     <string name="backPress"> Back Press Not Allowed </string>
     <string name="invalid_response"> Invalid Response </string>
     <string name="open_hh_form" translatable="false"> Open Survey Form </string>
+    <string name="lhw_locked"> This LHW has been locked </string>
+    <string name="hh_exists_form"> hhExists(HHForm): \t </string>
 
 
     <string name="section1identificationandenrollmentinformation_mainheading">Section 1: Identification and Enrollment Information: </string>
@@ -1480,6 +1482,7 @@
     <string name="f3102">Screening Number</string>
     <string name="f3103">Location of screening</string>
     <string name="f3104">Tehsil</string>
+    <string name="f3109">District</string>
     <string name="f3105">Union Council name</string>
     <string name="f3106">Health Facility Name</string>
     <string name="f3107">Facility ID</string>
@@ -1597,6 +1600,7 @@
     <string name='Q_f3106'>f3106</string>
     <string name='Q_f3107'>f3107</string>
     <string name='Q_f3108'>f3108</string>
+    <string name='Q_f3109'>f3109</string>
     <string name='Q_f3201'>f3201</string>
     <string name='Q_f3202'>f3202</string>
     <string name='Q_f3301'>f3301</string>

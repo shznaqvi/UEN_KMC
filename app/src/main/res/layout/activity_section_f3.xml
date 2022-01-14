@@ -162,7 +162,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- f3104  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3104"
                     style="@style/cardView">
 
@@ -198,7 +198,7 @@
                                 android:text="@={form.f3104}" />
                         </LinearLayout>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- f3105  Input   -->
                 <androidx.cardview.widget.CardView
@@ -240,7 +240,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- f3106  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3106"
                     style="@style/cardView">
 
@@ -277,7 +277,7 @@
                                 android:text="@={form.f3106}" />
                         </LinearLayout>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- f3107  Input   -->
                 <androidx.cardview.widget.CardView

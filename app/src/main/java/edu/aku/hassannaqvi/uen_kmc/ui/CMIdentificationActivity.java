@@ -18,20 +18,20 @@ import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityIdentificationBinding;
+import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityCmIdentificationBinding;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2Activity;
 
-public class IdentificationActivity extends AppCompatActivity {
+public class CMIdentificationActivity extends AppCompatActivity {
 
     private static final String TAG = "IdentificationActivity";
-    ActivityIdentificationBinding bi;
+    ActivityCmIdentificationBinding bi;
     private DatabaseHelper db;
     private Intent openIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_identification);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_cm_identification);
         bi.setCallback(this);
         bi.setForm(form);
         setSupportActionBar(bi.toolbar);

@@ -95,6 +95,7 @@ public class Form extends BaseObservable implements Observable {
     private String f3106 = _EMPTY_;
     private String f3107 = _EMPTY_;
     private String f3108 = _EMPTY_;
+    private String f3109 = _EMPTY_;
     private String f3201 = _EMPTY_;
     private String f3202 = _EMPTY_;
     private String f3301 = _EMPTY_;
@@ -1453,6 +1454,16 @@ public class Form extends BaseObservable implements Observable {
     public void setF3108(String f3108) {
         this.f3108 = f3108;
         notifyPropertyChanged(BR.f3108);
+    }
+
+    @Bindable
+    public String getF3109() {
+        return f3109;
+    }
+
+    public void setF3109(String f3109) {
+        this.f3109 = f3109;
+        notifyPropertyChanged(BR.f3109);
     }
 
     @Bindable
@@ -9727,6 +9738,7 @@ public class Form extends BaseObservable implements Observable {
             this.f3106 = json.getString("f3106");
             this.f3107 = json.getString("f3107");
             this.f3108 = json.getString("f3108");
+            this.f3109 = json.getString("f3109");
             this.f3201 = json.getString("f3201");
             this.f3202 = json.getString("f3202");
             this.f3301 = json.getString("f3301");
@@ -10521,6 +10533,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("f3106", f3106)
                 .put("f3107", f3107)
                 .put("f3108", f3108)
+                .put("f3109", f3109)
                 .put("f3201", f3201)
                 .put("f3202", f3202)
                 .put("f3301", f3301)
