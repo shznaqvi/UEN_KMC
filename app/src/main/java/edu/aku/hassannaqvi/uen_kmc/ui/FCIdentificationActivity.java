@@ -13,11 +13,8 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.Locale;
 
 import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
@@ -192,6 +189,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
+        MainApp.form.populateMeta();
 //        if (!hhExists())
         saveDraftLHWForm();
         if (!MainApp.form.getSynced().equals("")) {
@@ -235,10 +233,10 @@ public class FCIdentificationActivity extends AppCompatActivity {
 
     private void saveDraftLHWForm() {
         MainApp.form = new Form();
-        MainApp.form.setUserName(MainApp.user.getUserName());
+/*        MainApp.form.setUserName(MainApp.user.getUserName());
         MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.form.setDeviceId(MainApp.deviceid);
-        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);*/
 
         MainApp.form.setF3109(distNames.get(bi.f3109.getSelectedItemPosition()));
         MainApp.form.setF3104(tehsilNames.get(bi.f3104.getSelectedItemPosition()));
