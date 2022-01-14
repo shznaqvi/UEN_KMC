@@ -57,36 +57,6 @@ object CreateTable {
             + " );"
             )
 
-    const val SQL_CREATE_FOODS_CONSUMPTION = ("CREATE TABLE "
-            + FoodConsumptionTable.TABLE_NAME + "("
-            + FoodConsumptionTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + FoodConsumptionTable.COLUMN_PROJECT_NAME + " TEXT,"
-            + FoodConsumptionTable.COLUMN_UID + " TEXT,"
-            + FoodConsumptionTable.COLUMN_UUID + " TEXT,"
-            + FoodConsumptionTable.COLUMN_ENUM_BLOCK + " TEXT,"
-            + FoodConsumptionTable.COLUMN_HHID + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SNO + " TEXT,"
-            + FoodConsumptionTable.COLUMN_USERNAME + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SYSDATE + " TEXT,"
-            + FoodConsumptionTable.COLUMN_ISTATUS + " TEXT,"
-            + FoodConsumptionTable.COLUMN_DEVICEID + " TEXT,"
-            + FoodConsumptionTable.COLUMN_DEVICETAGID + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SYNCED + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SYNCED_DATE + " TEXT,"
-            + FoodConsumptionTable.COLUMN_APPVERSION + " TEXT,"
-
-            + FoodConsumptionTable.COLUMN_SC1 + " TEXT,"
-
-            + FoodConsumptionTable.COLUMN_SG1 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG2 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG3 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG4 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG5 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG6 + " TEXT,"
-            + FoodConsumptionTable.COLUMN_SG7 + " TEXT"
-            + " );"
-            )
-
     const val SQL_CREATE_FAMILY_MEMBERS = ("CREATE TABLE "
             + FamilyMemberListTable.TABLE_NAME + "("
             + FamilyMemberListTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -119,27 +89,6 @@ object CreateTable {
             + " );"
             )
 
-
-    const val SQL_CREATE_ENUMBLOCKS = ("CREATE TABLE "
-            + EnumBlocksTable.TABLE_NAME + "("
-            + EnumBlocksTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + EnumBlocksTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + EnumBlocksTable.COLUMN_TEHSIL_NAME + " TEXT,"
-            + EnumBlocksTable.COLUMN_ENUM_BLOCK_CODE + " TEXT"
-            + " );"
-            )
-
-
-    const val SQL_CREATE_RANDOM = ("CREATE TABLE "
-            + RandomTable.TABLE_NAME + "("
-            + RandomTable.COLUMN_ID + " INTEGER PRIMARY KEY,"
-            + RandomTable.COLUMN_SNO + " TEXT,"
-            + RandomTable.COLUMN_ENUM_BLOCK_CODE + " TEXT,"
-            + RandomTable.COLUMN_HH_NO + " TEXT,"
-            + RandomTable.COLUMN_HEAD_HH + " TEXT"
-            + " );"
-            )
-
     const val SQL_CREATE_VERSIONAPP = ("CREATE TABLE "
             + VersionTable.TABLE_NAME + " ("
             + VersionTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -148,6 +97,26 @@ object CreateTable {
             + VersionTable.COLUMN_PATH_NAME + " TEXT "
             + ");"
             )
+
+    const val SQL_CREATE_LHW_HF = ("CREATE TABLE " + TableHealthFacilities.TABLE_NAME + "("
+            + TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
+            + TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
+            + TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
+            + " );")
+
+    const val SQL_CREATE_TEHSIL = ("CREATE TABLE " + TableTehsil.TABLE_NAME + "("
+            + TableTehsil.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableTehsil.COLUMN_DIST_ID + " TEXT,"
+            + TableTehsil.COLUMN_TEHSIL_NAME + " TEXT,"
+            + TableTehsil.COLUMN_TEHSIL_CODE + " TEXT"
+            + " );")
+
+    const val SQL_CREATE_DISTRICT = ("CREATE TABLE " + TableDistricts.TABLE_NAME + "("
+            + TableDistricts.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableDistricts.COLUMN_DISTRICT_NAME + " TEXT,"
+            + TableDistricts.COLUMN_DISTRICT_CODE + " TEXT"
+            + " );")
 
 
 }

@@ -54,38 +54,6 @@ public class TableContracts {
         public static final String COLUMN_ISTATUS96x = "istatus96x";
     }
 
-    public static abstract class FoodConsumptionTable implements BaseColumns {
-        public static final String TABLE_NAME = "foodconsumption";
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String COLUMN_PROJECT_NAME = "projectName";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_UUID = "_uuid";
-        public static final String COLUMN_ENUM_BLOCK = "ebCode";
-        public static final String COLUMN_HHID = "hhid";
-        public static final String COLUMN_SNO = "sno";
-        public static final String COLUMN_USERNAME = "username";
-        public static final String COLUMN_SYSDATE = "sysdate";
-
-        public static final String COLUMN_SC1 = "sC1";
-
-        public static final String COLUMN_SG1 = "sG1";
-        public static final String COLUMN_SG2 = "sG2";
-        public static final String COLUMN_SG3 = "sG3";
-        public static final String COLUMN_SG4 = "sG4";
-        public static final String COLUMN_SG5 = "sG5";
-        public static final String COLUMN_SG6 = "sG6";
-        public static final String COLUMN_SG7 = "sG7";
-
-
-        public static final String COLUMN_DEVICEID = "deviceid";
-        public static final String COLUMN_DEVICETAGID = "devicetagid";
-        public static final String COLUMN_SYNCED = "synced";
-        public static final String COLUMN_SYNCED_DATE = "synced_date";
-        public static final String COLUMN_APPVERSION = "appversion";
-        public static final String COLUMN_ISTATUS = "istatus";
-    }
-
     public static abstract class UsersTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String TABLE_NAME = "users";
@@ -95,27 +63,6 @@ public class TableContracts {
         public static final String COLUMN_PASSWORD = "password";
         public static final String COLUMN_FULLNAME = "full_name";
         public static final String COLUMN_DIST_ID = "dist_id";
-
-    }
-
-    public static abstract class EnumBlocksTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "enumBlocks";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_DISTRICT_NAME = "district_name";
-        public static final String COLUMN_TEHSIL_NAME = "tehsil_name";
-        public static final String COLUMN_ENUM_BLOCK_CODE = "eb_code";
-
-    }
-
-    public static abstract class RandomTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "randomhh";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_SNO = "sno";
-        public static final String COLUMN_ENUM_BLOCK_CODE = "eb_code";
-        public static final String COLUMN_HEAD_HH = "hh_head";
-        public static final String COLUMN_HH_NO = "hh_no";
 
     }
 
@@ -151,6 +98,33 @@ public class TableContracts {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+    }
+
+    public static abstract class TableDistricts implements BaseColumns {
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String TABLE_NAME = "district";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_DISTRICT_NAME = "district_name";
+        public static final String COLUMN_DISTRICT_CODE = "district_code";
+
+    }
+
+    public static abstract class TableTehsil implements BaseColumns {
+        public static final String TABLE_NAME = "tehsil";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
+        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
+        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_DIST_ID = "dist_id";
+    }
+
+    public static abstract class TableHealthFacilities implements BaseColumns {
+        public static final String TABLE_NAME = "HealthFacility";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
+        public static final String COLUMN_DIST_ID = "dist_id";
+        public static final String COLUMN_HF_CODE = "hfcode";
+        public static final String COLUMN_HF_NAME = "hf_name";
     }
 
 }

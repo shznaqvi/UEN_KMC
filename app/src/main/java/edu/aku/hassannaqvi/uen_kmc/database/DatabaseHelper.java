@@ -2,11 +2,11 @@ package edu.aku.hassannaqvi.uen_kmc.database;
 
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENUMBLOCKS;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FOODS_CONSUMPTION;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FORMS;
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_RANDOM;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_LHW_HF;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_TEHSIL;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_VERSIONAPP;
 
@@ -28,9 +28,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
+import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
+import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
+import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableDistricts;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilities;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
@@ -62,12 +69,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_ENUMBLOCKS);
-        db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_FOODS_CONSUMPTION);
         db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_VERSIONAPP);
+        db.execSQL(SQL_CREATE_DISTRICT);
+        db.execSQL(SQL_CREATE_TEHSIL);
+        db.execSQL(SQL_CREATE_LHW_HF);
 
     }
 
@@ -429,6 +436,84 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
+    // Sync Districts
+    public int syncDistricts(JSONArray Districtslist) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        db.delete(TableDistricts.TABLE_NAME, null, null);
+        int insertCount = 0;
+        for (int i = 0; i < Districtslist.length(); i++) {
+            JSONObject jsonObjectDistrict = Districtslist.getJSONObject(i);
+            Districts District = new Districts();
+            District.sync(jsonObjectDistrict);
+            ContentValues values = new ContentValues();
+
+            values.put(TableDistricts.COLUMN_DISTRICT_CODE, District.getDistrictCode());
+            values.put(TableDistricts.COLUMN_DISTRICT_NAME, District.getDistrictName());
+            long rowID = db.insert(TableDistricts.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
+        }
+
+
+        db.close();
+
+        return insertCount;
+    }
+
+    //    Sync Tehsil
+    public int syncTehsil(JSONArray tehsilList) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        db.delete(TableTehsil.TABLE_NAME, null, null);
+        int insertCount = 0;
+
+
+        for (int i = 0; i < tehsilList.length(); i++) {
+            JSONObject json = tehsilList.getJSONObject(i);
+            Tehsil tehsil = new Tehsil();
+            tehsil.sync(json);
+            ContentValues values = new ContentValues();
+
+            values.put(TableTehsil.COLUMN_DIST_ID, tehsil.getDist_id());
+            values.put(TableTehsil.COLUMN_TEHSIL_NAME, tehsil.getTehsilName());
+            values.put(TableTehsil.COLUMN_TEHSIL_CODE, tehsil.getTehsilCode());
+
+            long rowID = db.insert(TableTehsil.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
+        }
+        db.close();
+
+
+        db.close();
+
+        return insertCount;
+    }
+
+    //    Sync LHWHF
+    public int syncHealthFacilities(JSONArray healthfacilities) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        db.delete(TableHealthFacilities.TABLE_NAME, null, null);
+        int insertCount = 0;
+
+        for (int i = 0; i < healthfacilities.length(); i++) {
+            JSONObject json = healthfacilities.getJSONObject(i);
+            HealthFacilities lhwHF = new HealthFacilities();
+            lhwHF.sync(json);
+            ContentValues values = new ContentValues();
+
+            values.put(TableHealthFacilities.COLUMN_HF_CODE, lhwHF.getHfCode());
+            values.put(TableHealthFacilities.COLUMN_HF_NAME, lhwHF.getHfName());
+            values.put(TableHealthFacilities.COLUMN_DIST_ID, lhwHF.getDist_id());
+
+            long rowID = db.insert(TableHealthFacilities.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
+        }
+        db.close();
+
+
+        db.close();
+
+        return insertCount;
+    }
+
    /* public int syncClusters(JSONArray clusterList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(EnumBlocksTable.TABLE_NAME, null, null);
@@ -729,6 +814,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+
     public Collection<Form> getTodayForms(String sysdate) {
 
         // String sysdate =  spDateT.substring(0, 8).trim()
@@ -823,6 +909,123 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
+    }
+
+
+    public Collection<HealthFacilities> getHealthFacilityByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableHealthFacilities.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableHealthFacilities.COLUMN_ID + " ASC";
+
+        List<HealthFacilities> healthFacilities = new ArrayList<>();
+
+        c = db.query(
+                TableHealthFacilities.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            healthFacilities.add(new HealthFacilities().hydrate(c));
+
+
+        }
+
+        db.close();
+
+        return healthFacilities;
+    }
+
+
+    public Collection<Districts> getAllDistricts() {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = {TableDistricts.COLUMN_DISTRICT_CODE, TableDistricts.COLUMN_DISTRICT_NAME};
+
+        String orderBy = TableDistricts.COLUMN_DISTRICT_NAME + " ASC";
+
+        Collection<Districts> allDistricts = new ArrayList<>();
+        c = db.query(
+                true,
+                TableDistricts.TABLE_NAME,  // The table to query
+                columns,
+                null,
+                null,
+                null,
+                null,
+                orderBy,
+                "5000"
+
+                // The sort order
+        );
+        while (c.moveToNext()) {
+
+
+            Log.d(TAG, "getUnsyncedPreg: " + c.getCount());
+            Districts cluster = new Districts();
+            cluster.setDistrictCode(c.getString(c.getColumnIndexOrThrow(TableDistricts.COLUMN_DISTRICT_CODE)));
+            cluster.setDistrictName(c.getString(c.getColumnIndexOrThrow(TableDistricts.COLUMN_DISTRICT_NAME)));
+            allDistricts.add(cluster);
+
+        }
+
+        db.close();
+        return allDistricts;
+    }
+
+
+    public Collection<Tehsil> getTehsilByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableTehsil.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableTehsil.COLUMN_ID + " ASC";
+
+        List<Tehsil> tehsils = new ArrayList<>();
+
+        c = db.query(
+                TableTehsil.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            tehsils.add(new Tehsil().hydrate(c));
+
+
+        }
+
+        db.close();
+
+        return tehsils;
     }
 
 /*
