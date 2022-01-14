@@ -255,7 +255,7 @@ public class SyncActivity extends AppCompatActivity {
 
                     //String result = workInfo.getOutputData().getString("data");
                     String result = MainApp.downloadData[position];
-//Do something with the JSON string
+                    //Do something with the JSON string
                     if (result != null) {
                         if (result.length() > 0) {
                             Log.d(TAG, "onChanged: result " + result);
