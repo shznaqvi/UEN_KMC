@@ -25,7 +25,7 @@ import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityFcIdentificationBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
-import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF5S1Activity;
+import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3Activity;
 
 
 public class FCIdentificationActivity extends AppCompatActivity {
@@ -195,7 +195,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         if (!MainApp.form.getSynced().equals("")) {
             Toast.makeText(this, getString(R.string.lhw_locked), Toast.LENGTH_SHORT).show();
         } else {
-            startActivity(new Intent(this, SectionF5S1Activity.class));
+            startActivity(new Intent(this, SectionF3Activity.class));
             finish();
 
         }
