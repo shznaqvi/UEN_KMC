@@ -24,14 +24,6 @@ public class SplashScreen extends AppCompatActivity {
         }, 5000);
     }
 
-    private void nextActivity() {
-
-        new Handler().postDelayed(() -> {
-            startActivity(new Intent(SplashScreen.this, LoginActivity.class));
-            finish();
-        }, 1000);
-    }
-
     private void textProject() {
 
         TextView textview = findViewById(R.id.projectName);
@@ -40,6 +32,15 @@ public class SplashScreen extends AppCompatActivity {
                 , R.anim.float_in);
         textview.setAnimation(animation);
         nextActivity();
+    }
+
+
+    private void nextActivity() {
+
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(SplashScreen.this, LoginActivity.class));
+            finish();
+        }, 1500);
     }
 
 }
