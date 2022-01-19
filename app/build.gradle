@@ -150,4 +150,7 @@ dependencies {
     //Rooted
     implementation 'com.scottyab:rootbeer-lib:0.1.0'
 
+    // Lottie Animation
+    implementation "com.airbnb.android:lottie:3.0.7"
+
 }
