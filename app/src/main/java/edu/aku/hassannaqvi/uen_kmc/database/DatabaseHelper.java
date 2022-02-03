@@ -4,6 +4,7 @@ import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_LHW_HF;
@@ -81,6 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_DISTRICT);
         db.execSQL(SQL_CREATE_TEHSIL);
         db.execSQL(SQL_CREATE_LHW_HF);
+        db.execSQL(SQL_CREATE_ENTRYLOGS);
 
     }
 
