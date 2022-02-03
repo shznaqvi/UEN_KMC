@@ -1,7 +1,5 @@
 package edu.aku.hassannaqvi.uen_kmc.workers;
 
-import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -26,6 +24,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -37,6 +37,9 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -58,7 +61,7 @@ public class DataUpWorkerALL extends Worker {
     private final String uploadTable;
     private final JSONArray uploadData;
     private final URL serverURL = null;
-    private final String nTitle = PROJECT_NAME + ": Data Upload";
+    private final String nTitle = MainApp.PROJECT_NAME + ": Data Upload";
     private final int position;
     private final String uploadWhere;
     HttpsURLConnection urlConnection;
@@ -356,16 +359,16 @@ public class DataUpWorkerALL extends Worker {
             Log.d(TAG, "doWork (Timeout): " + e.getMessage());
             displayNotification(nTitle, "Timeout Error: " + e.getMessage());
             data = new Data.Builder()
-                    .putString("error", String.valueOf(e.getMessage()))
+                    .putString("error", e.getMessage())
                     .putInt("position", this.position)
                     .build();
             return Result.failure(data);
 
-        } catch (IOException | JSONException e) {
+        } catch (IOException | JSONException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
             Log.d(TAG, "doWork (IO Error): " + e.getMessage());
             displayNotification(nTitle, "IO Error: " + e.getMessage());
             data = new Data.Builder()
-                    .putString("error", String.valueOf(e.getMessage()))
+                    .putString("error", e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
@@ -374,7 +377,19 @@ public class DataUpWorkerALL extends Worker {
         } finally {
 //            urlConnection.disconnect();
         }
-        result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+        try {
+            result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+        } catch (NoSuchPaddingException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | InvalidAlgorithmParameterException | InvalidKeyException e) {
+            Log.d(TAG, "doWork (Encryption Error): " + e.getMessage());
+            displayNotification(nTitle, "Encryption Error: " + e.getMessage());
+            data = new Data.Builder()
+                    .putString("error", e.getMessage())
+                    .putInt("position", this.position)
+                    .build();
+
+            return Result.failure(data);
+
+        }
 
         //Do something with the JSON string
         if (result != null) {

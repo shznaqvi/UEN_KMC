@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.uen_kmc.workers;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.text.Html;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -32,6 +35,9 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -235,7 +241,15 @@ public class DataDownWorkerALL extends Worker {
 
                     }
                     Log.d(TAG + " : " + uploadTable, "doWork: result-server: " + result);
-                    result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+                    try {
+                        result = new StringBuilder(CipherSecure.decrypt(result.toString()));
+                    } catch (IllegalArgumentException e) {
+                        data = new Data.Builder()
+                                .putString("error", e.getMessage() + " | " + Html.fromHtml(String.valueOf(result)))
+                                .putInt("position", this.position)
+                                .build();
+                        return Result.failure(data);
+                    }
                     Log.d(TAG + " : " + uploadTable, "doWork: result-decrypt: " + result);
 
                     if (result.toString().equals("[]")) {
@@ -262,7 +276,7 @@ public class DataDownWorkerALL extends Worker {
             }
         } catch (java.net.SocketTimeoutException e) {
             data = new Data.Builder()
-                    .putString("error", String.valueOf(e.getMessage()))
+                    .putString("error", e.getMessage())
                     .putInt("position", this.position)
                     .build();
             return Result.failure(data);
@@ -270,14 +284,14 @@ public class DataDownWorkerALL extends Worker {
         } catch (SSLPeerUnverifiedException e) {
             Toast.makeText(mContext, "(SSLPeerUnverifiedException): %s" + e.getMessage(), Toast.LENGTH_SHORT).show();
             data = new Data.Builder()
-                    .putString("error", String.valueOf(e.getMessage()))
+                    .putString("error", e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
             return Result.failure(data);
-        } catch (IOException | JSONException e) {
+        } catch (IOException | JSONException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
             data = new Data.Builder()
-                    .putString("error", String.valueOf(e.getMessage()))
+                    .putString("error", e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
