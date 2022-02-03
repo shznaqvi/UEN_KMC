@@ -43,6 +43,7 @@ public class MainApp extends Application {
     public static final String _EMPTY_ = "";
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
+    public static final String _USER_URL = "resetpassword.php";
 
     //Languages
     public static int English = 1;
@@ -73,6 +74,7 @@ public class MainApp extends Application {
     public static long TWO_MINUTES = 1000 * 60 * 2;
     public static boolean permissionCheck = false;
     public static int idType = 0;
+    public static boolean superuser = false;
 
     public static List<String> subjectNames;
     public static List<Integer> mwraList;

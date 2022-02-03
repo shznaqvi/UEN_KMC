@@ -47,6 +47,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableDistricts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilities;
@@ -158,6 +159,15 @@ public class SyncActivity extends AppCompatActivity {
                     Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
+                //Entry Log
+                uploadTables.add(new SyncModel(EntryLogTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedEntryLog());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(EntryLog)" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
 
                 MainApp.downloadData = new String[uploadData.size()];
 
@@ -185,10 +195,10 @@ public class SyncActivity extends AppCompatActivity {
 
                 if (sync_flag) {
                     select = " * ";
-                    filter = " enabled = '1' ";
+                    filter = "  ";
 
-                    downloadTables.add(new SyncModel(UsersTable.TABLE_NAME, select, filter));
-                    downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME, select, filter));
+                    downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 } else {
                     select = " * ";
@@ -261,14 +271,15 @@ public class SyncActivity extends AppCompatActivity {
                         if (result.length() > 0) {
                             Log.d(TAG, "onChanged: result " + result);
                             System.out.println("SYSTEM onChanged: result" + result);
+
                             DatabaseHelper db = new DatabaseHelper(SyncActivity.this);
                             JSONArray jsonArray = new JSONArray();
+
                             int insertCount = 0;
                             switch (tableName) {
                                 case UsersTable.TABLE_NAME:
                                     try {
                                         jsonArray = new JSONArray(result);
-
                                         insertCount = db.syncUser(jsonArray);
                                     } catch (JSONException e) {
                                         e.printStackTrace();

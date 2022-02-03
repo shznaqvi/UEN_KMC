@@ -56,12 +56,16 @@ public class TableContracts {
 
     public static abstract class UsersTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "users";
+        public static final String TABLE_NAME = "AppUser";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_USERNAME = "username";
-        public static final String COLUMN_PASSWORD = "password";
+        public static final String COLUMN_PASSWORD = "passwordEnc";
         public static final String COLUMN_FULLNAME = "full_name";
+        public static final String COLUMN_DESIGNATION = "designation";
+        public static final String COLUMN_ENABLED = "enabled";
+        public static final String COLUMN_ISNEW_USER = "isNewUser";
+        public static final String COLUMN_PWD_EXPIRY = "pwdExpiry";
         public static final String COLUMN_DIST_ID = "dist_id";
 
     }
@@ -126,5 +130,4 @@ public class TableContracts {
         public static final String COLUMN_HF_CODE = "hfcode";
         public static final String COLUMN_HF_NAME = "hf_name";
     }
-
 }

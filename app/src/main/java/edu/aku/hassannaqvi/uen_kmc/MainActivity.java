@@ -14,6 +14,7 @@ import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
+import edu.aku.hassannaqvi.uen_kmc.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.FCIdentificationActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.WebViewActivity;
@@ -207,6 +208,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.onSync:
                 intent = new Intent(MainActivity.this, SyncActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.changePassword:
+                intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
         /*    case R.id.checkPendingForms:

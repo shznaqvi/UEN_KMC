@@ -20,6 +20,8 @@
     <string name="invalid_password"> Invalid Password </string>
     <string name="username_required"> Username is required. </string>
     <string name="incorrect_username_or_password">Incorrect Username or Password</string>
+    <string name="confirmPassword" translatable="false">Confirm Password</string>
+    <string name="btnResetPassword">Reset Password</string>
 
 
     <string name="istatus"> Result of Household Questionnaire interview </string>
