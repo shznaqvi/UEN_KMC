@@ -25,26 +25,36 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
-
+        <activity
+            android:name=".ui.sections.SectionF1S5Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.sections.SectionF1S4Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.sections.SectionF1S3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.sections.SectionF1S2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.sections.SectionF1S1Activity"
+            android:exported="true" />
         <activity
             android:name=".ui.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.splashscreen"
-            android:windowSoftInputMode="adjustResize|stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.SplashScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.WebViewActivity"
             android:exported="true" />
