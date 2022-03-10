@@ -22,7 +22,7 @@ public class SectionF2S4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f2_s4);
         bi.setForm(form);
-//        setSupportActionBar(bi.toolbar);
+        setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
 }

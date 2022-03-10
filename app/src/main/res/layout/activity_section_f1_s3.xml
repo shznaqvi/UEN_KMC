@@ -10,42 +10,45 @@
             type="edu.aku.hassannaqvi.uen_kmc.models.Form" />
     </data>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/GrpName"
+        <!-- CUSTOM TOOLBAR -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@null"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/CustomToolbarTheme"
+            app:popupTheme="@style/CustomPopupTheme"
+            app:subtitle="@string/f1sec3"
+            app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+            app:title="@string/f1sec3"
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
 
-            <!-- f1sec3  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf1sec3"
-                style="@style/cardView">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/GrpName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                    <TextView
+                <!-- f13title  Title   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf13title"
+                    style="@style/cardView">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/f1sec3" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- f13title  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVf13title"
-                style="@style/cardView">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                        android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -1295,6 +1298,8 @@
 
 
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 </layout>

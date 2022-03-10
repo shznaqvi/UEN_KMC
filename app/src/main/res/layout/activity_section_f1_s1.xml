@@ -25,6 +25,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/CustomToolbarTheme"
             app:popupTheme="@style/CustomPopupTheme"
+            app:subtitle="@string/f1sec1"
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
             app:title="@string/f1sec1"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
@@ -38,23 +39,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <!-- f1sec1  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf1sec1"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/f1sec1" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
                 <!-- f1101     -->
                 <androidx.cardview.widget.CardView
@@ -125,8 +109,8 @@
                             <RadioButton
                                 android:id="@+id/f110201"
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.f1102.equals(`1`)}"
                                 android:onClick="@{()->form.setF1102(`1`)}"
                                 android:text="@string/f110201" />
@@ -134,8 +118,8 @@
                             <RadioButton
                                 android:id="@+id/f110202"
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.f1102.equals(`2`)}"
                                 android:onClick="@{()->form.setF1102(`2`)}"
                                 android:text="@string/f110202" />
@@ -613,5 +597,6 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
 </layout>

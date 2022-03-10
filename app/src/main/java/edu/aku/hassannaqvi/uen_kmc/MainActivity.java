@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S1Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S3Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S4Activity;
-import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S5Activity;
+import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S6Activity;
 import edu.aku.hassannaqvi.uen_kmc.utils.Utils;
 
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.secc2:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionF3S5Activity.class));
+                startActivity(new Intent(this, SectionF3S6Activity.class));
                 break;
             case R.id.dbManager:
                 startActivity(new Intent(this, AndroidDatabaseManager.class));
