@@ -115,48 +115,55 @@
                         <RadioGroup
                             android:id="@+id/f3302"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/f330201"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{form.f3302.equals(`1`)}"
                                 android:onClick="@{()->form.setF3302(`1`)}"
                                 android:text="@string/f330201" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/f330201x"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:enabled="@{form.f3302.equals(`1`)}"
+                                android:gravity="center"
                                 android:hint="@string/f330201"
                                 android:inputType="number"
                                 android:maxLength="2"
                                 android:tag="f330201"
                                 android:text="@={form.f330201x}"
-                                android:visibility="@{form.f3302.equals(`1`) ? View.VISIBLE : View.GONE}"
                                 app:maxValue="40"
                                 app:minValue="36"
                                 app:type="range" />
 
                             <RadioButton
                                 android:id="@+id/f330202"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:checked="@{form.f3302.equals(`2`)}"
                                 android:onClick="@{()->form.setF3302(`2`)}"
                                 android:text="@string/f330202" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/f330202x"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:enabled="@{form.f3302.equals(`2`)}"
+                                android:gravity="center"
                                 android:hint="@string/f330202"
                                 android:inputType="number"
                                 android:maxLength="3"
                                 android:tag="f330202"
                                 android:text="@={form.f330202x}"
-                                android:visibility="@{form.f3302.equals(`2`) ? View.VISIBLE : View.GONE}"
                                 app:maxValue="105"
                                 app:minValue="95"
                                 app:type="range" />

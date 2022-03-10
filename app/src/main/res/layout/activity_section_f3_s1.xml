@@ -134,11 +134,13 @@
                         <RadioGroup
                             android:id="@+id/f3101"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/f310101"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f3101.equals(`1`)}"
                                 android:onClick="@{()->form.setF3101(`1`)}"
@@ -146,7 +148,8 @@
 
                             <RadioButton
                                 android:id="@+id/f310102"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f3101.equals(`2`)}"
                                 android:onClick="@{()->form.setF3101(`2`)}"

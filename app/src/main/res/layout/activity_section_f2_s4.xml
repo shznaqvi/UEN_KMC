@@ -41,21 +41,11 @@
                 android:orientation="vertical">
 
                 <!-- f2s4t1  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf2s4t1"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/f2s4t1" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                <TextView
+                    style="@style/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/f2s4t1" />
 
                 <!-- f2401  CheckBox   -->
                 <androidx.cardview.widget.CardView
