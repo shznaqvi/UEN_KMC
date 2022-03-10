@@ -117,13 +117,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
         values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
         values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
+        values.put(FormsTable.COLUMN_SF1, form.sF1toString());
         values.put(FormsTable.COLUMN_SF2, form.sF2toString());
         values.put(FormsTable.COLUMN_SF3, form.sF3toString());
-        values.put(FormsTable.COLUMN_SF5, form.sF5toString());
-        values.put(FormsTable.COLUMN_SF6, form.sF6toString());
-        values.put(FormsTable.COLUMN_SF7, form.sF7toString());
-        values.put(FormsTable.COLUMN_SF8, form.sF8toString());
-        values.put(FormsTable.COLUMN_SF9, form.sF9toString());
 
 
         // Insert the new row, returning the primary key value of the new row

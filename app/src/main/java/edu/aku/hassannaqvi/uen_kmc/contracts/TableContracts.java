@@ -15,13 +15,9 @@ public class TableContracts {
         public static final String COLUMN_SNO = "sno";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
+        public static final String COLUMN_SF1 = "sF1";
         public static final String COLUMN_SF2 = "sF2";
         public static final String COLUMN_SF3 = "sF3";
-        public static final String COLUMN_SF5 = "sF5";
-        public static final String COLUMN_SF6 = "sF6";
-        public static final String COLUMN_SF7 = "sF7";
-        public static final String COLUMN_SF8 = "sF8";
-        public static final String COLUMN_SF9 = "sF9";
 
 
         public static final String COLUMN_DEVICEID = "deviceid";

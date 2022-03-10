@@ -26,13 +26,9 @@ object CreateTable {
             + FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + FormsTable.COLUMN_FORM_COMPLETE + " TEXT,"
             + FormsTable.COLUMN_APPVERSION + " TEXT,"
+            + FormsTable.COLUMN_SF1 + " TEXT,"
             + FormsTable.COLUMN_SF2 + " TEXT,"
-            + FormsTable.COLUMN_SF3 + " TEXT,"
-            + FormsTable.COLUMN_SF5 + " TEXT,"
-            + FormsTable.COLUMN_SF6 + " TEXT,"
-            + FormsTable.COLUMN_SF7 + " TEXT,"
-            + FormsTable.COLUMN_SF8 + " TEXT,"
-            + FormsTable.COLUMN_SF9 + " TEXT"
+            + FormsTable.COLUMN_SF3 + " TEXT"
             + " );"
             )
 

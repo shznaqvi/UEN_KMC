@@ -34,7 +34,7 @@
             android:theme="@style/CustomToolbarTheme"
             app:popupTheme="@style/CustomPopupTheme"
             app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
-            app:title="@string/f3title"
+            app:title="@string/f3106"
             app:titleTextAppearance="@style/Toolbar.TitleText" />
 
 
@@ -85,9 +85,9 @@
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- a102  Input   -->
+                <!-- f1111  Spinner   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVa102"
+                    android:id="@+id/fldGrpCVf1111"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -100,29 +100,29 @@
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/Q_f3104" />
+                            android:text="@string/Q_f1111" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="@string/f3104" />
+                            android:text="@string/f1111" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/f3104"
+                            android:id="@+id/f1111"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
-                            android:hint="@string/f3104" />
+                            android:hint="@string/f1111" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- a103  Input   -->
+                <!-- f1103  Spinner   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVa103"
+                    android:id="@+id/fldGrpCVf1103"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -140,20 +140,20 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_f3106" />
+                                android:text="@string/Q_f1103" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:text="@string/f3106" />
+                                android:text="@string/f1103" />
 
                             <androidx.appcompat.widget.AppCompatSpinner
-                                android:id="@+id/f3106"
+                                android:id="@+id/f1103"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:hint="@string/f3106" />
+                                android:hint="@string/f1103" />
 
                         </LinearLayout>
 

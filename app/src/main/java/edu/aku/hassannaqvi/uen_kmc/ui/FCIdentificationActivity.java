@@ -25,7 +25,7 @@ import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityFcIdentificationBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
-import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3Activity;
+import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF1S1Activity;
 
 
 public class FCIdentificationActivity extends AppCompatActivity {
@@ -84,8 +84,8 @@ public class FCIdentificationActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                bi.f3104.setAdapter(null);
-                bi.f3106.setAdapter(null);
+                bi.f1111.setAdapter(null);
+                bi.f1103.setAdapter(null);
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
                 //  bi.checkHousehold.setBackgroundTintList(ContextCompat.getColorStateList(IdentificationActivity.this, R.color.colorAccent));
@@ -112,7 +112,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                     tehsilCodes.add(distCodes.get(position) + "003");
                 }
                 // Apply the adapter to the spinner
-                bi.f3104.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, tehsilNames));
+                bi.f1111.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, tehsilNames));
 
 
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
@@ -141,7 +141,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                     healthFacilityCodes.add(distCodes.get(position) + "003");
                 }
                 // Apply the adapter to the spinner
-                bi.f3106.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
+                bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
 
             }
 
@@ -152,7 +152,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         });
 
 
-        bi.f3104.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.f1111.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -165,7 +165,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         });
 
 
-        bi.f3106.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.f1103.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -195,7 +195,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         if (!MainApp.form.getSynced().equals("")) {
             Toast.makeText(this, getString(R.string.lhw_locked), Toast.LENGTH_SHORT).show();
         } else {
-            startActivity(new Intent(this, SectionF3Activity.class));
+            startActivity(new Intent(this, SectionF1S1Activity.class));
             finish();
 
         }
@@ -238,9 +238,9 @@ public class FCIdentificationActivity extends AppCompatActivity {
         MainApp.form.setDeviceId(MainApp.deviceid);
         MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);*/
 
-        MainApp.form.setF3109(distNames.get(bi.f3109.getSelectedItemPosition()));
-        MainApp.form.setF3104(tehsilNames.get(bi.f3104.getSelectedItemPosition()));
-        MainApp.form.setF3106(healthFacilityNames.get(bi.f3106.getSelectedItemPosition()));
+//        MainApp.form.setF3109(distNames.get(bi.f3109.getSelectedItemPosition()));
+        MainApp.form.setF1111(tehsilNames.get(bi.f1111.getSelectedItemPosition()));
+        MainApp.form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
 
     }
 
