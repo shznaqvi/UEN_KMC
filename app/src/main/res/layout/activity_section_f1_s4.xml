@@ -323,7 +323,8 @@
                 <!-- f1405  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1405"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1404.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -418,7 +419,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f1406.equals(`1`)}"
-                                android:onClick="@{()->form.setF1406(`1`)}"
+                                android:onClick="@{()->form.setF1406(`1`) + f1407.clearCheck()}"
                                 android:text="@string/f140601" />
 
                             <RadioButton
@@ -436,7 +437,8 @@
                 <!-- f1407  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1407"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1406.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -765,7 +767,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f1411.equals(`2`)}"
-                                android:onClick="@{()->form.setF1411(`2`)}"
+                                android:onClick="@{()->form.setF1411(`2`) + f1412.clearCheck()}"
                                 android:text="@string/f141102" />
 
                             <RadioButton
@@ -783,7 +785,8 @@
                 <!-- f1412  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1412"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1411.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -996,7 +999,8 @@
                 <!-- f1415  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1415"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1414.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1342,7 +1346,8 @@
                 <!-- f1419  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1419"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1418.equals(`1`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1526,7 +1531,8 @@
                 <!-- f1421  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1421"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1420.equals(`5`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1661,7 +1667,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f1422.equals(`1`)}"
-                                android:onClick="@{()->form.setF1422(`1`)}"
+                                android:onClick="@{()->form.setF1422(`1`) + f1423.clearCheck()}"
                                 android:text="@string/f142201" />
 
                             <RadioButton
@@ -1679,7 +1685,8 @@
                 <!-- f1423  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1423"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f1422.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
