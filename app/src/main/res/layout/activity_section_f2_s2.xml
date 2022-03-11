@@ -235,7 +235,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f2203.equals(`2`)}"
-                                android:onClick="@{()->form.setF2203(`2`)}"
+                                android:onClick="@{()->form.setF2203(`2`) + f2204.clearCheck()}"
                                 android:text="@string/f220302" />
                         </RadioGroup>
                     </LinearLayout>
@@ -244,7 +244,8 @@
                 <!-- f2204  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf2204"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f2203.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -515,7 +516,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f2207.equals(`2`)}"
-                                android:onClick="@{()->form.setF2207(`2`)}"
+                                android:onClick="@{()->form.setF2207(`2`) + f2208.clearCheck()}"
                                 android:text="@string/f220702" />
                         </RadioGroup>
                     </LinearLayout>
@@ -524,7 +525,8 @@
                 <!-- f2208  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf2208"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f2207.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

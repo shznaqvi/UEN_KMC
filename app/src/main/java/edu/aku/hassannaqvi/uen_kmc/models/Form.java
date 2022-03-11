@@ -1538,6 +1538,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF2203(String f2203) {
         this.f2203 = f2203;
+        setF2204(f2203.equals("1") ? this.f2204 : "");
         notifyPropertyChanged(BR.f2203);
     }
 
@@ -1644,6 +1645,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF2207(String f2207) {
         this.f2207 = f2207;
+        setF2208(f2207.equals("1") ? this.f2208 : "");
         notifyPropertyChanged(BR.f2207);
     }
 
