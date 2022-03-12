@@ -90,7 +90,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f3601.equals(`2`)}"
-                                android:onClick="@{()->form.setF3601(`2`)}"
+                                android:onClick="@{()->form.setF3601(`2`) + f3602.clearCheck()}"
                                 android:text="@string/f360102" />
                         </RadioGroup>
                     </LinearLayout>
@@ -99,7 +99,8 @@
                 <!-- f3602  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3602"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3601.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -202,7 +203,8 @@
                 <!-- f3603  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3603"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3601.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -245,7 +247,8 @@
                 <!-- f3604  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3604"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3601.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -500,7 +503,8 @@
                 <!-- f3608  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3608"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3607.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -707,7 +711,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f3610.equals(`2`)}"
-                                android:onClick="@{()->form.setF3610(`2`)}"
+                                android:onClick="@{()->form.setF3610(`2`) + f3613.clearCheck()}"
                                 android:text="@string/f361002" />
                         </RadioGroup>
                     </LinearLayout>
@@ -716,7 +720,8 @@
                 <!-- f3611  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3611"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3610.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -759,7 +764,8 @@
                 <!-- f3612  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3612"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3610.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -950,7 +956,8 @@
                 <!-- f3615  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3615"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3614.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

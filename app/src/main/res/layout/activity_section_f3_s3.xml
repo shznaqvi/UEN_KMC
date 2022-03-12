@@ -63,23 +63,25 @@
                                 android:text="@string/Q_f3301" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f3301" />
 
-                        </LinearLayout>
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f3301"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:hint="@string/f3301"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:text="@={form.f3301}"
+                                app:maxValue="4000"
+                                app:minValue="1200"
+                                app:type="range" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f3301"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f3301"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:text="@={form.f3301}"
-                            app:maxValue="4000"
-                            app:minValue="1200"
-                            app:type="range" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -194,23 +196,25 @@
                                 android:text="@string/Q_f3303" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f3303" />
 
-                        </LinearLayout>
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/f3303"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:hint="@string/f3303"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:text="@={form.f3303}"
+                                app:maxValue="200"
+                                app:minValue="1"
+                                app:type="range" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/f3303"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/f3303"
-                            android:inputType="number"
-                            android:maxLength="3"
-                            android:text="@={form.f3303}"
-                            app:maxValue="200"
-                            app:minValue="1"
-                            app:type="range" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

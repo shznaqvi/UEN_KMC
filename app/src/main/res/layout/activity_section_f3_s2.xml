@@ -211,7 +211,8 @@
                 <!-- f3204  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3204"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3203.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -340,7 +341,8 @@
                 <!-- f3205  Input-Numeric   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3205"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.f3203.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
