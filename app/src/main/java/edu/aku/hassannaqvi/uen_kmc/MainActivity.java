@@ -59,17 +59,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.openForm:
                 MainApp.idType = 1;
                 break;
-        /*    case R.id.openAnthro:
+            case R.id.openFollowUp:
                 MainApp.idType = 2;
                 break;
-
-            case R.id.updateBlood:
-                MainApp.idType = 3;
-                break;
-
-            case R.id.updateStool:
-                MainApp.idType = 4;
-                break;*/
             default:
                 MainApp.idType = 0;
 
@@ -118,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF2S4Activity.class));
                 break;
-            case R.id.secb4:
+            case R.id.openFollowUp:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF3S1Activity.class));
                 break;

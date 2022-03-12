@@ -114,7 +114,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- <androidx.cardview.widget.CardView
+                 <androidx.cardview.widget.CardView
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content"
                      android:layout_marginStart="24dp"
@@ -124,7 +124,7 @@
                      app:cardCornerRadius="24dp">
 
                      <LinearLayout
-                         android:id="@+id/openAnthro"
+                         android:id="@+id/openFollowUp"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
                          android:onClick="sectionPress"
@@ -141,11 +141,11 @@
                                  android:layout_width="match_parent"
                                  android:layout_height="wrap_content"
                                  android:background="@color/white"
-                                 android:drawableStart="@drawable/onhold_forms"
+                                 android:drawableStart="@drawable/new_form"
                                  android:drawablePadding="12dp"
                                  android:gravity="center_vertical"
                                  android:minWidth="460dp"
-                                 android:text="A2"
+                                 android:text="Follow-up Form"
                                  android:textColor="@color/colorPrimary"
                                  android:textSize="16dp" />
 
@@ -154,7 +154,7 @@
                                  android:layout_height="wrap_content"
                                  android:layout_marginStart="36dp"
                                  android:gravity="center_horizontal|center_vertical"
-                                 android:text="Update anthropometry and examination"
+                                 android:text="Open to enter follow-up form"
                                  android:textColor="@color/gray"
                                  android:textSize="14sp" />
                          </LinearLayout>
@@ -169,7 +169,7 @@
                              android:textSize="24dp" />
 
                      </LinearLayout>
-                 </androidx.cardview.widget.CardView>-->
+                 </androidx.cardview.widget.CardView>
 
 
                 <LinearLayout
