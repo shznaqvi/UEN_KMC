@@ -1193,6 +1193,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f361796.equals(`96`)}"
+                                android:enabled="@{!form.f361798.equals(`98`)}"
                                 android:onClick="@{()->form.setF361796(form.f361796.equals(`96`)?``:`96`)}"
                                 android:text="@string/f361796" />
 
@@ -1211,7 +1212,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f361798.equals(`98`)}"
-                                android:enabled="@{!form.f361798.equals(`98`)}"
                                 android:onClick="@{()->form.setF361798(form.f361798.equals(`98`)?``:`98`)}"
                                 android:text="@string/f361798" />
                         </LinearLayout>

@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.FCIdentificationActivity;
@@ -111,23 +112,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionF2S4Activity.class));
                 break;
             case R.id.openFollowUp:
-                MainApp.form = new Form();
+                MainApp.followup = new FollowUp();
                 startActivity(new Intent(this, SectionF3S1Activity.class));
                 break;
             case R.id.secb5:
-                MainApp.form = new Form();
+                MainApp.followup = new FollowUp();
                 startActivity(new Intent(this, SectionF3S2Activity.class));
                 break;
             case R.id.secb6:
-                MainApp.form = new Form();
+                MainApp.followup = new FollowUp();
                 startActivity(new Intent(this, SectionF3S3Activity.class));
                 break;
             case R.id.secc1:
-                MainApp.form = new Form();
+                MainApp.followup = new FollowUp();
                 startActivity(new Intent(this, SectionF3S4Activity.class));
                 break;
             case R.id.secc2:
-                MainApp.form = new Form();
+                MainApp.followup = new FollowUp();
                 startActivity(new Intent(this, SectionF3S6Activity.class));
                 break;
             case R.id.dbManager:

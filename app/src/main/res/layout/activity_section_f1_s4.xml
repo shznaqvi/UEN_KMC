@@ -1092,7 +1092,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f141598.equals(`98`)}"
-                                android:enabled="@{!form.f141598.equals(`98`)}"
                                 android:onClick="@{()->form.setF141598(form.f141598.equals(`98`)?``:`98`)}"
                                 android:text="@string/f141598" />
                         </LinearLayout>
