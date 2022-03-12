@@ -23,6 +23,7 @@ import java.io.File;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_kmc.BuildConfig;
+import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.models.Users;
 
@@ -53,6 +54,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static Form form;
+    public static FollowUp followup;
     public static int entryType = 0;
 /*
     public static FamilyMembers familyMember;

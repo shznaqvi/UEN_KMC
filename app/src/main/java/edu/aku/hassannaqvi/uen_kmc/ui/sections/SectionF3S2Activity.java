@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.uen_kmc.ui.sections;
 
-import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.followup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,19 +18,19 @@ import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF2S2Binding;
+import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF3S2Binding;
 import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF3S2Activity extends AppCompatActivity {
     private static final String TAG = "SectionF3S2Activity";
-    ActivitySectionF2S2Binding bi;
+    ActivitySectionF3S2Binding bi;
     private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f3_s2);
-        bi.setForm(form);
+        bi.setForm(followup);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
@@ -40,7 +40,7 @@ public class SectionF3S2Activity extends AppCompatActivity {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SF3, form.sF3toString());
+            updcount = db.updatesFollupColumn(TableContracts.FollowUpTable.COLUMN_SF3, followup.sF3toString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -62,7 +62,7 @@ public class SectionF3S2Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            if (form.getF3203().equals("2"))
+            if (followup.getF3203().equals("2"))
                 startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
             else
                 startActivity(new Intent(this, SectionF3S3Activity.class).putExtra("complete", true));

@@ -208,7 +208,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F2"
+                            android:text="F1S1"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -223,7 +223,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F3"
+                            android:text="F1S2"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -238,7 +238,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F5S1"
+                            android:text="F1S3"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -253,7 +253,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F5S2"
+                            android:text="F1S4"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -268,22 +268,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F5S3"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/seca6"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:gravity="center"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="F5S4"
+                            android:text="F1S5"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -297,6 +282,21 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/seca6"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:gravity="center"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="F2S1"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+                        <TextView
                             android:id="@+id/secb1"
                             android:layout_width="60dp"
                             android:layout_height="wrap_content"
@@ -307,7 +307,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S1"
+                            android:text="F2S2"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -322,7 +322,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S2"
+                            android:text="F2S3"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -337,9 +337,18 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S3"
+                            android:text="F2S4"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/secb4"
@@ -352,7 +361,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S4"
+                            android:text="F3S1"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -367,7 +376,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S5"
+                            android:text="F3S2"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -382,18 +391,9 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S6"
+                            android:text="F3S3"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/secc1"
@@ -406,7 +406,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F6S7"
+                            android:text="F3S4"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
@@ -421,7 +421,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="F7S1"
+                            android:text="F3S6"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 

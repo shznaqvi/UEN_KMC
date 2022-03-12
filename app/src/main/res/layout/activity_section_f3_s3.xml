@@ -7,7 +7,7 @@
 
         <variable
             name="form"
-            type="edu.aku.hassannaqvi.uen_kmc.models.Form" />
+            type="edu.aku.hassannaqvi.uen_kmc.models.FollowUp" />
     </data>
 
     <LinearLayout

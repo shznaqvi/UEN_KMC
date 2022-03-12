@@ -6,6 +6,7 @@ import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FOLLOWUPS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_LHW_HF;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_TEHSIL;
@@ -39,6 +40,7 @@ import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowUpTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableDistricts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilities;
@@ -47,6 +49,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.models.EntryLog;
+import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.models.Users;
 import edu.aku.hassannaqvi.uen_kmc.models.VersionApp;
@@ -77,6 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_FOLLOWUPS);
         db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_DISTRICT);
@@ -119,7 +123,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
         values.put(FormsTable.COLUMN_SF1, form.sF1toString());
         values.put(FormsTable.COLUMN_SF2, form.sF2toString());
-        values.put(FormsTable.COLUMN_SF3, form.sF3toString());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -127,6 +130,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 FormsTable.TABLE_NAME,
                 FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public Long addFollowUps(FollowUp followUp) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(FollowUpTable.COLUMN_PROJECT_NAME, followUp.getProjectName());
+        values.put(FollowUpTable.COLUMN_UID, followUp.getUid());
+        values.put(FollowUpTable.COLUMN_ENUM_BLOCK, followUp.getEbCode());
+        values.put(FollowUpTable.COLUMN_HHID, followUp.getHhid());
+        values.put(FollowUpTable.COLUMN_SNO, followUp.getSno());
+        values.put(FollowUpTable.COLUMN_SYNCED, followUp.getSynced());
+        values.put(FollowUpTable.COLUMN_SYNCED_DATE, followUp.getSyncDate());
+        values.put(FollowUpTable.COLUMN_FORM_COMPLETE, followUp.getFormComplete());
+        values.put(FollowUpTable.COLUMN_USERNAME, followUp.getUserName());
+        values.put(FollowUpTable.COLUMN_SYSDATE, followUp.getSysDate());
+        values.put(FollowUpTable.COLUMN_ISTATUS, followUp.getiStatus());
+        values.put(FollowUpTable.COLUMN_DEVICETAGID, followUp.getDeviceTag());
+        values.put(FollowUpTable.COLUMN_DEVICEID, followUp.getDeviceId());
+        values.put(FollowUpTable.COLUMN_APPVERSION, followUp.getAppver());
+        values.put(FollowUpTable.COLUMN_SF3, followUp.sF3toString());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                FollowUpTable.TABLE_NAME,
+                FollowUpTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -170,6 +206,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesFollupColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = FollowUpTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.followup.getId())};
+
+        return db.update(FollowUpTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

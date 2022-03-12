@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.uen_kmc.ui.sections;
 
-import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.followup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +30,7 @@ public class SectionF3S6Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f3_s6);
-        bi.setForm(form);
+        bi.setForm(followup);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
@@ -40,7 +40,7 @@ public class SectionF3S6Activity extends AppCompatActivity {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SF3, form.sF3toString());
+            updcount = db.updatesFollupColumn(TableContracts.FollowUpTable.COLUMN_SF3, followup.sF3toString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
