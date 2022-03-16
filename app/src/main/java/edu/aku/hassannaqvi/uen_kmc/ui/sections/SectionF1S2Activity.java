@@ -14,6 +14,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import edu.aku.hassannaqvi.uen_kmc.MainActivity;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
@@ -62,9 +63,11 @@ public class SectionF1S2Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            if (form.getF1203().equals("2"))
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
-            else
+            if (form.getF1203().equals("2")) {
+//                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+                Toast.makeText(this, "Form saved successfully", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MainActivity.class));
+            } else
                 startActivity(new Intent(this, SectionF1S3Activity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
