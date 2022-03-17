@@ -16,7 +16,6 @@ import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.ui.ChangePasswordActivity;
-import edu.aku.hassannaqvi.uen_kmc.ui.FCIdentificationActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.WebViewActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF1S1Activity;
@@ -75,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.openFormCS:
-                MainApp.form = new Form();
+                /*MainApp.form = new Form();
                 startActivity(new Intent(this, FCIdentificationActivity.class));
-                break;
+                break;*/
             case R.id.seca1:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF1S1Activity.class));
