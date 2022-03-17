@@ -63,9 +63,23 @@
                                 android:text="@string/Q_f2date" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f2date" />
+
+                            <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                android:id="@+id/f2date"
+                                style="@style/textInput"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="YYYY-MM-DD"
+                                android:text="@={form.f2date}"
+                                app:dateFormat="yyyy-MM-dd"
+                                app:maxDate="CR_DATE"
+                                app:theme="@style/DatePickerStyle" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -94,9 +108,20 @@
                                 android:text="@string/Q_f2time" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f2time" />
+
+                            <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                                android:id="@+id/f2time"
+                                style="@style/textInput"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="HH:MM"
+                                android:text="@={form.f2time}" />
 
                         </LinearLayout>
                     </LinearLayout>

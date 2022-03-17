@@ -28,8 +28,8 @@ public class FollowUp extends BaseObservable implements Observable {
     private final String TAG = "Followup";
     private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     // FIELD VARIABLES
-    private final String f3date = _EMPTY_;
-    private final String f3time = _EMPTY_;
+    private String f3date = _EMPTY_;
+    private String f3time = _EMPTY_;
     // APP VARIABLES
     private String projectName = PROJECT_NAME;
     // APP VARIABLES
@@ -320,6 +320,26 @@ public class FollowUp extends BaseObservable implements Observable {
 
     public void setsF3(String sF3) {
         this.sF3 = sF3;
+    }
+
+    @Bindable
+    public String getF3date() {
+        return f3date;
+    }
+
+    public void setF3date(String f3date) {
+        this.f3date = f3date;
+        notifyPropertyChanged(BR.f3date);
+    }
+
+    @Bindable
+    public String getF3time() {
+        return f3time;
+    }
+
+    public void setF3time(String f3time) {
+        this.f3time = f3time;
+        notifyPropertyChanged(BR.f3time);
     }
 
 
@@ -1296,6 +1316,8 @@ public class FollowUp extends BaseObservable implements Observable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.f3date = json.getString("f3date");
+            this.f3time = json.getString("f3time");
             this.f3101 = json.getString("f3101");
             this.f3102 = json.getString("f3102");
             this.f3103 = json.getString("f3103");
@@ -1384,7 +1406,9 @@ public class FollowUp extends BaseObservable implements Observable {
     public String sF3toString() throws JSONException {
         Log.d(TAG, "sF3toString: ");
         JSONObject json = new JSONObject();
-        json.put("f3101", f3101)
+        json.put("f3date", f3date)
+                .put("f3time", f3time)
+                .put("f3101", f3101)
                 .put("f3102", f3102)
                 .put("f3103", f3103)
                 .put("f3104", f3104)

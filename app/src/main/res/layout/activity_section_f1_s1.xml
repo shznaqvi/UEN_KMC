@@ -63,9 +63,23 @@
                                 android:text="@string/Q_f1101" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f1101" />
+
+                            <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                                android:id="@+id/f1101"
+                                style="@style/textInput"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="YYYY-MM-DD"
+                                android:text="@={form.f1101}"
+                                app:dateFormat="yyyy-MM-dd"
+                                app:maxDate="CR_DATE"
+                                app:theme="@style/DatePickerStyle" />
 
                         </LinearLayout>
                     </LinearLayout>

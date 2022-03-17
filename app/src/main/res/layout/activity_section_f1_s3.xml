@@ -243,6 +243,18 @@
                                 android:text="@string/f1303" />
 
                         </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
+                            android:id="@+id/f1303"
+                            style="@style/textInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:hint="YYYY-MM-DD"
+                            android:text="@={form.f1303}"
+                            app:dateFormat="yyyy-MM-dd"
+                            app:maxDate="CR_DATE"
+                            app:theme="@style/DatePickerStyle" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -274,6 +286,15 @@
                                 android:text="@string/f1304" />
 
                         </LinearLayout>
+
+                        <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
+                            android:id="@+id/f1304"
+                            style="@style/textInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:hint="HH:MM"
+                            android:text="@={form.f1304}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
