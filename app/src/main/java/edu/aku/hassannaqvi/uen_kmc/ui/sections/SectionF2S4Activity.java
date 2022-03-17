@@ -63,8 +63,11 @@ public class SectionF2S4Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
+            {
 //            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
+                Toast.makeText(this, "Form saved successfully", Toast.LENGTH_SHORT).show();
+            }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 

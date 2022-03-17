@@ -57,11 +57,14 @@ public class MainActivity extends AppCompatActivity {
     public void sectionPress(View view) {
 
         switch (view.getId()) {
-            case R.id.openForm:
+            case R.id.openFormCS:
                 MainApp.idType = 1;
                 break;
-            case R.id.openFollowUp:
+            case R.id.openFormDIS:
                 MainApp.idType = 2;
+                break;
+            case R.id.openFollowUp:
+                MainApp.idType = 3;
                 break;
             default:
                 MainApp.idType = 0;
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
-            case R.id.openForm:
+            case R.id.openFormCS:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, FCIdentificationActivity.class));
                 break;
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF1S5Activity.class));
                 break;
-            case R.id.seca6:
+            case R.id.openFormDIS:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionF2S1Activity.class));
                 break;
