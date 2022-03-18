@@ -16,7 +16,6 @@ import com.validatorcrawler.aliazaz.Validator;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.uen_kmc.MainActivity;
@@ -32,12 +31,12 @@ public class FCIdentificationActivity extends AppCompatActivity {
     private static final String TAG = "LhwIdentificationActivi";
     ActivityFcIdentificationBinding bi;
     private DatabaseHelper db;
-    private ArrayList<String> distNames;
-    private ArrayList<String> distCodes;
     private ArrayList<String> tehsilNames;
     private ArrayList<String> tehsilCodes;
     private ArrayList<String> healthFacilityNames;
     private ArrayList<String> healthFacilityCodes;
+    private ArrayList<String> ucNames;
+    private ArrayList<String> ucCodes;
 
 
     @Override
@@ -56,63 +55,64 @@ public class FCIdentificationActivity extends AppCompatActivity {
 
     private void populateSpinner() {
 
-        Collection<Districts> districts = db.getAllDistricts();
-        distNames = new ArrayList<>();
-        distCodes = new ArrayList<>();
+        Collection<Tehsil> tehsils = db.getTehsilByDist(MainApp.user.getDist_id());
+        tehsilNames = new ArrayList<>();
+        tehsilCodes = new ArrayList<>();
 
-        distNames.add("...");
-        distCodes.add("...");
+        tehsilNames.add("...");
+        tehsilCodes.add("...");
 
-        for (Districts d : districts) {
-            distNames.add(d.getDistrictName());
-            distCodes.add(d.getDistrictCode());
+        for (Tehsil t : tehsils) {
+            tehsilNames.add(t.getTehsilName());
+            tehsilCodes.add(t.getTehsilCode());
         }
         if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
-            distNames.add("Test Dist 9");
-            distNames.add("Test Dist 8");
-            distNames.add("Test Dist 7");
-            distCodes.add("9");
-            distCodes.add("8");
-            distCodes.add("7");
+            tehsilNames.add("Test Tehsil 9");
+            tehsilNames.add("Test Tehsil 8");
+            tehsilNames.add("Test Tehsil 7");
+            tehsilCodes.add("9");
+            tehsilCodes.add("8");
+            tehsilCodes.add("7");
         }
 
         // Apply the adapter to the spinner
-        bi.f3109.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, distNames));
+        bi.f1104.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, tehsilNames));
 
 
-        bi.f3109.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.f1104.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                bi.f1111.setAdapter(null);
                 bi.f1103.setAdapter(null);
+                bi.f1105.setAdapter(null);
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
                 //  bi.checkHousehold.setBackgroundTintList(ContextCompat.getColorStateList(IdentificationActivity.this, R.color.colorAccent));
                 //  bi.checkHousehold.setEnabled(true);
 
                 if (position == 0) return;
-                Collection<Tehsil> tehsil = db.getTehsilByDist(distCodes.get(position));
-                tehsilNames = new ArrayList<>();
-                tehsilCodes = new ArrayList<>();
-                tehsilNames.add("...");
-                tehsilCodes.add("...");
+                Collection<HealthFacilities> healthFacilities = db.getHealthFacilityByDist(tehsilCodes.get(position));
+                healthFacilityNames = new ArrayList<>();
+                healthFacilityCodes = new ArrayList<>();
+                healthFacilityNames.add("...");
+                healthFacilityCodes.add("...");
 
-                for (Tehsil v : tehsil) {
-                    tehsilNames.add(v.getTehsilName());
-                    tehsilCodes.add(v.getTehsilCode());
+                for (HealthFacilities v : healthFacilities) {
+                    healthFacilityNames.add(v.getHfName());
+                    healthFacilityCodes.add(v.getHfCode());
                 }
                 if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
 
-                    tehsilNames.add("Test Tehsil 1 " + distNames.get(position));
-                    tehsilNames.add("Test Tehsil 2 " + distNames.get(position));
-                    tehsilNames.add("Test Tehsil 3 " + distNames.get(position));
-                    tehsilCodes.add(distCodes.get(position) + "001");
-                    tehsilCodes.add(distCodes.get(position) + "002");
-                    tehsilCodes.add(distCodes.get(position) + "003");
+                    healthFacilityNames.add("Test HealthFacility 1 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test HealthFacility 2 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test HealthFacility 3 " + tehsilNames.get(position));
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "001");
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "002");
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "003");
                 }
+
                 // Apply the adapter to the spinner
-                bi.f1111.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, tehsilNames));
+                bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
 
 
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
@@ -121,7 +121,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 //  bi.checkHousehold.setEnabled(true);
 
                 if (position == 0) return;
-                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByDist(distCodes.get(position));
+                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByDist(tehsilCodes.get(position));
                 healthFacilityNames = new ArrayList<>();
                 healthFacilityCodes = new ArrayList<>();
                 healthFacilityNames.add("...");
@@ -133,15 +133,15 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 }
                 if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
 
-                    healthFacilityNames.add("Test HealthFacility 1 " + distNames.get(position));
-                    healthFacilityNames.add("Test HealthFacility 2 " + distNames.get(position));
-                    healthFacilityNames.add("Test HealthFacility 3 " + distNames.get(position));
-                    healthFacilityCodes.add(distCodes.get(position) + "001");
-                    healthFacilityCodes.add(distCodes.get(position) + "002");
-                    healthFacilityCodes.add(distCodes.get(position) + "003");
+                    healthFacilityNames.add("Test UC 1 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test UC 2 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test UC 3 " + tehsilNames.get(position));
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "001");
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "002");
+                    healthFacilityCodes.add(tehsilCodes.get(position) + "003");
                 }
                 // Apply the adapter to the spinner
-                bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
+                bi.f1105.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
 
             }
 
@@ -152,7 +152,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         });
 
 
-        bi.f1111.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.f1105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -238,9 +238,12 @@ public class FCIdentificationActivity extends AppCompatActivity {
         MainApp.form.setDeviceId(MainApp.deviceid);
         MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);*/
 
-//        MainApp.form.setF3109(distNames.get(bi.f3109.getSelectedItemPosition()));
-        MainApp.form.setF1111(tehsilNames.get(bi.f1111.getSelectedItemPosition()));
+        MainApp.form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
+        MainApp.form.setF1105(tehsilNames.get(bi.f1105.getSelectedItemPosition()));
         MainApp.form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+        MainApp.form.setF1102(bi.f110201.isChecked() ? "1"
+                : bi.f110202.isChecked() ? "2"
+                : "-1");
 
     }
 

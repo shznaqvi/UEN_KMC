@@ -86,7 +86,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- f1102  Radio   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1102"
                     style="@style/cardView">
 
@@ -139,10 +139,10 @@
                                 android:text="@string/f110202" />
                         </RadioGroup>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- f1104  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1104"
                     style="@style/cardView">
 
@@ -178,7 +178,7 @@
                             android:hint="@string/f1104"
                             android:text="@={form.f1104}" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- f1105  Input   -->
                 <androidx.cardview.widget.CardView

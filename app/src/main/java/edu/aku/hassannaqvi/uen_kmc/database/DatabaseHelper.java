@@ -1146,6 +1146,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /*public Collection<UC> getUcByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableTehsil.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableTehsil.COLUMN_ID + " ASC";
+
+        List<Tehsil> tehsils = new ArrayList<>();
+
+        c = db.query(
+                TableTehsil.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            tehsils.add(new Tehsil().hydrate(c));
+
+
+        }
+
+        db.close();
+
+        return tehsils;
+    }*/
+
+
     public void updateSyncedEntryLog(String id) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         ContentValues values = new ContentValues();

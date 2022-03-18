@@ -65,29 +65,29 @@
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/Q_f3109" />
+                            android:text="@string/Q_f1104" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="@string/f3109" />
+                            android:text="@string/f1104" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/f3109"
+                            android:id="@+id/f1104"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
-                            android:hint="@string/f3109" />
+                            android:hint="@string/f1104" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- f1111  Spinner   -->
+                <!-- f1103  Spinner   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf1111"
+                    android:id="@+id/fldGrpCVf1103"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -100,29 +100,29 @@
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/Q_f1111" />
+                            android:text="@string/Q_f1103" />
 
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="@string/f1111" />
+                            android:text="@string/f1103" />
 
                         <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/f1111"
+                            android:id="@+id/f1103"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
-                            android:hint="@string/f1111" />
+                            android:hint="@string/f1103" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
-                <!-- f1103  Spinner   -->
+                <!-- f1105  Spinner   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf1103"
+                    android:id="@+id/fldGrpCVf1105"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -140,25 +140,81 @@
                                 style="@style/quesNum"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/Q_f1103" />
+                                android:text="@string/Q_f1105" />
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:text="@string/f1103" />
+                                android:text="@string/f1105" />
 
                             <androidx.appcompat.widget.AppCompatSpinner
-                                android:id="@+id/f1103"
+                                android:id="@+id/f1105"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="2"
-                                android:hint="@string/f1103" />
+                                android:hint="@string/f1105" />
 
                         </LinearLayout>
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
+
+                <!-- f1102  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf1102"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_f1102" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/f1102" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/f1102"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/f110201"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.f1102.equals(`1`)}"
+                                android:onClick="@{()->form.setF1102(`1`)}"
+                                android:text="@string/f110201" />
+
+                            <RadioButton
+                                android:id="@+id/f110202"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:checked="@{form.f1102.equals(`2`)}"
+                                android:onClick="@{()->form.setF1102(`2`)}"
+                                android:text="@string/f110202" />
+                        </RadioGroup>
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
 
