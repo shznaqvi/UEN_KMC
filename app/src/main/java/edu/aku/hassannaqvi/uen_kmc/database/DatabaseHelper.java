@@ -134,6 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+
     public Long addFollowUps(FollowUp followUp) throws JSONException {
 
         // Gets the data repository in write mode
@@ -210,6 +211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
     }
+
 
     public int updatesFollupColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
@@ -434,26 +436,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /*public int updateTemp(String assessNo, String temp) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(FormsTable.COLUMN_TSF305, temp);
-        values.put(FormsTable.COLUMN_SYSDATE, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()) + "-Updated");
-        values.put(FormsTable.COLUMN_ISTATUS, "1");
-        values.put(FormsTable.COLUMN_SYNCED, (byte[]) null);
-
-        String selection = FormsTable.COLUMN_ASSESMENT_NO + " =? AND " + FormsTable.COLUMN_ISTATUS + " =? ";
-        // String selection = FormsTable.COLUMN_ASSESMENT_NO + " =? ";
-        String[] selectionArgs = {assessNo, "9"};
-        // String[] selectionArgs = {assessNo};
-
-        return db.update(FormsTable.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-    }*/
-
 
     public int syncVersionApp(JSONObject VersionList) {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
@@ -597,65 +579,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return insertCount;
     }
 
-   /* public int syncClusters(JSONArray clusterList) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(EnumBlocksTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < clusterList.length(); i++) {
-
-                JSONObject json = clusterList.getJSONObject(i);
-
-                EnumBlocks cluster = new EnumBlocks();
-                cluster.sync(json);
-                ContentValues values = new ContentValues();
-
-                values.put(EnumBlocksTable.COLUMN_DISTRICT_NAME, cluster.getDistrictName());
-                values.put(EnumBlocksTable.COLUMN_TEHSIL_NAME, cluster.getTehsilName());
-                values.put(EnumBlocksTable.COLUMN_ENUM_BLOCK_CODE, cluster.getEnumBlock());
-                long rowID = db.insert(EnumBlocksTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncClusters(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-
-    public int syncRandom(JSONArray list) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(RandomTable.TABLE_NAME, null, null);
-        int insertCount = 0;
-        try {
-            for (int i = 0; i < list.length(); i++) {
-
-                JSONObject json = list.getJSONObject(i);
-
-                RandomHH ran = new RandomHH();
-                ran.sync(json);
-                ContentValues values = new ContentValues();
-                values.put(RandomTable.COLUMN_ID, ran.getID());
-                values.put(RandomTable.COLUMN_SNO, ran.getSno());
-                values.put(RandomTable.COLUMN_ENUM_BLOCK_CODE, ran.getEbcode());
-                values.put(RandomTable.COLUMN_HH_NO, ran.getHhno());
-                values.put(RandomTable.COLUMN_HEAD_HH, ran.getHeadhh());
-                long rowID = db.insert(RandomTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncRandom(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
-        return insertCount;
-    }
-*/
 
     //get UnSyncedTables
     public JSONArray getUnsyncedForms() throws JSONException {
@@ -665,8 +588,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         //whereClause = null;
-        whereClause = FormsTable.COLUMN_SYNCED + " = '' AND " +
-                FormsTable.COLUMN_ISTATUS + "!= ''";
+        whereClause = FormsTable.COLUMN_SYNCED + " = '' ";
 
         String[] whereArgs = null;
 
@@ -704,6 +626,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public JSONArray getUnsyncedFollowup() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = FollowUpTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowUpTable.COLUMN_ID + " ASC";
+
+        JSONArray allFollowup = new JSONArray();
+        c = db.query(
+                FollowUpTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedFollowups: " + c.getCount());
+            FollowUp followUp = new FollowUp().Hydrate(c);
+            allFollowup.put(followUp.toJSONObject());
+
+
+        }
+        c.close();
+        db.close();
+
+        Log.d(TAG, "getUnsyncedFollowups: " + allFollowup.toString().length());
+        Log.d(TAG, "getUnsyncedFollowups: " + allFollowup);
+        return allFollowup;
+    }
+
+
     public JSONArray getUnsyncedEntryLog() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
@@ -737,7 +704,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //update SyncedTables
-    public void updateSyncedforms(String id) {
+    public void updateSyncedformskmc(String id) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
 // New value for one column
@@ -751,6 +718,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedfollowup(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FollowUpTable.COLUMN_SYNCED, true);
+        values.put(FollowUpTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FollowUpTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FollowUpTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

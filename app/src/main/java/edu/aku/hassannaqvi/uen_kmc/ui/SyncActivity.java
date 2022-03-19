@@ -48,6 +48,7 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.adapters.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowUpTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableDistricts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilities;
@@ -154,6 +155,15 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
                 try {
                     MainApp.uploadData.add(db.getUnsyncedForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // FollowUP
+                uploadTables.add(new SyncModel(FollowUpTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedFollowup());
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
