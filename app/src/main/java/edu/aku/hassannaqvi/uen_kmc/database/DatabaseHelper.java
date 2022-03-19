@@ -724,7 +724,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedfollowup(String id) {
+    public void updateSyncedfollowUps(String id) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
 // New value for one column
