@@ -58,7 +58,6 @@ public class FCIdentificationActivity extends AppCompatActivity {
         Collection<Tehsil> tehsils = db.getTehsilByDist(MainApp.user.getDist_id());
         tehsilNames = new ArrayList<>();
         tehsilCodes = new ArrayList<>();
-
         tehsilNames.add("...");
         tehsilCodes.add("...");
 
@@ -84,44 +83,12 @@ public class FCIdentificationActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 bi.f1103.setAdapter(null);
-                bi.f1105.setAdapter(null);
+//                bi.f1105.setAdapter(null);
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
-                //  bi.checkHousehold.setBackgroundTintList(ContextCompat.getColorStateList(IdentificationActivity.this, R.color.colorAccent));
-                //  bi.checkHousehold.setEnabled(true);
 
                 if (position == 0) return;
-                Collection<HealthFacilities> healthFacilities = db.getHealthFacilityByDist(tehsilCodes.get(position));
-                healthFacilityNames = new ArrayList<>();
-                healthFacilityCodes = new ArrayList<>();
-                healthFacilityNames.add("...");
-                healthFacilityCodes.add("...");
-
-                for (HealthFacilities v : healthFacilities) {
-                    healthFacilityNames.add(v.getHfName());
-                    healthFacilityCodes.add(v.getHfCode());
-                }
-                if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
-
-                    healthFacilityNames.add("Test HealthFacility 1 " + tehsilNames.get(position));
-                    healthFacilityNames.add("Test HealthFacility 2 " + tehsilNames.get(position));
-                    healthFacilityNames.add("Test HealthFacility 3 " + tehsilNames.get(position));
-                    healthFacilityCodes.add(tehsilCodes.get(position) + "001");
-                    healthFacilityCodes.add(tehsilCodes.get(position) + "002");
-                    healthFacilityCodes.add(tehsilCodes.get(position) + "003");
-                }
-
-                // Apply the adapter to the spinner
-                bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
-
-
-                bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
-                bi.btnContinue.setEnabled(false);
-                //  bi.checkHousehold.setBackgroundTintList(ContextCompat.getColorStateList(IdentificationActivity.this, R.color.colorAccent));
-                //  bi.checkHousehold.setEnabled(true);
-
-                if (position == 0) return;
-                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByDist(tehsilCodes.get(position));
+                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByTehsil(tehsilCodes.get(position));
                 healthFacilityNames = new ArrayList<>();
                 healthFacilityCodes = new ArrayList<>();
                 healthFacilityNames.add("...");
@@ -141,7 +108,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                     healthFacilityCodes.add(tehsilCodes.get(position) + "003");
                 }
                 // Apply the adapter to the spinner
-                bi.f1105.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
+                bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
 
             }
 
@@ -152,7 +119,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         });
 
 
-        bi.f1105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+/*        bi.f1105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -162,7 +129,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
 
-        });
+        });*/
 
 
         bi.f1103.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -191,7 +158,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         if (!formValidation()) return;
         MainApp.form.populateMeta();
 //        if (!hhExists())
-        saveDraftLHWForm();
+        saveDraft();
         if (!MainApp.form.getSynced().equals("")) {
             Toast.makeText(this, getString(R.string.lhw_locked), Toast.LENGTH_SHORT).show();
         } else {
@@ -231,16 +198,17 @@ public class FCIdentificationActivity extends AppCompatActivity {
         return MainApp.form != null;
     }*/
 
-    private void saveDraftLHWForm() {
+    private void saveDraft() {
         MainApp.form = new Form();
 /*        MainApp.form.setUserName(MainApp.user.getUserName());
         MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.form.setDeviceId(MainApp.deviceid);
         MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);*/
 
+//        MainApp.form.setF1105(tehsilNames.get(bi.f1105.getSelectedItemPosition()));
         MainApp.form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
-        MainApp.form.setF1105(tehsilNames.get(bi.f1105.getSelectedItemPosition()));
-        MainApp.form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+//        MainApp.form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+        MainApp.form.setF1103(bi.f1103.getSelectedItem().toString());
         MainApp.form.setF1102(bi.f110201.isChecked() ? "1"
                 : bi.f110202.isChecked() ? "2"
                 : "-1");

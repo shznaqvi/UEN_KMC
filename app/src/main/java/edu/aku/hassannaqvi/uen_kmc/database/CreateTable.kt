@@ -122,7 +122,7 @@ object CreateTable {
             + TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
             + TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
-            + TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
+            + TableHealthFacilities.COLUMN_TEHSIL_ID + " TEXT"
             + " );")
 
     const val SQL_CREATE_TEHSIL = ("CREATE TABLE " + TableTehsil.TABLE_NAME + "("

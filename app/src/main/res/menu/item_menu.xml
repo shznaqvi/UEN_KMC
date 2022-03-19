@@ -7,7 +7,10 @@
         android:title="@string/options"
         app:showAsAction="always">
         <menu>
-
+            <item
+                android:id="@+id/onSync"
+                android:title="Sync Data"
+                app:showAsAction="collapseActionView" />
             <item
                 android:id="@+id/action_database"
                 android:title="@string/action_database" />
@@ -18,10 +21,6 @@
             <item
                 android:id="@+id/changePassword"
                 android:title="Change Password" />
-            <item
-                android:id="@+id/onSync"
-                android:title="Sync Data"
-                app:showAsAction="collapseActionView" />
 
             <item
                 android:id="@+id/checkPendingForms"

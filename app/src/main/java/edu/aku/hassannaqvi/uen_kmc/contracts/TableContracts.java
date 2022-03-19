@@ -141,7 +141,7 @@ public class TableContracts {
         public static final String TABLE_NAME = "HealthFacility";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String COLUMN_ID = "_ID";
-        public static final String COLUMN_DIST_ID = "dist_id";
+        public static final String COLUMN_TEHSIL_ID = "tehsil_id";
         public static final String COLUMN_HF_CODE = "hfcode";
         public static final String COLUMN_HF_NAME = "hf_name";
     }

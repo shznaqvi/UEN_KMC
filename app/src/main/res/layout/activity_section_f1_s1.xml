@@ -259,7 +259,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- f1103  Input   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1103"
                     style="@style/cardView"
                     android:visibility="@{form.f1102.equals(`1`) ? View.VISIBLE : View.GONE}">
@@ -296,7 +296,7 @@
                             android:hint="@string/f1103"
                             android:text="@={form.f1103}" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
                 <!-- f1107  Input   -->
                 <androidx.cardview.widget.CardView
