@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 public class TableContracts {
 
     public static abstract class FormsTable implements BaseColumns {
-        public static final String TABLE_NAME = "formskmc";
+        public static final String TABLE_NAME = "forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -17,7 +17,6 @@ public class TableContracts {
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_SF1 = "sF1";
         public static final String COLUMN_SF2 = "sF2";
-
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "devicetagid";
         public static final String COLUMN_SYNCED = "synced";
