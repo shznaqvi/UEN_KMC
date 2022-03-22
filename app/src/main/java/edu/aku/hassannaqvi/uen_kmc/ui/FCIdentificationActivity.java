@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.uen_kmc.ui;
 
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -100,9 +102,9 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 }
                 if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
 
-                    healthFacilityNames.add("Test UC 1 " + tehsilNames.get(position));
-                    healthFacilityNames.add("Test UC 2 " + tehsilNames.get(position));
-                    healthFacilityNames.add("Test UC 3 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test Facility 1 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test Facility 2 " + tehsilNames.get(position));
+                    healthFacilityNames.add("Test Facility 3 " + tehsilNames.get(position));
                     healthFacilityCodes.add(tehsilCodes.get(position) + "001");
                     healthFacilityCodes.add(tehsilCodes.get(position) + "002");
                     healthFacilityCodes.add(tehsilCodes.get(position) + "003");
@@ -117,19 +119,6 @@ public class FCIdentificationActivity extends AppCompatActivity {
             }
 
         });
-
-
-/*        bi.f1105.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-
-        });*/
 
 
         bi.f1103.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -156,10 +145,10 @@ public class FCIdentificationActivity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        MainApp.form.populateMeta();
+        form.populateMeta();
 //        if (!hhExists())
         saveDraft();
-        if (!MainApp.form.getSynced().equals("")) {
+        if (!form.getSynced().equals("")) {
             Toast.makeText(this, getString(R.string.lhw_locked), Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, SectionF1S1Activity.class));
@@ -180,38 +169,17 @@ public class FCIdentificationActivity extends AppCompatActivity {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
-/*    @Override
-    public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-        setResult(RESULT_CANCELED);
-    }*/
-
-/*    private boolean hhExists() {
-        MainApp.form = new Form();
-        try {
-            MainApp.form = db.getLHWFormByLHWCode(lhwCodes.get(bi.a104.getSelectedItemPosition()));
-
-        } catch (JSONException e) {
-            Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
-            Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-        return MainApp.form != null;
-    }*/
 
     private void saveDraft() {
-        MainApp.form = new Form();
-/*        MainApp.form.setUserName(MainApp.user.getUserName());
-        MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        MainApp.form.setDeviceId(MainApp.deviceid);
-        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);*/
+        form = new Form();
 
-//        MainApp.form.setF1105(tehsilNames.get(bi.f1105.getSelectedItemPosition()));
-        MainApp.form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
-//        MainApp.form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
-        MainApp.form.setF1103(bi.f1103.getSelectedItem().toString());
-        MainApp.form.setF1102(bi.f110201.isChecked() ? "1"
+        form.setF1101(bi.f1101.getText().toString());
+        form.setF1102(bi.f110201.isChecked() ? "1"
                 : bi.f110202.isChecked() ? "2"
                 : "-1");
+        form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+        form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
+        form.setF1105(bi.f1105.getText().toString());
 
     }
 
