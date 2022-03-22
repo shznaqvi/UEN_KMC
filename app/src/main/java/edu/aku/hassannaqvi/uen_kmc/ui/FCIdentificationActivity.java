@@ -10,9 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import java.util.ArrayList;
@@ -50,8 +50,15 @@ public class FCIdentificationActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_fc_identification);
         bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
+        setupSkips();
 
         populateSpinner();
+
+    }
+
+    private void setupSkips() {
+
+        bi.f110201.setOnCheckedChangeListener((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVf1103));
 
     }
 
@@ -67,6 +74,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
             tehsilNames.add(t.getTehsilName());
             tehsilCodes.add(t.getTehsilCode());
         }
+
         if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
             tehsilNames.add("Test Tehsil 9");
             tehsilNames.add("Test Tehsil 8");
@@ -84,10 +92,16 @@ public class FCIdentificationActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                bi.f1103.setAdapter(null);
-//                bi.f1105.setAdapter(null);
-                bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
-                bi.btnContinue.setEnabled(false);
+//                bi.f1103.setAdapter(null);
+/*
+                if (bi.f110202.isChecked()) {
+                    bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
+                    bi.btnContinue.setEnabled(false);
+                } else {
+                    bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.colorAccent));
+                    bi.btnContinue.setEnabled(true);
+                }
+*/
 
                 if (position == 0) return;
                 Collection<HealthFacilities> healthFacility = db.getHealthFacilityByTehsil(tehsilCodes.get(position));
@@ -125,7 +139,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if (position != 0) {
+/*                if (position != 0) {
 
                     bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.colorAccent));
                     bi.btnContinue.setEnabled(true);
@@ -133,7 +147,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 } else {
                     bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.gray));
                     bi.btnContinue.setEnabled(false);
-                }
+                }*/
             }
 
             @Override
@@ -179,7 +193,6 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 : "-1");
         form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
         form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
-        form.setF1105(bi.f1105.getText().toString());
 
     }
 
