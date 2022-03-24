@@ -7,6 +7,7 @@ import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRI
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FOLLOWUPS;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FOLLOWUPS_SCHE;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_LHW_HF;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_TEHSIL;
@@ -39,8 +40,10 @@ import java.util.List;
 import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowUpTable;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowupsScheTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableDistricts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilities;
@@ -50,6 +53,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.models.EntryLog;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
+import edu.aku.hassannaqvi.uen_kmc.models.FollowUpsSche;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.models.Users;
 import edu.aku.hassannaqvi.uen_kmc.models.VersionApp;
@@ -87,6 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TEHSIL);
         db.execSQL(SQL_CREATE_LHW_HF);
         db.execSQL(SQL_CREATE_ENTRYLOGS);
+        db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
 
     }
 
@@ -109,6 +114,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_PROJECT_NAME, form.getProjectName());
         values.put(FormsTable.COLUMN_UID, form.getUid());
+        values.put(FormsTable.COLUMN_UUID, form.getUuid());
         values.put(FormsTable.COLUMN_ENUM_BLOCK, form.getEbCode());
         values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_SNO, form.getSno());
@@ -1162,6 +1168,158 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values,
                 selection,
                 selectionArgs);
+    }
+
+    public int updatesFollowupsScheColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.FollowupsScheTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.followupsSche.getId())};
+
+        return db.update(TableContracts.FollowupsScheTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public List<FollowUpsSche> getAllFollowUpsSche() throws JSONException {
+
+        // String sysdate =  spDateT.substring(0, 8).trim()
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = null;
+        String[] whereArgs = null;
+//        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.FollowupsScheTable.COLUMN_FP_DATE + " ASC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                TableContracts.FollowupsScheTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
+
+
+    public List<FollowUpsSche> getFollowUpsScheByMemberID(String memberid) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+        String whereClause;
+        whereClause = FormsTable.COLUMN_UUID + "=? ";
+        String[] whereArgs = {MainApp.form.getUid()};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FormsTable.COLUMN_ID + " DESC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
+
+    public List<FollowUpsSche> getFollowUpsScheByRound(int round) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause = FollowupsScheTable.COLUMN_FP_CODE + " = ? ";
+        String[] whereArgs = {String.valueOf(round)};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FollowupsScheTable.COLUMN_FP_DATE + " ASC";
+
+        List<FollowUpsSche> allFollowupsSche = new ArrayList<>();
+        c = db.query(
+                FollowupsScheTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            allFollowupsSche.add(new FollowUpsSche().Hydrate(c));
+        }
+
+        c.close();
+
+        db.close();
+
+        return allFollowupsSche;
+    }
+
+
+    public Form getMwraByUUid() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = FormsTable.COLUMN_UUID + "=? ";
+
+        String[] whereArgs = {MainApp.form.getUid()};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+
+        Form form = null;
+
+        c = db.query(
+                FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            form = new Form().Hydrate(c);
+        }
+
+        db.close();
+
+        return form;
     }
 
 /*

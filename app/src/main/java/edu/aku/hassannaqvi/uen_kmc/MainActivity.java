@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.uen_kmc.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.FCIdentificationActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.SyncActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.WebViewActivity;
+import edu.aku.hassannaqvi.uen_kmc.ui.lists.FollowUpsListActivity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF1S1Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF1S2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF1S3Activity;
@@ -28,7 +29,6 @@ import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2S1Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2S2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2S3Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2S4Activity;
-import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S1Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S2Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S3Activity;
 import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF3S4Activity;
@@ -116,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.openFollowUp:
                 MainApp.followup = new FollowUp();
-                startActivity(new Intent(this, SectionF3S1Activity.class));
+//                startActivity(new Intent(this, SectionF3S1Activity.class));
+                startActivity(new Intent(this, FollowUpsListActivity.class));
                 break;
             case R.id.secb5:
                 MainApp.followup = new FollowUp();

@@ -24,6 +24,7 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.uen_kmc.BuildConfig;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
+import edu.aku.hassannaqvi.uen_kmc.models.FollowUpsSche;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
 import edu.aku.hassannaqvi.uen_kmc.models.Users;
 
@@ -56,6 +57,11 @@ public class MainApp extends Application {
     public static Form form;
     public static FollowUp followup;
     public static int entryType = 0;
+    public static FollowUpsSche followupsSche;
+    public static int position = 0;
+    public static List<FollowUpsSche> fupsSche;
+
+
 /*
     public static FamilyMembers familyMember;
 */

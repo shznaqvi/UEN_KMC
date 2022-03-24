@@ -14,6 +14,7 @@ object CreateTable {
             + FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsTable.COLUMN_UID + " TEXT,"
+            + FormsTable.COLUMN_UUID + " TEXT,"
             + FormsTable.COLUMN_ENUM_BLOCK + " TEXT,"
             + FormsTable.COLUMN_HHID + " TEXT,"
             + FormsTable.COLUMN_SNO + " TEXT,"
@@ -138,5 +139,25 @@ object CreateTable {
             + TableDistricts.COLUMN_DISTRICT_CODE + " TEXT"
             + " );")
 
+    const val SQL_CREATE_FOLLOWUPS_SCHE = ("CREATE TABLE "
+            + FollowupsScheTable.TABLE_NAME + "("
+            + FollowupsScheTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + FollowupsScheTable.COLUMN_FORM_COLID + " TEXT,"
+            + FollowupsScheTable.COLUMN_MEMBER_ID + " TEXT,"
+            + FollowupsScheTable.COLUMN_FP_CODE + " TEXT,"
+            + FollowupsScheTable.COLUMN_FP_ID + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1101 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1102 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1103 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1104 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1105 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1109 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1111 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1112 + " TEXT,"
+            + FollowupsScheTable.COLUMN_F1113 + " TEXT,"
+            + FollowupsScheTable.COLUMN_FP_DONE + " TEXT,"
+            + FollowupsScheTable.COLUMN_FP_DATE + " TEXT"
+            + " );"
+            )
 
 }

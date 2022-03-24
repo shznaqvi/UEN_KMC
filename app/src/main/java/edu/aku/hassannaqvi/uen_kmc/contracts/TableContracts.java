@@ -10,6 +10,7 @@ public class TableContracts {
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_ENUM_BLOCK = "ebCode";
         public static final String COLUMN_HHID = "hhid";
         public static final String COLUMN_SNO = "sno";
@@ -143,5 +144,28 @@ public class TableContracts {
         public static final String COLUMN_TEHSIL_ID = "tehsil_id";
         public static final String COLUMN_HF_CODE = "hfcode";
         public static final String COLUMN_HF_NAME = "hf_name";
+    }
+
+    public static abstract class FollowupsScheTable implements BaseColumns {
+        public static final String TABLE_NAME = "followups_sche";
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String COLUMN_PROJECT_NAME = "projectName";
+        public static final String COLUMN_ID = "id";
+        public static final String COLUMN_FORM_COLID = "form_colid";
+        public static final String COLUMN_MEMBER_ID = "memberid";
+        public static final String COLUMN_FP_CODE = "fpcode";
+        public static final String COLUMN_FP_ID = "fpid";
+        public static final String COLUMN_F1101 = "f1101";
+        public static final String COLUMN_F1102 = "f1102";
+        public static final String COLUMN_F1103 = "f1103";
+        public static final String COLUMN_F1104 = "f1104";
+        public static final String COLUMN_F1105 = "f1105";
+        public static final String COLUMN_F1109 = "f1109";
+        public static final String COLUMN_F1111 = "f1111";
+        public static final String COLUMN_F1112 = "f1112";
+        public static final String COLUMN_F1113 = "f1113";
+        public static final String COLUMN_FP_DATE = "fp_date";
+        public static final String COLUMN_FP_DONE = "fupdonedt";
+
     }
 }
