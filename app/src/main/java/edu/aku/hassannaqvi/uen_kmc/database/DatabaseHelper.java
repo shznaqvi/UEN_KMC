@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.uen_kmc.database;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISC_FORMS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
@@ -92,6 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_LHW_HF);
         db.execSQL(SQL_CREATE_ENTRYLOGS);
         db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
+        db.execSQL(SQL_CREATE_DISC_FORMS);
 
     }
 
@@ -1320,6 +1322,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return form;
+    }
+
+    public List<Form> getAllForms() {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        List<Form> allForm = new ArrayList<>();
+
+        c = db.query(
+                TableContracts.FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            try {
+                Form form = new Form().Hydrate(c);
+                if (form.getF1201().equals("1"))
+                    allForm.add(form);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        c.close();
+        db.close();
+        return allForm;
     }
 
 /*

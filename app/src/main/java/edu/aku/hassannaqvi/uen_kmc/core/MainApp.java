@@ -23,6 +23,7 @@ import java.io.File;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_kmc.BuildConfig;
+import edu.aku.hassannaqvi.uen_kmc.models.DISCForm;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUpsSche;
 import edu.aku.hassannaqvi.uen_kmc.models.Form;
@@ -60,6 +61,9 @@ public class MainApp extends Application {
     public static FollowUpsSche followupsSche;
     public static int position = 0;
     public static List<FollowUpsSche> fupsSche;
+    public static boolean fmComplete;
+    public static DISCForm discform;
+    public static int selectedMothers;
 
 
 /*

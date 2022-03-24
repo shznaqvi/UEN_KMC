@@ -129,6 +129,11 @@
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.lists.DISCFormActivity"
+            android:label="Forms Report"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="YEK_REVRES"

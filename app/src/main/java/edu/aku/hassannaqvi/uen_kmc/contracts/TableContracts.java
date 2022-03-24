@@ -154,6 +154,9 @@ public class TableContracts {
         public static final String COLUMN_FORM_COLID = "form_colid";
         public static final String COLUMN_MEMBER_ID = "memberid";
         public static final String COLUMN_FP_CODE = "fpcode";
+        public static final String COLUMN_UC_CODE = "ucCode";
+        public static final String COLUMN_DIST_CODE = "distCode";
+        public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
         public static final String COLUMN_FP_ID = "fpid";
         public static final String COLUMN_F1101 = "f1101";
         public static final String COLUMN_F1102 = "f1102";
@@ -167,5 +170,24 @@ public class TableContracts {
         public static final String COLUMN_FP_DATE = "fp_date";
         public static final String COLUMN_FP_DONE = "fupdonedt";
 
+    }
+
+
+    public static abstract class DISCFormTable implements BaseColumns {
+        public static final String TABLE_NAME = "discform";
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String COLUMN_PROJECT_NAME = "projectName";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_USERNAME = "username";
+        public static final String COLUMN_SYSDATE = "sysdate";
+        public static final String COLUMN_DIST_CODE = "ucCode";
+        public static final String COLUMN_DF = "dF";
+        public static final String COLUMN_DEVICEID = "deviceid";
+        public static final String COLUMN_DEVICETAGID = "devicetagid";
+        public static final String COLUMN_SYNCED = "synced";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
+        public static final String COLUMN_APPVERSION = "appversion";
+        public static final String COLUMN_ISTATUS = "istatus";
     }
 }

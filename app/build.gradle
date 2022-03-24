@@ -152,5 +152,7 @@ dependencies {
 
     // Lottie Animation
     implementation "com.airbnb.android:lottie:3.0.7"
+    //SDP
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
 
 }

@@ -2,12 +2,14 @@ package edu.aku.hassannaqvi.uen_kmc.models;
 
 import android.database.Cursor;
 
+import androidx.databinding.Observable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 
-public class FollowUpsSche {
+public class FollowUpsSche implements Observable {
 
     /**
      * Fupdonedt			// * not used
@@ -20,21 +22,33 @@ public class FollowUpsSche {
      */
 
     String id = "";
-    String form_colid = "";
-    String memberid = "";
-    String fpcode = "";
-    String fpid = "";
-    String f1101 = "";
-    String f1102 = "";
-    String f1103 = "";
-    String f1104 = "";
-    String f1105 = "";
-    String f1109 = "";
-    String f1111 = "";
-    String f1112 = "";
-    String f1113 = "";
-    String fp_date = "";
-    String fupdonedt = "";
+    private String ucCode;
+    private String distCode;
+    private String tehsilCode;
+    private String form_colid = "";
+    private String memberid = "";
+    private String fpcode = "";
+    private String fpid = "";
+    private String f1101 = "";
+    private String f1102 = "";
+    private String f1103 = "";
+    private String f1104 = "";
+    private String f1105 = "";
+    private String f1109 = "";
+    private String f1111 = "";
+    private String f1112 = "";
+    private String f1113 = "";
+    private String fp_date = "";
+    private String fupdonedt = "";
+
+
+    @Override
+    public void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+    }
+
+    @Override
+    public void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+    }
 
 
     public FollowUpsSche() {
@@ -47,6 +61,30 @@ public class FollowUpsSche {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUcCode() {
+        return ucCode;
+    }
+
+    public void setUcCode(String ucCode) {
+        this.ucCode = ucCode;
+    }
+
+    public String getDistCode() {
+        return distCode;
+    }
+
+    public void setDistCode(String distCode) {
+        this.distCode = distCode;
+    }
+
+    public String getTehsilCode() {
+        return tehsilCode;
+    }
+
+    public void setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
     }
 
     public String getForm_colid() {
@@ -175,6 +213,9 @@ public class FollowUpsSche {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_ID));
         this.form_colid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_FORM_COLID));
         this.memberid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_MEMBER_ID));
+        this.ucCode = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_UC_CODE));
+        this.distCode = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_DIST_CODE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_TEHSIL_CODE));
         this.fpcode = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_FP_CODE));
         this.fpid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_FP_ID));
         this.f1101 = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FollowupsScheTable.COLUMN_F1101));
@@ -199,6 +240,9 @@ public class FollowUpsSche {
         json.put(TableContracts.FollowupsScheTable.COLUMN_FORM_COLID, this.form_colid == null ? JSONObject.NULL : this.form_colid);
         json.put(TableContracts.FollowupsScheTable.COLUMN_MEMBER_ID, this.memberid == null ? JSONObject.NULL : this.memberid);
         json.put(TableContracts.FollowupsScheTable.COLUMN_FP_CODE, this.fpcode == null ? JSONObject.NULL : this.fpcode);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_DIST_CODE, this.distCode == null ? JSONObject.NULL : this.distCode);
+        json.put(TableContracts.FollowupsScheTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
         json.put(TableContracts.FollowupsScheTable.COLUMN_FP_ID, this.fpid == null ? JSONObject.NULL : this.fpid);
         json.put(TableContracts.FollowupsScheTable.COLUMN_F1101, this.f1101 == null ? JSONObject.NULL : this.f1101);
         json.put(TableContracts.FollowupsScheTable.COLUMN_F1102, this.f1102 == null ? JSONObject.NULL : this.f1102);
@@ -222,6 +266,9 @@ public class FollowUpsSche {
         this.form_colid = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_FORM_COLID);
         this.memberid = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_MEMBER_ID);
         this.fpcode = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_FP_CODE);
+        this.ucCode = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_UC_CODE);
+        this.distCode = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_DIST_CODE);
+        this.tehsilCode = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_TEHSIL_CODE);
         this.fpid = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_FP_ID);
         this.f1101 = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_F1101);
         this.f1102 = jsonObject.getString(TableContracts.FollowupsScheTable.COLUMN_F1102);
