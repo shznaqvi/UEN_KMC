@@ -117,6 +117,8 @@ public class DISCFormActivity extends AppCompatActivity {
     public void filterForms(View view) {
         Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
 
+//        form = db.getAllForms();
+
         //fc = db.getUnclosedForms(dtFilter.getText().toString());
 //        MainApp.fupsSche = db.getFollowUpsScheHHBYVillage(selectedUC, selectedVillage, bi.hhead.getText().toString());
 //        discAdapter = new DISCFormAdapter(this, MainApp.fupsSche);

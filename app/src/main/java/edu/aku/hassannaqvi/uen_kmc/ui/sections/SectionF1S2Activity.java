@@ -63,7 +63,7 @@ public class SectionF1S2Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            if (form.getF1203().equals("2")) {
+            if (form.getF1201().equals("2") || form.getF1203().equals("2")) {
 //                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
                 Toast.makeText(this, "Form saved successfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, MainActivity.class));

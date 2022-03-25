@@ -1350,7 +1350,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1"))
+                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
                     allForm.add(form);
             } catch (JSONException e) {
                 e.printStackTrace();
