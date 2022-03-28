@@ -64,8 +64,8 @@
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/f2date" />
 
                             <io.blackbox_vision.datetimepickeredittext.view.DatePickerEditText
@@ -109,8 +109,8 @@
 
                             <TextView
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/f2time" />
 
                             <io.blackbox_vision.datetimepickeredittext.view.TimePickerEditText
@@ -150,21 +150,27 @@
                                 android:text="@string/Q_f2101" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/f2101" />
 
-                        </LinearLayout>
+                            <EditText
+                                android:id="@+id/f2101"
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:hint="@string/f2101"
+                                android:text="@={form.f2101}" />
 
-                        <EditText
-                            android:id="@+id/f2101"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                            android:hint="@string/f2101"
-                            android:text="@={form.f2101}" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- f2102  Input   -->
                 <androidx.cardview.widget.CardView
@@ -189,21 +195,27 @@
                                 android:text="@string/Q_f2102" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="match_parent"
+                                android:layout_weight="1"
                                 android:text="@string/f2102" />
 
-                        </LinearLayout>
+                            <EditText
+                                android:id="@+id/f2102"
+                                style="@style/sub_labels"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:enabled="false"
+                                android:gravity="center"
+                                android:hint="@string/f2102"
+                                android:text="@={form.f2102}" />
 
-                        <EditText
-                            android:id="@+id/f2102"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                            android:hint="@string/f2102"
-                            android:text="@={form.f2102}" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- f2103  Input-Numeric   -->
                 <androidx.cardview.widget.CardView

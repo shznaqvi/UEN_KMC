@@ -34,6 +34,10 @@ public class SectionF2S1Activity extends AppCompatActivity {
         bi.setForm(form);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
+
+        form.setF2101(getIntent().getStringExtra("babyID"));
+        form.setF2102(getIntent().getStringExtra("motherName"));
+
     }
 
     private boolean insertNewRecord() {

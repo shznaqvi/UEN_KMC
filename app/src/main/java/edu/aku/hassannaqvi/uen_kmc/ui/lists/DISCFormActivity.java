@@ -84,8 +84,11 @@ public class DISCFormActivity extends AppCompatActivity {
 
         discAdapter = new DISCFormAdapt(new FormListListener(item -> {
 
-            // Intent
-            startActivity(new Intent(this, SectionF2S1Activity.class));
+//            startActivity(new Intent(this, SectionF2S1Activity.class));
+            Intent intent = new Intent(this, SectionF2S1Activity.class);
+            intent.putExtra("babyID", item.getF1111());
+            intent.putExtra("motherName", item.getF1112());
+            startActivity(intent);
 
             return null;
         }));
