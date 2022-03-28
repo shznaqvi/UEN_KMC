@@ -69,6 +69,6 @@ public class SectionF3S6Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+//        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 }

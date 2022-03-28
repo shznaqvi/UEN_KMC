@@ -19,7 +19,6 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF3S1Binding;
-import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF3S1Activity extends AppCompatActivity {
     private static final String TAG = "SectionF3S1Activity";
@@ -92,6 +91,6 @@ public class SectionF3S1Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+//        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 }
