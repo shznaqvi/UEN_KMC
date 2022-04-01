@@ -104,7 +104,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
 */
 
                 if (position == 0) return;
-                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByTehsil(tehsilCodes.get(position));
+                Collection<HealthFacilities> healthFacility = db.getHealthFacilityByDist(MainApp.user.getDist_id());
                 healthFacilityNames = new ArrayList<>();
                 healthFacilityCodes = new ArrayList<>();
                 healthFacilityNames.add("...");
@@ -192,6 +192,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
                 : bi.f110202.isChecked() ? "2"
                 : "-1");
         form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+        MainApp.selectedFacilityCode = (healthFacilityCodes.get(bi.f1103.getSelectedItemPosition()));
         form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
 
     }

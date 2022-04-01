@@ -120,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_ENUM_BLOCK, form.getEbCode());
         values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_SNO, form.getSno());
+        values.put(FormsTable.COLUMN_STUDY_NO, form.getStudyNo());
         values.put(FormsTable.COLUMN_SYNCED, form.getSynced());
         values.put(FormsTable.COLUMN_SYNCED_DATE, form.getSyncDate());
         values.put(FormsTable.COLUMN_FORM_COMPLETE, form.getFormComplete());
@@ -574,7 +575,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             values.put(TableHealthFacilities.COLUMN_HF_CODE, lhwHF.getHfCode());
             values.put(TableHealthFacilities.COLUMN_HF_NAME, lhwHF.getHfName());
-            values.put(TableHealthFacilities.COLUMN_TEHSIL_ID, lhwHF.getTehsil_id());
+            values.put(TableHealthFacilities.COLUMN_DIST_ID, lhwHF.getDist_id());
 
             long rowID = db.insert(TableHealthFacilities.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
@@ -1024,7 +1025,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<HealthFacilities> getHealthFacilityByTehsil(String tehsilCode) {
+    /*public Collection<HealthFacilities> getHealthFacilityByTehsil(String tehsilCode) {
 
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
@@ -1034,6 +1035,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         whereClause = TableHealthFacilities.COLUMN_TEHSIL_ID + " = ? ";
 
         String[] whereArgs = {tehsilCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableHealthFacilities.COLUMN_ID + " ASC";
+
+        List<HealthFacilities> healthFacilities = new ArrayList<>();
+
+        c = db.query(
+                TableHealthFacilities.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            healthFacilities.add(new HealthFacilities().hydrate(c));
+
+
+        }
+
+        db.close();
+
+        return healthFacilities;
+    }*/
+
+
+    public Collection<HealthFacilities> getHealthFacilityByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableHealthFacilities.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
 
         String groupBy = null;
         String having = null;
@@ -1338,6 +1379,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = FormsTable.COLUMN_ID + " ASC";
         List<Form> allForm = new ArrayList<>();
 
+        c = db.query(
+                TableContracts.FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            try {
+                Form form = new Form().Hydrate(c);
+                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
+                    allForm.add(form);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        c.close();
+        db.close();
+        return allForm;
+    }
+
+    public List<Form> getAllFollowup(String studyNo) {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause = FormsTable.COLUMN_STUDY_NO + " = ? ";
+        String[] whereArgs = new String[]{studyNo};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable.COLUMN_ID + " ASC";
+
+        List<Form> allForm = new ArrayList<>();
         c = db.query(
                 TableContracts.FormsTable.TABLE_NAME,  // The table to query
                 columns,                   // The columns to return

@@ -5,6 +5,7 @@ import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.followup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,10 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
@@ -24,6 +29,7 @@ public class SectionF3S1Activity extends AppCompatActivity {
     private static final String TAG = "SectionF3S1Activity";
     ActivitySectionF3S1Binding bi;
     private DatabaseHelper db;
+    private ArrayList<String> healthFacilityNames, healthFacilityCodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,34 @@ public class SectionF3S1Activity extends AppCompatActivity {
         bi.setForm(followup);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
+        populateSpinner();
+    }
+
+    private void populateSpinner() {
+
+        Collection<HealthFacilities> healthFacility = db.getHealthFacilityByDist(MainApp.user.getDist_id());
+
+        healthFacilityNames = new ArrayList<>();
+        healthFacilityCodes = new ArrayList<>();
+        healthFacilityNames.add("...");
+        healthFacilityCodes.add("...");
+
+        for (HealthFacilities hf : healthFacility) {
+            healthFacilityNames.add(hf.getHfName());
+            healthFacilityCodes.add(hf.getHfCode());
+        }
+
+        if (MainApp.user.getUserName().contains("test") || MainApp.user.getUserName().contains("dmu")) {
+            healthFacilityNames.add("Test Facility 1");
+            healthFacilityNames.add("Test Facility 2");
+            healthFacilityNames.add("Test Facility 3");
+
+            healthFacilityCodes.add("001");
+            healthFacilityCodes.add("002");
+            healthFacilityCodes.add("003");
+        }
+        // Apply the adapter to the spinner
+        bi.f3102.setAdapter(new ArrayAdapter<>(SectionF3S1Activity.this, R.layout.custom_spinner, healthFacilityNames));
     }
 
     private boolean insertNewRecord() {

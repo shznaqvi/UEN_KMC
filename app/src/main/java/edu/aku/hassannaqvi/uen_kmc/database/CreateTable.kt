@@ -20,6 +20,7 @@ object CreateTable {
             + FormsTable.COLUMN_SNO + " TEXT,"
             + FormsTable.COLUMN_USERNAME + " TEXT,"
             + FormsTable.COLUMN_SYSDATE + " TEXT,"
+            + FormsTable.COLUMN_STUDY_NO + " TEXT,"
             + FormsTable.COLUMN_ISTATUS + " TEXT,"
             + FormsTable.COLUMN_DEVICEID + " TEXT,"
             + FormsTable.COLUMN_DEVICETAGID + " TEXT,"
@@ -123,7 +124,7 @@ object CreateTable {
             + TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
             + TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
-            + TableHealthFacilities.COLUMN_TEHSIL_ID + " TEXT"
+            + TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
             + " );")
 
     const val SQL_CREATE_TEHSIL = ("CREATE TABLE " + TableTehsil.TABLE_NAME + "("

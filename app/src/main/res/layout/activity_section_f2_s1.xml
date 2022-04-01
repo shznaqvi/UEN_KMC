@@ -252,10 +252,10 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/f2103"
                             android:inputType="number"
-                            android:maxLength="3"
+                            android:maxLength="4"
                             android:text="@={form.f2103}"
-                            app:maxValue="100"
-                            app:minValue="1"
+                            app:maxValue="2499"
+                            app:minValue="1200"
                             app:type="range" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

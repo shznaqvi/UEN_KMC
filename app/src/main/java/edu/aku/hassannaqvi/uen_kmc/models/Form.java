@@ -48,6 +48,7 @@ public class Form extends BaseObservable implements Observable {
     private String syncDate = _EMPTY_;
     private String formComplete = _EMPTY_;
     private String entryType = _EMPTY_;
+    private String studyNo = _EMPTY_;
 
 
     // FIELD VARIABLES
@@ -398,6 +399,14 @@ public class Form extends BaseObservable implements Observable {
         this.entryType = entryType;
     }
 
+    public String getStudyNo() {
+        return studyNo;
+    }
+
+    public void setStudyNo(String studyNo) {
+        this.studyNo = studyNo;
+    }
+
 
     public String getsF1() {
         return sF1;
@@ -675,6 +684,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF2209(String f2209) {
         this.f2209 = f2209;
+        setF2210(f2209.equals("2") ? this.f2210 : "");
         notifyPropertyChanged(BR.f2209);
     }
 
@@ -1053,6 +1063,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF1111(String f1111) {
         this.f1111 = f1111;
+        setStudyNo(f1111);
         notifyPropertyChanged(BR.f1111);
     }
 
@@ -2126,6 +2137,7 @@ public class Form extends BaseObservable implements Observable {
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICEID));
         this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICETAGID));
+        this.studyNo = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_STUDY_NO));
         //   this.entryType = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ENTRY_TYPE));
         this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_APPVERSION));
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS));
@@ -2481,6 +2493,7 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
+        json.put(FormsTable.COLUMN_STUDY_NO, this.studyNo);
         //    json.put(FormsTable.COLUMN_ENTRY_TYPE, this.entryType);
         json.put(FormsTable.COLUMN_ISTATUS, this.iStatus);
         json.put(FormsTable.COLUMN_SF1, new JSONObject(sF1toString()));

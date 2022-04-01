@@ -207,19 +207,27 @@
                                 android:text="@string/Q_f3102" />
 
                             <TextView
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:text="@string/f3102" />
 
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/f3102"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:hint="@string/f1103" />
+
                         </LinearLayout>
 
-                        <EditText
+                        <!--<EditText
                             android:id="@+id/f3102"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                             android:hint="@string/f3102"
-                            android:text="@={form.f3102}" />
+                            android:text="@={form.f3102}" />-->
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

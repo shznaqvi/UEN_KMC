@@ -141,8 +141,9 @@
                                 android:maxLength="2"
                                 android:tag="f330201"
                                 android:text="@={form.f330201x}"
-                                app:maxValue="40"
-                                app:minValue="36"
+                                app:mask="##.#"
+                                app:maxValue="40.0"
+                                app:minValue="36.0"
                                 app:type="range" />
 
                             <RadioButton
@@ -166,8 +167,9 @@
                                 android:maxLength="3"
                                 android:tag="f330202"
                                 android:text="@={form.f330202x}"
-                                app:maxValue="105"
-                                app:minValue="95"
+                                app:mask="###.#"
+                                app:maxValue="105.0"
+                                app:minValue="095.0"
                                 app:type="range" />
                         </RadioGroup>
                     </LinearLayout>

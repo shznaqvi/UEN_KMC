@@ -10,21 +10,20 @@ import org.json.JSONObject
  */
 
 class HealthFacilities {
-    var tehsil_id: String = _EMPTY_
-    var uc_Id: String = _EMPTY_
+    var dist_id: String = _EMPTY_
     var hfCode: String = _EMPTY_
     var hfName: String = _EMPTY_
 
     fun sync(jsonObject: JSONObject): HealthFacilities {
-        tehsil_id = jsonObject.getString(TableHealthFacilities.COLUMN_TEHSIL_ID)
+        dist_id = jsonObject.getString(TableHealthFacilities.COLUMN_DIST_ID)
         hfCode = jsonObject.getString(TableHealthFacilities.COLUMN_HF_CODE)
         hfName = jsonObject.getString(TableHealthFacilities.COLUMN_HF_NAME)
         return this
     }
 
     fun hydrate(cursor: Cursor): HealthFacilities {
-        tehsil_id =
-            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_TEHSIL_ID))
+        dist_id =
+            cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_DIST_ID))
         hfCode =
             cursor.getString(cursor.getColumnIndexOrThrow(TableHealthFacilities.COLUMN_HF_CODE))
         hfName =

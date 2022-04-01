@@ -41,38 +41,19 @@
                 android:orientation="vertical">
 
                 <!-- f14t2  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf14t2"
-                    style="@style/cardView">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/f14t2" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                <TextView
+                    style="@style/sub_labels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/f14t2" />
 
                 <!-- note1  Title   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVnote1"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/note1" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                <TextView
+                    style="@style/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/note1" />
 
                 <!-- f1401  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -130,8 +111,9 @@
                                 android:maxLength="2"
                                 android:tag="f140101"
                                 android:text="@={form.f140101x}"
-                                app:maxValue="40"
-                                app:minValue="36"
+                                app:mask="##.#"
+                                app:maxValue="40.0"
+                                app:minValue="36.0"
                                 app:type="range" />
 
                             <RadioButton
@@ -155,8 +137,9 @@
                                 android:maxLength="3"
                                 android:tag="f140102"
                                 android:text="@={form.f140102x}"
-                                app:maxValue="105"
-                                app:minValue="95"
+                                app:mask="###.#"
+                                app:maxValue="105.0"
+                                app:minValue="095.0"
                                 app:type="range" />
                         </RadioGroup>
                     </LinearLayout>

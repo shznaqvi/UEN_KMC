@@ -368,7 +368,7 @@
                             android:id="@+id/f1109"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:hint="@string/f1109"
                             android:text="@={form.f1109}" />
                     </LinearLayout>
@@ -414,45 +414,6 @@
                             app:maxValue="100"
                             app:minValue="1"
                             app:type="range" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <!-- f1111  Input   -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVf1111"
-                    style="@style/cardView">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_f1111" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="@string/f1111" />
-
-                        </LinearLayout>
-
-                        <EditText
-                            android:id="@+id/f1111"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                            android:hint="@string/f1111"
-                            android:text="@={form.f1111}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -531,6 +492,45 @@
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                             android:hint="@string/f1113"
                             android:text="@={form.f1113}" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- f1111  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf1111"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_f1111" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/f1111" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/f1111"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/f1111"
+                            android:text="@={form.f1111}" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

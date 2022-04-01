@@ -77,12 +77,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/hhead"
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/babyId"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Head of Household"
+                            android:hint="Newborn Study Number"
+                            android:inputType="number"
                             android:importantForAutofill="no" />
 
                         <Button

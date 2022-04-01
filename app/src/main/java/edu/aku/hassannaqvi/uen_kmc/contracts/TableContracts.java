@@ -16,6 +16,7 @@ public class TableContracts {
         public static final String COLUMN_SNO = "sno";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
+        public static final String COLUMN_STUDY_NO = "studyNo";
         public static final String COLUMN_SF1 = "sF1";
         public static final String COLUMN_SF2 = "sF2";
         public static final String COLUMN_DEVICEID = "deviceid";
@@ -141,7 +142,7 @@ public class TableContracts {
         public static final String TABLE_NAME = "HealthFacility";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String COLUMN_ID = "_ID";
-        public static final String COLUMN_TEHSIL_ID = "tehsil_id";
+        public static final String COLUMN_DIST_ID = "dist_id";
         public static final String COLUMN_HF_CODE = "hfcode";
         public static final String COLUMN_HF_NAME = "hf_name";
     }

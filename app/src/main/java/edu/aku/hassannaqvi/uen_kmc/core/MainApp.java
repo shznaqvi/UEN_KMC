@@ -64,6 +64,7 @@ public class MainApp extends Application {
     public static boolean fmComplete;
     public static DISCForm discform;
     public static int selectedMothers;
+    public static String selectedFacilityCode;
 
 
 /*

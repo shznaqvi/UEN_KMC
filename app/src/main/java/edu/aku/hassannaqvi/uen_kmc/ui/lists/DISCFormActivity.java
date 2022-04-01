@@ -32,9 +32,10 @@ import edu.aku.hassannaqvi.uen_kmc.ui.sections.SectionF2S1Activity;
 
 public class DISCFormActivity extends AppCompatActivity {
 
-    private static final String TAG = "FPHouseholdActivity";
+    private static final String TAG = "DISCFormActivity";
     ActivityDiscformBinding bi;
     DatabaseHelper db;
+    List<Form> formList;
     private DISCFormAdapt discAdapter;
     public ActivityResultLauncher<Intent> MemberInfoLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -113,20 +114,17 @@ public class DISCFormActivity extends AppCompatActivity {
             }
         });
 
-
+        formList = db.getAllFollowup("000000");
     }
 
 
     public void filterForms(View view) {
         Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
 
-//        form = db.getAllForms();
+        formList = db.getAllFollowup(bi.babyId.getText().toString());
 
-        //fc = db.getUnclosedForms(dtFilter.getText().toString());
-//        MainApp.fupsSche = db.getFollowUpsScheHHBYVillage(selectedUC, selectedVillage, bi.hhead.getText().toString());
-//        discAdapter = new DISCFormAdapter(this, MainApp.fupsSche);
+        discAdapter.submitList(formList);
         discAdapter.notifyDataSetChanged();
-        bi.rvHouseholds.setAdapter(discAdapter);
 
     }
 

@@ -766,6 +766,17 @@ public class FollowUp extends BaseObservable implements Observable {
         setF3602(f3601.equals("1") ? this.f3602 : "");
         setF3603(f3601.equals("1") ? this.f3603 : "");
         setF3604(f3601.equals("1") ? this.f3604 : "");
+
+        setF360501(f3601.equals("1") ? "" : this.f360501);
+        setF360502(f3601.equals("1") ? "" : this.f360502);
+        setF360503(f3601.equals("1") ? "" : this.f360503);
+        setF360504(f3601.equals("1") ? "" : this.f360504);
+        setF360505(f3601.equals("1") ? "" : this.f360505);
+        setF360506(f3601.equals("1") ? "" : this.f360506);
+        setF360507(f3601.equals("1") ? "" : this.f360507);
+        setF360596(f3601.equals("1") ? "" : this.f360596);
+
+        setF3606(f3601.equals("1") ? "" : this.f3606);
         notifyPropertyChanged(BR.f3601);
     }
 
