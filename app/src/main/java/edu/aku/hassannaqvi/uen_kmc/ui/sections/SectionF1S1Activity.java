@@ -84,7 +84,6 @@ public class SectionF1S1Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (!insertNewRecord()) return;
-        saveDraft();
         if (updateDB()) {
             finish();
             if (form.getF2304().equals("2")) {
@@ -94,10 +93,6 @@ public class SectionF1S1Activity extends AppCompatActivity {
             } else
                 startActivity(new Intent(this, SectionF1S2Activity.class).putExtra("complete", true));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
-    }
-
-    private void saveDraft() {
-        //   form.setStudyNo(bi.f1111.getText().toString());
     }
 
 
