@@ -11,11 +11,14 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import net.sqlcipher.database.SQLiteException;
+
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityEndingBinding;
+import edu.aku.hassannaqvi.uen_kmc.models.EntryLog;
 
 
 public class EndingActivity extends AppCompatActivity {
@@ -71,6 +74,7 @@ public class EndingActivity extends AppCompatActivity {
         if (!formValidation()) return;
         saveDraft();
         if (UpdateDB()) {
+            recordEntry();
 
             //    cleanupProcess();
             finish();
@@ -83,6 +87,28 @@ public class EndingActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Error in updating Database.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void recordEntry() {
+
+        EntryLog entryLog = new EntryLog();
+        entryLog.populateMeta();
+        Long rowId = null;
+        try {
+            rowId = db.addEntryLog(entryLog);
+        } catch (SQLiteException e) {
+            Toast.makeText(this, "SQLiteException(EntryLog)" + entryLog, Toast.LENGTH_SHORT).show();
+        }
+        if (rowId != -1) {
+            entryLog.setId(String.valueOf(rowId));
+            entryLog.setUid(entryLog.getDeviceId() + entryLog.getId());
+            db.updatesEntryLogColumn(TableContracts.EntryLogTable.COLUMN_UID, entryLog.getUid(), entryLog.getId());
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+
+        }
+
     }
 
 
