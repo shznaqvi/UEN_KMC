@@ -713,7 +713,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //update SyncedTables
-    public void updateSyncedforms(String id) {
+    public void updateSyncedKMCforms(String id) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
 // New value for one column
@@ -733,7 +733,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedfollowUps(String id) {
+    public void updateSyncedKMCfollowUps(String id) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
 // New value for one column
