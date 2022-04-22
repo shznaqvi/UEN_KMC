@@ -208,7 +208,7 @@ public class SyncActivity extends AppCompatActivity {
                     filter = " colflag is null AND proj = 'KMC' ";
 
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME, select, filter));
-                    downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME));
+                    downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 } else {
                     select = " * ";

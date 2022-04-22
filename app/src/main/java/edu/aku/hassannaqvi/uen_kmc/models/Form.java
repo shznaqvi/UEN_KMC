@@ -2138,6 +2138,7 @@ public class Form extends BaseObservable implements Observable {
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICEID));
         this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICETAGID));
         this.studyNo = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_STUDY_NO));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_APPVERSION));
         //   this.entryType = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ENTRY_TYPE));
         this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_APPVERSION));
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS));
@@ -2271,6 +2272,8 @@ public class Form extends BaseObservable implements Observable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.f2date = json.getString("f2date");
+            this.f2time = json.getString("f2time");
             this.f2101 = json.getString("f2101");
             this.f2102 = json.getString("f2102");
             this.f2103 = json.getString("f2103");
@@ -2433,7 +2436,9 @@ public class Form extends BaseObservable implements Observable {
     public String sF2toString() throws JSONException {
         Log.d(TAG, "sF2toString: ");
         JSONObject json = new JSONObject();
-        json.put("f2101", f2101)
+        json.put("f2date", f2date)
+                .put("f2time", f2time)
+                .put("f2101", f2101)
                 .put("f2102", f2102)
                 .put("f2103", f2103)
                 .put("f220101", f220101)
@@ -2494,6 +2499,7 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(FormsTable.COLUMN_STUDY_NO, this.studyNo);
+        json.put(FormsTable.COLUMN_APPVERSION, this.appver);
         //    json.put(FormsTable.COLUMN_ENTRY_TYPE, this.entryType);
         json.put(FormsTable.COLUMN_ISTATUS, this.iStatus);
         json.put(FormsTable.COLUMN_SF1, new JSONObject(sF1toString()));
