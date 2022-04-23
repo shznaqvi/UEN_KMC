@@ -1391,7 +1391,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
+                if (form.getF1201().equals("1") && form.getF1203().equals("1") && form.getF2305().equals(""))
                     allForm.add(form);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1429,7 +1429,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
+                if (form.getF1201().equals("1") && form.getF1203().equals("1") && form.getF2305().equals(""))
                     allForm.add(form);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1438,6 +1438,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return allForm;
+    }
+
+
+    //GET FormBy STUDYNO
+    public Form getFormByStudyNo(String studyNo) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+        String whereClause;
+        whereClause = FormsTable.COLUMN_STUDY_NO + "=? ";
+        String[] whereArgs = {studyNo};
+        String groupBy = null;
+        String having = null;
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        Form form = new Form();
+        c = db.query(
+                FormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            form = new Form().Hydrate(c);
+        }
+        db.close();
+        return form;
     }
 
 /*

@@ -451,6 +451,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setF2101(String f2101) {
         this.f2101 = f2101;
+        setStudyNo(f2101);
         notifyPropertyChanged(BR.f2101);
     }
 

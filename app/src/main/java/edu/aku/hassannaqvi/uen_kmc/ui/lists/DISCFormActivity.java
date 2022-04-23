@@ -18,6 +18,8 @@ import androidx.databinding.DataBindingUtil;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONException;
+
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_kmc.R;
@@ -85,6 +87,14 @@ public class DISCFormActivity extends AppCompatActivity {
 
         discAdapter = new DISCFormAdapt(new FormListListener(item -> {
 
+            try {
+                MainApp.form = db.getFormByStudyNo(item.getStudyNo());
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "JSONException(FormByStudyNo)" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+
 //            startActivity(new Intent(this, SectionF2S1Activity.class));
             Intent intent = new Intent(this, SectionF2S1Activity.class);
             intent.putExtra("babyID", item.getF1111());
@@ -134,23 +144,11 @@ public class DISCFormActivity extends AppCompatActivity {
         super.onResume();
         Toast.makeText(this, "Activity Resumed!", Toast.LENGTH_SHORT).show();
         discAdapter.notifyDataSetChanged();
-        // MainApp.householdCount = Math.ROUND(MainApp.followUpsScheHHList.size());
+        updateSections();
 
-        //  MainApp.households = new Households();
+    }
 
-      /*  if (MainApp.followUpsScheHHList.size() > 0) {
-            //MainApp.fm.get(Integer.parseInt(String.valueOf(MainApp.selectedHousehold))).setStatus("1");
-            hhAdapter.notifyItemChanged(Integer.parseInt(String.valueOf(selectedHousehold)));
-        }
-
-        checkCompleteFm();
-*/
-        // bi.fab.setClickable(!MainApp.households.getiStatus().equals("1"));
-      /* bi.completedmember.setText(followUpsScheHHList.size()+ " HOUSEHOLDs added");
-        bi.totalmember.setText(MainApp.householdTotal+ " M completed");*/
-        //MainApp.households.resetHousehold();
-//        int newHouseholds = db.getHouseholdCountByVillage(selectedVillage);
-
+    private void updateSections() {
 
     }
 

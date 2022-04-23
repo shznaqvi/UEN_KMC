@@ -15,7 +15,6 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 
 import edu.aku.hassannaqvi.uen_kmc.R;
-import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
@@ -34,12 +33,14 @@ public class SectionF2S1Activity extends AppCompatActivity {
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
 
-        form.setF2101(getIntent().getStringExtra("babyID"));
-        form.setF2102(getIntent().getStringExtra("motherName"));
+        //form.setF2101(getIntent().getStringExtra("babyID"));
+        //form.setF2102(getIntent().getStringExtra("motherName"));
+        form.setF2101(form.getF1111());
+        form.setF2102(form.getF1112());
 
     }
 
-    private boolean insertNewRecord() {
+    /*private boolean insertNewRecord() {
         if (!form.getUid().equals("")) return true;
         MainApp.form.populateMeta();
         long rowId = 0;
@@ -59,7 +60,7 @@ public class SectionF2S1Activity extends AppCompatActivity {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-    }
+    }*/
 
 
     private boolean updateDB() {
@@ -86,7 +87,7 @@ public class SectionF2S1Activity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        if (!insertNewRecord()) return;
+        //if (!insertNewRecord()) return;
         if (updateDB()) {
             finish();
             startActivity(new Intent(this, SectionF2S2Activity.class).putExtra("complete", true));
