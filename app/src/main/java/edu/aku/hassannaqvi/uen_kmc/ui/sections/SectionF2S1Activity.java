@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF2S1Binding;
+import edu.aku.hassannaqvi.uen_kmc.ui.lists.DISCFormActivity;
 
 public class SectionF2S1Activity extends AppCompatActivity {
     private static final String TAG = "SectionF2S1Activity";
@@ -98,5 +99,13 @@ public class SectionF2S1Activity extends AppCompatActivity {
     public void btnEnd(View view) {
         finish();
 //        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        startActivity(new Intent(this, DISCFormActivity.class));
+        //   Toast.makeText(getApplicationContext(), "Back Press Not Allowed", Toast.LENGTH_LONG).show();
     }
 }

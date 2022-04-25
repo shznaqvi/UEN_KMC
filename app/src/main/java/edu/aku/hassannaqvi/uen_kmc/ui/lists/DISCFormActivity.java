@@ -53,11 +53,10 @@ public class DISCFormActivity extends AppCompatActivity {
 
             }
 
-//            startActivity(new Intent(this, SectionF2S1Activity.class));
-            Intent intent = new Intent(this, SectionF2S1Activity.class);
+            finish();
+            startActivity(new Intent(this, SectionF2S1Activity.class));
 /*            intent.putExtra("babyID", item.getF1111());
             intent.putExtra("motherName", item.getF1112());*/
-            startActivity(intent);
 
             return null;
         }));
@@ -103,6 +102,7 @@ public class DISCFormActivity extends AppCompatActivity {
         //  startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
 
     }
+
 
     public void BtnEnd(View view) {
 
