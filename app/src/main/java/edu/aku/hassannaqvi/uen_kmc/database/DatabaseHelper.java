@@ -146,9 +146,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FollowUpTable.COLUMN_PROJECT_NAME, followUp.getProjectName());
         values.put(FollowUpTable.COLUMN_UID, followUp.getUid());
-        values.put(FollowUpTable.COLUMN_ENUM_BLOCK, followUp.getEbCode());
-        values.put(FollowUpTable.COLUMN_HHID, followUp.getHhid());
-        values.put(FollowUpTable.COLUMN_SNO, followUp.getSno());
         values.put(FollowUpTable.COLUMN_SYNCED, followUp.getSynced());
         values.put(FollowUpTable.COLUMN_SYNCED_DATE, followUp.getSyncDate());
         values.put(FollowUpTable.COLUMN_FORM_COMPLETE, followUp.getFormComplete());

@@ -37,9 +37,6 @@ public class FollowUp extends BaseObservable implements Observable {
     private String uid = _EMPTY_;
     private String userName = _EMPTY_;
     private String sysDate = _EMPTY_;
-    private String ebCode = _EMPTY_;
-    private String hhid = _EMPTY_;
-    private String sno = _EMPTY_;
     private String deviceId = _EMPTY_;
     private String deviceTag = _EMPTY_;
     private String appver = _EMPTY_;
@@ -185,36 +182,6 @@ public class FollowUp extends BaseObservable implements Observable {
 
     public void setUid(String uid) {
         this.uid = uid;
-    }
-
-    @Bindable
-    public String getEbCode() {
-        return ebCode;
-    }
-
-    public void setEbCode(String ebCode) {
-        this.ebCode = ebCode;
-        notifyPropertyChanged(BR.ebCode);
-    }
-
-    @Bindable
-    public String getHhid() {
-        return hhid;
-    }
-
-    public void setHhid(String hhid) {
-        this.hhid = hhid;
-        notifyPropertyChanged(BR.hhid);
-    }
-
-    @Bindable
-    public String getSno() {
-        return sno;
-    }
-
-    public void setSno(String sno) {
-        this.sno = sno;
-        notifyPropertyChanged(BR.sno);
     }
 
     public String getUserName() {
@@ -1302,9 +1269,6 @@ public class FollowUp extends BaseObservable implements Observable {
     public FollowUp Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_UID));
-        this.ebCode = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_ENUM_BLOCK));
-        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_HHID));
-        this.sno = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_SNO));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FollowUpTable.COLUMN_DEVICEID));
@@ -1510,9 +1474,6 @@ public class FollowUp extends BaseObservable implements Observable {
 
         json.put(FollowUpTable.COLUMN_ID, this.id);
         json.put(FollowUpTable.COLUMN_UID, this.uid);
-        json.put(FollowUpTable.COLUMN_ENUM_BLOCK, this.ebCode);
-        json.put(FollowUpTable.COLUMN_HHID, this.hhid);
-        json.put(FollowUpTable.COLUMN_SNO, this.sno);
         json.put(FollowUpTable.COLUMN_USERNAME, this.userName);
         json.put(FollowUpTable.COLUMN_SYSDATE, this.sysDate);
         json.put(FollowUpTable.COLUMN_DEVICEID, this.deviceId);
