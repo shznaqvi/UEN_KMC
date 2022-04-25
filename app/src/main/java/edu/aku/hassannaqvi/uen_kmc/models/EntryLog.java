@@ -59,7 +59,6 @@ public class EntryLog extends BaseObservable implements Observable {
         setSysDate(MainApp.form.getSysDate());
         setEntryDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
 //        setPsuCode(MainApp.form.getPsuCode());
-        setHhid(MainApp.form.getHhid());
         setiStatus(MainApp.form.getiStatus());
         setiStatus96x(MainApp.form.getiStatus96x());
         setAppver(MainApp.appInfo.getAppVersion());

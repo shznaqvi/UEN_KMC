@@ -8,6 +8,7 @@ import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.DATABASE_NAME;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.location.LocationManager;
@@ -24,6 +25,7 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -533,6 +535,36 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         changeLanguage(Integer.parseInt(sharedPref.getString("lang", "0")));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        String latestVersionName = sharedPref.getString("versionName", "");
+        int latestVersionCode = Integer.parseInt(sharedPref.getString("versionCode", "0"));
+
+        bi.txtinstalldate.setText(bi.txtinstalldate.getText().toString().replace("\n Available on Server: " + latestVersionName + latestVersionCode, "") + "\n Available on Server: " + latestVersionName + latestVersionCode);
+
+        if (MainApp.appInfo.getVersionCode() < latestVersionCode) {
+            new AlertDialog.Builder(this)
+                    .setTitle("New Update Available")
+                    .setMessage("There is a newer version of this app available (" + latestVersionName + latestVersionCode + "). \nPlease download and update the app now.")
+
+                    // Specifying a listener allows you to take an action before dismissing the dialog.
+                    // The dialog is automatically dismissed when a dialog button is clicked.
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Continue with delete operation
+                            //     addMoreMWRA();
+                        }
+                    })
+
+                    // A null listener allows the button to dismiss the dialog and take no further action.
+                    .setIcon(R.drawable.ic_alert_24)
+                    .show();
+        }
     }
 }
 

@@ -1,8 +1,9 @@
 package edu.aku.hassannaqvi.uen_kmc.workers;
 
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp._APP_FOLDER;
+
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.text.Html;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -46,7 +47,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
 
-import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.CipherSecure;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 
@@ -182,8 +182,8 @@ public class DataDownWorkerALL extends Worker {
 
             urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setSSLSocketFactory(buildSslSocketFactory(mContext));
-            urlConnection.setReadTimeout(5000 /* milliseconds */);
-            urlConnection.setConnectTimeout(5000 /* milliseconds */);
+            urlConnection.setReadTimeout(100000 /* milliseconds */);
+            urlConnection.setConnectTimeout(150000 /* milliseconds */);
             urlConnection.setRequestMethod("POST");
             urlConnection.setDoOutput(true);
             urlConnection.setDoInput(true);
@@ -209,8 +209,8 @@ public class DataDownWorkerALL extends Worker {
 
                 jsonTable.put("check", "");
 
-                if (uploadTable.equals(TableContracts.VersionTable.TABLE_NAME)) {
-                    jsonTable.put("folder", "/");
+                if (uploadTable.equals("versionApp")) {
+                    jsonTable.put("folder", _APP_FOLDER);
                 }
 
                 //jsonTable.put("limit", "3");
@@ -241,16 +241,44 @@ public class DataDownWorkerALL extends Worker {
 
                     }
                     Log.d(TAG + " : " + uploadTable, "doWork: result-server: " + result);
-                    try {
-                        result = new StringBuilder(CipherSecure.decrypt(result.toString()));
-                    } catch (IllegalArgumentException e) {
+
+                    if (result.toString().contains(" ")) {
                         data = new Data.Builder()
-                                .putString("error", e.getMessage() + " | " + Html.fromHtml(String.valueOf(result)))
+                                .putString("error", String.valueOf(result))
                                 .putInt("position", this.position)
                                 .build();
                         return Result.failure(data);
                     }
+
+
+                    result = new StringBuilder(CipherSecure.decrypt(result.toString()));
                     Log.d(TAG + " : " + uploadTable, "doWork: result-decrypt: " + result);
+
+                    // result = [{"status":0,"message":"No record found.","error":1}]
+
+                    JSONArray jsonArray = new JSONArray();
+                    JSONObject jsonObject;
+
+                    if (!uploadTable.equals("versionApp")) {
+                        jsonArray = new JSONArray(result.toString());
+                        Log.d(TAG, "onChanged: " + jsonArray.getString(0));
+
+                        jsonObject = jsonArray.getJSONObject(0);
+                    } else {
+                        jsonObject = new JSONObject(result.toString());
+                        jsonArray.put(jsonObject);
+                    }
+
+                    if (jsonObject.has("error") && jsonObject.getInt("error") > 0) {
+
+                        data = new Data.Builder()
+                                .putString("error", jsonObject.getString("message"))
+                                .putInt("position", this.position)
+                                .build();
+
+                        return Result.failure(data);
+                    }
+
 
                     if (result.toString().equals("[]")) {
                         data = new Data.Builder()
@@ -276,7 +304,7 @@ public class DataDownWorkerALL extends Worker {
             }
         } catch (java.net.SocketTimeoutException e) {
             data = new Data.Builder()
-                    .putString("error", e.getMessage())
+                    .putString("error", String.valueOf(e.getMessage()))
                     .putInt("position", this.position)
                     .build();
             return Result.failure(data);
@@ -284,14 +312,14 @@ public class DataDownWorkerALL extends Worker {
         } catch (SSLPeerUnverifiedException e) {
             Toast.makeText(mContext, "(SSLPeerUnverifiedException): %s" + e.getMessage(), Toast.LENGTH_SHORT).show();
             data = new Data.Builder()
-                    .putString("error", e.getMessage())
+                    .putString("error", e.getClass().getSimpleName() + ": " + e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
             return Result.failure(data);
         } catch (IOException | JSONException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
             data = new Data.Builder()
-                    .putString("error", e.getMessage())
+                    .putString("error", e.getClass().getSimpleName() + ": " + e.getMessage())
                     .putInt("position", this.position)
                     .build();
 
@@ -301,6 +329,7 @@ public class DataDownWorkerALL extends Worker {
 
         ///BE CAREFULL DATA.BUILDER CAN HAVE ONLY 1024O BYTES. EACH CHAR HAS 8 bits
         MainApp.downloadData[this.position] = String.valueOf(result);
+
 
         data = new Data.Builder()
                 //     .putString("data", String.valueOf(result))

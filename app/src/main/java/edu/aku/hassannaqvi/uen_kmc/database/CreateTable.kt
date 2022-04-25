@@ -15,9 +15,6 @@ object CreateTable {
             + FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsTable.COLUMN_UID + " TEXT,"
             + FormsTable.COLUMN_UUID + " TEXT,"
-            + FormsTable.COLUMN_ENUM_BLOCK + " TEXT,"
-            + FormsTable.COLUMN_HHID + " TEXT,"
-            + FormsTable.COLUMN_SNO + " TEXT,"
             + FormsTable.COLUMN_USERNAME + " TEXT,"
             + FormsTable.COLUMN_SYSDATE + " TEXT,"
             + FormsTable.COLUMN_STUDY_NO + " TEXT,"
@@ -111,14 +108,14 @@ object CreateTable {
             + " );"
             )
 
-    const val SQL_CREATE_VERSIONAPP = ("CREATE TABLE "
+/*    const val SQL_CREATE_VERSIONAPP = ("CREATE TABLE "
             + VersionTable.TABLE_NAME + " ("
             + VersionTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + VersionTable.COLUMN_VERSION_CODE + " TEXT, "
             + VersionTable.COLUMN_VERSION_NAME + " TEXT, "
             + VersionTable.COLUMN_PATH_NAME + " TEXT "
             + ");"
-            )
+            )*/
 
     const val SQL_CREATE_LHW_HF = ("CREATE TABLE " + TableHealthFacilities.TABLE_NAME + "("
             + TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

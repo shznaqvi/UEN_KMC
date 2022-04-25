@@ -11,9 +11,6 @@ public class TableContracts {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
-        public static final String COLUMN_ENUM_BLOCK = "ebCode";
-        public static final String COLUMN_HHID = "hhid";
-        public static final String COLUMN_SNO = "sno";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_STUDY_NO = "studyNo";
@@ -83,18 +80,6 @@ public class TableContracts {
         public static final String COLUMN_ISNEW_USER = "isNewUser";
         public static final String COLUMN_PWD_EXPIRY = "pwdExpiry";
         public static final String COLUMN_DIST_ID = "dist_id";
-
-    }
-
-    public static abstract class VersionTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "versionApp";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_VERSION_PATH = "elements";
-        public static final String COLUMN_VERSION_CODE = "versionCode";
-        public static final String COLUMN_VERSION_NAME = "versionName";
-        public static final String COLUMN_PATH_NAME = "outputFile";
-        public static final String SERVER_URI = "output-metadata.json";
 
     }
 

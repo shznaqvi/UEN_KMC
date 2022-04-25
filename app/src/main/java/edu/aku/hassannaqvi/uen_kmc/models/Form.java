@@ -35,9 +35,6 @@ public class Form extends BaseObservable implements Observable {
     private String uuid = _EMPTY_;
     private String userName = _EMPTY_;
     private String sysDate = _EMPTY_;
-    private String ebCode = _EMPTY_;
-    private String hhid = _EMPTY_;
-    private String sno = _EMPTY_;
     private String deviceId = _EMPTY_;
     private String deviceTag = _EMPTY_;
     private String appver = _EMPTY_;
@@ -271,36 +268,6 @@ public class Form extends BaseObservable implements Observable {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
-    }
-
-    @Bindable
-    public String getEbCode() {
-        return ebCode;
-    }
-
-    public void setEbCode(String ebCode) {
-        this.ebCode = ebCode;
-        notifyPropertyChanged(BR.ebCode);
-    }
-
-    @Bindable
-    public String getHhid() {
-        return hhid;
-    }
-
-    public void setHhid(String hhid) {
-        this.hhid = hhid;
-        notifyPropertyChanged(BR.hhid);
-    }
-
-    @Bindable
-    public String getSno() {
-        return sno;
-    }
-
-    public void setSno(String sno) {
-        this.sno = sno;
-        notifyPropertyChanged(BR.sno);
     }
 
     public String getUserName() {
@@ -2131,9 +2098,6 @@ public class Form extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_UUID));
-        this.ebCode = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ENUM_BLOCK));
-        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_HHID));
-        this.sno = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SNO));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICEID));
@@ -2492,9 +2456,6 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_ID, this.id);
         json.put(FormsTable.COLUMN_UID, this.uid);
         json.put(FormsTable.COLUMN_UUID, this.uuid);
-        json.put(FormsTable.COLUMN_ENUM_BLOCK, this.ebCode);
-        json.put(FormsTable.COLUMN_HHID, this.hhid);
-        json.put(FormsTable.COLUMN_SNO, this.sno);
         json.put(FormsTable.COLUMN_USERNAME, this.userName);
         json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);

@@ -14,12 +14,12 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import edu.aku.hassannaqvi.uen_kmc.MainActivity;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF3S6Binding;
-import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF3S6Activity extends AppCompatActivity {
     private static final String TAG = "SectionF3S6Activity";
@@ -62,7 +62,7 @@ public class SectionF3S6Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, MainActivity.class));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
