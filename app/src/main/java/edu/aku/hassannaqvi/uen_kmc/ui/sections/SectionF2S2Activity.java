@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.uen_kmc.ui.sections;
 
-import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.discharge;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class SectionF2S2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f2_s2);
-        bi.setForm(form);
+        bi.setForm(discharge);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
     }
@@ -39,7 +39,7 @@ public class SectionF2S2Activity extends AppCompatActivity {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SF2, form.sF2toString());
+            updcount = db.updatesDischargeColumn(TableContracts.DischargeTable.COLUMN_SF2, discharge.sF2toString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -69,5 +69,13 @@ public class SectionF2S2Activity extends AppCompatActivity {
     public void btnEnd(View view) {
         finish();
 //        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+        setResult(RESULT_CANCELED);
+        finish();
     }
 }

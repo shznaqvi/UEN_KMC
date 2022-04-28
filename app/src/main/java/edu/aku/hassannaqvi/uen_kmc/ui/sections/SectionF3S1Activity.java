@@ -5,6 +5,7 @@ import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.followup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -66,6 +67,22 @@ public class SectionF3S1Activity extends AppCompatActivity {
         }
         // Apply the adapter to the spinner
         bi.f3102.setAdapter(new ArrayAdapter<>(SectionF3S1Activity.this, R.layout.custom_spinner, healthFacilityNames));
+
+        bi.f3102.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position != 0) {
+                    MainApp.selectedFacilityName = (healthFacilityNames.get(bi.f3102.getSelectedItemPosition()));
+                    followup.setF3102(MainApp.selectedFacilityName);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+
+        });
     }
 
     private boolean insertNewRecord() {

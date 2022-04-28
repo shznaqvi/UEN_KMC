@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.uen_kmc.ui.sections;
 
-import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
+import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.discharge;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 
 import edu.aku.hassannaqvi.uen_kmc.R;
-import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.DischargeTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF2S1Binding;
@@ -30,45 +30,46 @@ public class SectionF2S1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f2_s1);
-        bi.setForm(form);
+
+        /*discharge = new Discharge();*/
+        discharge.setF2101(getIntent().getStringExtra("babyID"));
+        discharge.setF2102(getIntent().getStringExtra("motherName"));
+
+        bi.setForm(discharge);
         setSupportActionBar(bi.toolbar);
         db = MainApp.appInfo.dbHelper;
 
-        //form.setF2101(getIntent().getStringExtra("babyID"));
-        //form.setF2102(getIntent().getStringExtra("motherName"));
-        form.setF2101(form.getF1111());
-        form.setF2102(form.getF1112());
 
     }
 
-    /*private boolean insertNewRecord() {
-        if (!form.getUid().equals("")) return true;
-        MainApp.form.populateMeta();
+    private boolean insertNewRecord() {
+        if (!discharge.getUid().equals("")) return true;
+        MainApp.discharge.populateMeta();
         long rowId = 0;
         try {
-            rowId = db.addForm(form);
+            rowId = db.addDischarge(discharge);
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-        form.setId(String.valueOf(rowId));
+        discharge.setId(String.valueOf(rowId));
         if (rowId > 0) {
-            form.setUid(form.getDeviceId() + form.getId());
-            db.updatesFormColumn(TableContracts.FormsTable.COLUMN_UID, form.getUid());
+            discharge.setUid(discharge.getDeviceId() + discharge.getId());
+            db.updatesDischargeColumn(DischargeTable.COLUMN_UID, discharge.getUid());
             return true;
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-    }*/
+    }
 
 
     private boolean updateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = 0;
         try {
-            updcount = db.updatesFormColumn(FormsTable.COLUMN_SF2, form.sF2toString());
+            updcount = db.updatesDischargeColumn(DischargeTable.COLUMN_SF2, discharge.sF2toString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -88,7 +89,7 @@ public class SectionF2S1Activity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        //if (!insertNewRecord()) return;
+        if (!insertNewRecord()) return;
         if (updateDB()) {
             finish();
             startActivity(new Intent(this, SectionF2S2Activity.class).putExtra("complete", true));

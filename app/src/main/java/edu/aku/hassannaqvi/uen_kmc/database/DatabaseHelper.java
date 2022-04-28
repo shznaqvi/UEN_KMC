@@ -3,7 +3,7 @@ package edu.aku.hassannaqvi.uen_kmc.database;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
-import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISC_FORMS;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISCHARGE;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
@@ -41,6 +41,7 @@ import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
+import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.DischargeTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowUpTable;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.FollowupsScheTable;
@@ -50,6 +51,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableHealthFacilitie
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
+import edu.aku.hassannaqvi.uen_kmc.models.Discharge;
 import edu.aku.hassannaqvi.uen_kmc.models.EntryLog;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUp;
 import edu.aku.hassannaqvi.uen_kmc.models.FollowUpsSche;
@@ -82,6 +84,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_DISCHARGE);
         db.execSQL(SQL_CREATE_FOLLOWUPS);
         db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_DISTRICT);
@@ -89,8 +92,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_LHW_HF);
         db.execSQL(SQL_CREATE_ENTRYLOGS);
         db.execSQL(SQL_CREATE_FOLLOWUPS_SCHE);
-        db.execSQL(SQL_CREATE_DISC_FORMS);
-
     }
 
     @Override
@@ -127,7 +128,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
         values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
         values.put(FormsTable.COLUMN_SF1, form.sF1toString());
-        values.put(FormsTable.COLUMN_SF2, form.sF2toString());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -135,6 +135,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 FormsTable.TABLE_NAME,
                 FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public Long addDischarge(Discharge discharge) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(DischargeTable.COLUMN_PROJECT_NAME, discharge.getProjectName());
+        values.put(DischargeTable.COLUMN_UID, discharge.getUid());
+        values.put(DischargeTable.COLUMN_UUID, discharge.getUuid());
+        values.put(DischargeTable.COLUMN_ENUM_BLOCK, discharge.getEbCode());
+        values.put(DischargeTable.COLUMN_HHID, discharge.getHhid());
+        values.put(DischargeTable.COLUMN_SNO, discharge.getSno());
+        values.put(DischargeTable.COLUMN_STUDY_NO, discharge.getStudyNo());
+        values.put(DischargeTable.COLUMN_SYNCED, discharge.getSynced());
+        values.put(DischargeTable.COLUMN_SYNCED_DATE, discharge.getSyncDate());
+        values.put(DischargeTable.COLUMN_FORM_COMPLETE, discharge.getFormComplete());
+        values.put(DischargeTable.COLUMN_USERNAME, discharge.getUserName());
+        values.put(DischargeTable.COLUMN_SYSDATE, discharge.getSysDate());
+        values.put(DischargeTable.COLUMN_ISTATUS, discharge.getiStatus());
+        values.put(DischargeTable.COLUMN_DEVICETAGID, discharge.getDeviceTag());
+        values.put(DischargeTable.COLUMN_DEVICEID, discharge.getDeviceId());
+        values.put(DischargeTable.COLUMN_APPVERSION, discharge.getAppver());
+        values.put(DischargeTable.COLUMN_SF2, discharge.sF2toString());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                DischargeTable.TABLE_NAME,
+                DischargeTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -212,6 +247,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    public int updatesDischargeColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = DischargeTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.discharge.getId())};
+
+        return db.update(DischargeTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -639,6 +690,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public JSONArray getUnsyncedDischarge() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = DischargeTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = DischargeTable.COLUMN_ID + " ASC";
+
+        JSONArray allDischarge = new JSONArray();
+        c = db.query(
+                DischargeTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*Form fc = new Form();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedDischarge: " + c.getCount());
+            Discharge discharge = new Discharge().Hydrate(c);
+            allDischarge.put(discharge.toJSONObject());
+
+
+        }
+        c.close();
+        db.close();
+
+        Log.d(TAG, "getUnsyncedDischarge: " + allDischarge.toString().length());
+        Log.d(TAG, "getUnsyncedDischarge: " + allDischarge);
+        return allDischarge;
+    }
+
+
     public JSONArray getUnsyncedFollowup() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
@@ -731,6 +827,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedKMCdischarge(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(DischargeTable.COLUMN_SYNCED, true);
+        values.put(DischargeTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = DischargeTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                DischargeTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1139,6 +1255,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
+
     public int updatesFollowupsScheColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
 
@@ -1153,6 +1270,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
     }
+
 
     public List<FollowUpsSche> getAllFollowUpsSche() throws JSONException {
 
@@ -1223,6 +1341,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFollowupsSche;
     }
 
+
     public List<FollowUpsSche> getFollowUpsScheByRound(int round) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
@@ -1291,6 +1410,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return form;
     }
 
+
     public List<Form> getAllForms() {
 
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
@@ -1317,7 +1437,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1") && form.getF1203().equals("1") && form.getF2305().equals(""))
+                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
                     allForm.add(form);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1326,6 +1446,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return allForm;
+    }
+
+
+    public List<Discharge> getAllDiscForms() {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = DischargeTable.COLUMN_ID + " ASC";
+        List<Discharge> allDiscForm = new ArrayList<>();
+
+        c = db.query(
+                TableContracts.DischargeTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            try {
+                Discharge discharge = new Discharge().Hydrate(c);
+                if (discharge.getF2305().equals(""))
+                    allDiscForm.add(discharge);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        c.close();
+        db.close();
+        return allDiscForm;
     }
 
 
@@ -1356,7 +1514,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1") && form.getF1203().equals("1") && form.getF2305().equals(""))
+                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
                     allForm.add(form);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -1369,19 +1527,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //GET FormBy STUDYNO
-    public Form getFormByStudyNo(String studyNo) throws JSONException {
+    public Discharge getDiscFormByStudyNo(String studyNo) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c;
         String[] columns = null;
         String whereClause;
-        whereClause = FormsTable.COLUMN_STUDY_NO + "=? ";
+        whereClause = DischargeTable.COLUMN_STUDY_NO + "=? ";
         String[] whereArgs = {studyNo};
         String groupBy = null;
         String having = null;
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
-        Form form = new Form();
+        String orderBy = DischargeTable.COLUMN_ID + " ASC";
+        Discharge disc = new Discharge();
         c = db.query(
-                FormsTable.TABLE_NAME,  // The table to query
+                DischargeTable.TABLE_NAME,  // The table to query
                 columns,                   // The columns to return
                 whereClause,               // The columns for the WHERE clause
                 whereArgs,                 // The values for the WHERE clause
@@ -1390,10 +1548,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 orderBy                    // The sort order
         );
         while (c.moveToNext()) {
-            form = new Form().Hydrate(c);
+            disc = new Discharge().Hydrate(c);
         }
         db.close();
-        return form;
+        return disc;
     }
 
 }

@@ -46,18 +46,21 @@ public class DISCFormActivity extends AppCompatActivity {
         discAdapter = new DISCFormAdapt(new FormListListener(item -> {
 
             try {
-                MainApp.form = db.getFormByStudyNo(item.getStudyNo());
+                MainApp.discharge = db.getDiscFormByStudyNo(item.getStudyNo());
             } catch (JSONException e) {
                 e.printStackTrace();
                 Toast.makeText(this, "JSONException(FormByStudyNo)" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
-
-            finish();
-            startActivity(new Intent(this, SectionF2S1Activity.class));
-/*            intent.putExtra("babyID", item.getF1111());
-            intent.putExtra("motherName", item.getF1112());*/
-
+            if (!MainApp.discharge.getF2305().isEmpty()) {
+                Toast.makeText(this, "Discharge form already filled", Toast.LENGTH_SHORT).show();
+                bi.rvChilds.setEnabled(false);
+            } else {
+                finish();
+                startActivity(new Intent(this, SectionF2S1Activity.class)
+                        .putExtra("babyID", item.getF1111())
+                        .putExtra("motherName", item.getF1112()));
+            }
             return null;
         }));
 
