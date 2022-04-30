@@ -43,6 +43,8 @@ public class DISCFormActivity extends AppCompatActivity {
         db = MainApp.appInfo.dbHelper;
         List<Form> form = db.getAllForms();
 
+        formList = db.getAllFollowup("000000");
+
         discAdapter = new DISCFormAdapt(new FormListListener(item -> {
 
             try {
@@ -75,8 +77,6 @@ public class DISCFormActivity extends AppCompatActivity {
                 startActivity(new Intent(DISCFormActivity.this, MainActivity.class));
             }
         });
-
-        formList = db.getAllFollowup("000000");
     }
 
 
