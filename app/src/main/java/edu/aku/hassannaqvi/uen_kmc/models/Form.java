@@ -1801,6 +1801,8 @@ public class Form extends BaseObservable implements Observable {
         json.put(FormsTable.COLUMN_HHID, this.hhid);
         json.put(FormsTable.COLUMN_SNO, this.sno);
         json.put(FormsTable.COLUMN_USERNAME, this.userName);
+        json.put(FormsTable.COLUMN_SYNCED, this.synced);
+        json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
         json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);

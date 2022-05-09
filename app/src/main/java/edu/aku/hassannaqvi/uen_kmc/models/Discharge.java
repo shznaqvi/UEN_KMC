@@ -981,6 +981,8 @@ public class Discharge extends BaseObservable implements Observable {
         json.put(DischargeTable.COLUMN_HHID, this.hhid);
         json.put(DischargeTable.COLUMN_SNO, this.sno);
         json.put(DischargeTable.COLUMN_USERNAME, this.userName);
+        json.put(DischargeTable.COLUMN_SYNCED, this.synced);
+        json.put(DischargeTable.COLUMN_SYNCED_DATE, this.syncDate);
         json.put(DischargeTable.COLUMN_SYSDATE, this.sysDate);
         json.put(DischargeTable.COLUMN_DEVICEID, this.deviceId);
         json.put(DischargeTable.COLUMN_DEVICETAGID, this.deviceTag);

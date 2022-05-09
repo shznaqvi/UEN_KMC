@@ -1514,9 +1514,12 @@ public class FollowUp extends BaseObservable implements Observable {
         json.put(FollowUpTable.COLUMN_HHID, this.hhid);
         json.put(FollowUpTable.COLUMN_SNO, this.sno);
         json.put(FollowUpTable.COLUMN_USERNAME, this.userName);
+        json.put(FollowUpTable.COLUMN_SYNCED, this.synced);
+        json.put(FollowUpTable.COLUMN_SYNCED_DATE, this.syncDate);
         json.put(FollowUpTable.COLUMN_SYSDATE, this.sysDate);
         json.put(FollowUpTable.COLUMN_DEVICEID, this.deviceId);
         json.put(FollowUpTable.COLUMN_DEVICETAGID, this.deviceTag);
+        json.put(FollowUpTable.COLUMN_APPVERSION, this.appver);
         //    json.put(FollowUpTable.COLUMN_ENTRY_TYPE, this.entryType);
         json.put(FollowUpTable.COLUMN_ISTATUS, this.iStatus);
         json.put(FollowUpTable.COLUMN_SF3, new JSONObject(sF3toString()));
