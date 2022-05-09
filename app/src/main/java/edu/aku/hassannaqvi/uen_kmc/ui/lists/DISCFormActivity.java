@@ -81,7 +81,7 @@ public class DISCFormActivity extends AppCompatActivity {
 
 
     public void filterForms(View view) {
-        Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Searched", Toast.LENGTH_SHORT).show();
 
         formList = db.getAllFollowup(bi.babyId.getText().toString());
 

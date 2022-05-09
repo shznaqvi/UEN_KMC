@@ -1437,8 +1437,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             try {
                 Form form = new Form().Hydrate(c);
-                if (form.getF1201().equals("1") && form.getF1203().equals("1"))
-                    allForm.add(form);
+                if (form.getF1201().equals("1") && form.getF1203().equals("1")) {
+                    Discharge discharge = getDiscFormByStudyNo(form.getStudyNo());
+                    if (discharge != null && discharge.getF2305().equals("")) {
+                        allForm.add(form);
+                    }
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
