@@ -1375,42 +1375,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Form getMwraByUUid() throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
-        Cursor c;
-        String[] columns = null;
-
-        String whereClause;
-        whereClause = FormsTable.COLUMN_UUID + "=? ";
-
-        String[] whereArgs = {MainApp.form.getUid()};
-
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
-
-        Form form = null;
-
-        c = db.query(
-                FormsTable.TABLE_NAME,  // The table to query
-                columns,                   // The columns to return
-                whereClause,               // The columns for the WHERE clause
-                whereArgs,                 // The values for the WHERE clause
-                groupBy,                   // don't group the rows
-                having,                    // don't filter by row groups
-                orderBy                    // The sort order
-        );
-        while (c.moveToNext()) {
-            form = new Form().Hydrate(c);
-        }
-
-        db.close();
-
-        return form;
-    }
-
-
     public List<Form> getAllForms() {
 
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
@@ -1450,44 +1414,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
         db.close();
         return allForm;
-    }
-
-
-    public List<Discharge> getAllDiscForms() {
-
-        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
-        Cursor c;
-        String[] columns = null;
-
-        String whereClause = null;
-        String[] whereArgs = null;
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = DischargeTable.COLUMN_ID + " ASC";
-        List<Discharge> allDiscForm = new ArrayList<>();
-
-        c = db.query(
-                TableContracts.DischargeTable.TABLE_NAME,  // The table to query
-                columns,                   // The columns to return
-                whereClause,               // The columns for the WHERE clause
-                whereArgs,                 // The values for the WHERE clause
-                groupBy,                   // don't group the rows
-                having,                    // don't filter by row groups
-                orderBy                    // The sort order
-        );
-        while (c.moveToNext()) {
-            try {
-                Discharge discharge = new Discharge().Hydrate(c);
-                if (discharge.getF2305().equals(""))
-                    allDiscForm.add(discharge);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        c.close();
-        db.close();
-        return allDiscForm;
     }
 
 
