@@ -3,15 +3,9 @@ package edu.aku.hassannaqvi.uen_kmc.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.amitshekhar.DebugDB;
-
-import java.lang.reflect.Method;
 
 import edu.aku.hassannaqvi.uen_kmc.BuildConfig;
 import edu.aku.hassannaqvi.uen_kmc.R;
@@ -46,7 +40,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     public String showDebugDBAddressLogToast(Context context) {
         if (BuildConfig.DEBUG) {
-            try {
+/*            try {
                 Class<?> debugDB = Class.forName("com.amitshekhar.DebugDB");
                 Method getAddressLog = debugDB.getMethod("getAddressLog");
                 Object value = getAddressLog.invoke(null);
@@ -58,7 +52,7 @@ public class WebViewActivity extends AppCompatActivity {
                 web.loadUrl(seprated[1]);
             } catch (Exception ignore) {
 
-            }
+            }*/
         }
         return null;
     }

@@ -16,6 +16,7 @@
                 android:title="@string/action_database" />
             <item
                 android:id="@+id/debugDB"
+                android:visible="false"
                 android:title="Open Debug Database"
                 app:showAsAction="collapseActionView" />
             <item
