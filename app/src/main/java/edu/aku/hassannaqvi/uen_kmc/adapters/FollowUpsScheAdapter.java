@@ -60,23 +60,20 @@ public class FollowUpsScheAdapter extends RecyclerView.Adapter<FollowUpsScheAdap
             istatus.setVisibility(View.VISIBLE);
         }*/
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fups.getFupdonedt().equals("")) {
-                    MainApp.position = position;
-                    Intent intent = new Intent(mContext, SectionF3S1Activity.class);
-                    intent.putExtra("list", true);
-                    MainApp.followupsSche = fups;
-                    MainApp.followup = new FollowUp();
-                    // MainApp.followup.setFha01(fups.get(position).getHa01());
-                    MainApp.followup.setF3103(fups.getF1109());
-                    MainApp.followup.setF3104(fups.getF1111());
-                    MainApp.followup.setF3105(fups.getF1112());
-                    ((Activity) mContext).startActivityForResult(intent, 1002);
-                } else {
-                    Toast.makeText(mContext, " Followup-" + fups.getFpcode() + " of " + fups.getF1112() + " has already been done.", Toast.LENGTH_SHORT).show();
-                }
+        holder.itemView.setOnClickListener(v -> {
+            if (fups.getFupdonedt().equals("")) {
+                MainApp.position = position;
+                Intent intent = new Intent(mContext, SectionF3S1Activity.class);
+                intent.putExtra("list", true);
+                MainApp.followupsSche = fups;
+                MainApp.followup = new FollowUp();
+                // MainApp.followup.setFha01(fups.get(position).getHa01());
+                MainApp.followup.setF3103(fups.getF1109());
+                MainApp.followup.setF3104(fups.getF1111());
+                MainApp.followup.setF3105(fups.getF1112());
+                ((Activity) mContext).startActivityForResult(intent, 1002);
+            } else {
+                Toast.makeText(mContext, " Followup-" + fups.getFpcode() + " of " + fups.getF1112() + " has already been done.", Toast.LENGTH_SHORT).show();
             }
         });
 

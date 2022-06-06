@@ -8,8 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import org.json.JSONException;
 
 import java.util.List;
@@ -70,13 +68,7 @@ public class DISCFormActivity extends AppCompatActivity {
         discAdapter.submitList(form);
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DISCFormActivity.this, MainActivity.class));
-            }
-        });
+        bi.fab.setOnClickListener(view -> startActivity(new Intent(DISCFormActivity.this, MainActivity.class)));
     }
 
 
