@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="uen_kmc.ui.EndingActivity">
+    tools:context=".ui.EndingActivity">
 
     <data>
 
@@ -77,19 +77,55 @@
                                 android:id="@+id/istatusa"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/istatus01" />
+                                android:text="@string/istatus01"
+
+                                />
 
                             <RadioButton
                                 android:id="@+id/istatusb"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/istatus02" />
+                                android:text="@string/istatus04" />
+
+
+                            <RadioButton
+                                android:id="@+id/istatusc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatus05"
+
+                                />
+
+                            <RadioButton
+                                android:id="@+id/istatusd"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatus06"
+
+                                />
+                            <RadioButton
+                                android:id="@+id/istatuse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatus07"
+
+                                />
+
+                            <RadioButton
+                                android:id="@+id/istatusf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatus02"
+
+                                />
 
                             <RadioButton
                                 android:id="@+id/istatus96"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/istatus96" />
+                                android:text="@string/istatus96"
+
+                                />
 
                             <EditText
                                 android:id="@+id/istatus96x"
@@ -98,7 +134,7 @@
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/istatus96"
                                 android:tag="istatus96"
-                                android:text='@{istatus96.checked ? istatus96x.getText().toString() : ""}'
+                                android:text="@={form.f1596x}"
                                 android:visibility='@{istatus96.checked? View.VISIBLE : View.GONE}' />
 
                         </RadioGroup>

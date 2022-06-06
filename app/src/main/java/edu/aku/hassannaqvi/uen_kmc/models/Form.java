@@ -61,6 +61,7 @@ public class Form extends BaseObservable implements Observable {
     private String f1105 = _EMPTY_;
     private String f1106 = _EMPTY_;
     private String f1103 = _EMPTY_;
+    private String f110396x = _EMPTY_;
     private String f1107 = _EMPTY_;
     private String f1108 = _EMPTY_;
     private String f1109 = _EMPTY_;
@@ -164,6 +165,10 @@ public class Form extends BaseObservable implements Observable {
     private String f15131 = _EMPTY_;
     private String f15132 = _EMPTY_;
     private String f1514 = _EMPTY_;
+    private String f1515 = _EMPTY_;
+    private String f1596x = _EMPTY_;
+
+
 
     public Form() {
 
@@ -424,6 +429,17 @@ public class Form extends BaseObservable implements Observable {
     public void setF1103(String f1103) {
         this.f1103 = f1103;
         notifyPropertyChanged(BR.f1103);
+    }
+
+
+    @Bindable
+    public String getF110396x() {
+        return f110396x;
+    }
+
+    public void setF110396x(String f110396x) {
+        this.f110396x = f110396x;
+        notifyPropertyChanged(BR.f110396x);
     }
 
     @Bindable
@@ -1536,6 +1552,26 @@ public class Form extends BaseObservable implements Observable {
     }
 
 
+    @Bindable
+    public String getF1515() {
+        return f1515;
+    }
+
+    public void setF1515(String f1515) {
+        this.f1515 = f1515;
+        notifyPropertyChanged(BR.f1515);
+    }
+
+    @Bindable
+    public String getF1596x() {
+        return f1596x;
+    }
+
+    public void setF1596x(String f1596x) {
+        this.f1596x = f1596x;
+        notifyPropertyChanged(BR.f1596x);
+    }
+
     public Form Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_UID));
@@ -1574,6 +1610,7 @@ public class Form extends BaseObservable implements Observable {
             this.f1105 = json.getString("f1105");
             this.f1106 = json.getString("f1106");
             this.f1103 = json.getString("f1103");
+            this.f110396x = json.getString("f110396x");
             this.f1107 = json.getString("f1107");
             this.f1108 = json.getString("f1108");
             this.f1109 = json.getString("f1109");
@@ -1674,6 +1711,8 @@ public class Form extends BaseObservable implements Observable {
             this.f15131 = json.getString("f15131");
             this.f15132 = json.getString("f15132");
             this.f1514 = json.getString("f1514");
+            this.f1515 = json.getString("f1515");
+            this.f1596x = json.getString("f1516");
         }
     }
 
@@ -1687,6 +1726,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("f1105", f1105)
                 .put("f1106", f1106)
                 .put("f1103", f1103)
+                .put("f110396x", f110396x)
                 .put("f1107", f1107)
                 .put("f1108", f1108)
                 .put("f1109", f1109)
@@ -1786,7 +1826,9 @@ public class Form extends BaseObservable implements Observable {
                 .put("f15122", f15122)
                 .put("f15131", f15131)
                 .put("f15132", f15132)
-                .put("f1514", f1514);
+                .put("f1514", f1514)
+                .put("f1515", f1515)
+                .put("f1516", f1596x);
         return json.toString();
     }
 

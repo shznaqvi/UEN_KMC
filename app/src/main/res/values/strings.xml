@@ -73,6 +73,11 @@
     <string name="istatusi"> Discuss any result not completed with team leader </string>
     <string name="istatus01"> Completed </string>
     <string name="istatus02"> Incomplete </string>
+    <string name="istatus04"> Refused </string>
+    <string name="istatus05"> Migrated </string>
+    <string name="istatus06"> Dwelling Locked </string>
+    <string name="istatus07"> Respondent not available</string>
+
     <string name="istatus96"> Other (Specify) </string>
 
     <string name="fail_db_upd"> Failed to Update Database! </string>
@@ -447,6 +452,7 @@
     <string name="f131203">Doctor (private)</string>
     <string name="f131204">LHV</string>
     <string name="f131205">CMW</string>
+    <string name="f131206">AKU Staff</string>
     <string name="f1sec4">Section 4: Birth details of baby</string>
     <string name="f14t2">Vital signs of new born</string>
     <string name="note1">Review medical record to have this information. if incomplete information, measure by yourself and report.</string>
@@ -521,6 +527,7 @@
     <string name="f141703">Honey</string>
     <string name="f141704">Gripe water</string>
     <string name="f141705">Goat milk</string>
+    <string name="f141706">Formula milk</string>
     <string name="f141796">Other (please specify)</string>
     <string name="f1418">Did you feed first milk (colostrum/thick milk) to your baby?</string>
     <string name="f141801">Yes</string>

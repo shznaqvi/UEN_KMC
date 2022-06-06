@@ -181,12 +181,15 @@
 
                 </androidx.cardview.widget.CardView>
 
-
                 <!-- f1103  Spinner   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf1103"
-                    style="@style/cardView"
-                    android:visibility="@{f110201.checked ? View.VISIBLE : View.GONE}">
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -212,6 +215,18 @@
                             android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:hint="@string/f1103" />
+
+                    </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/f110396x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/f320496"
+                            android:text="@={form.f110396x}"
+                            android:visibility="gone"
+                             />
 
                     </LinearLayout>
 

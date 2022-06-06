@@ -20,6 +20,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF1S5Binding;
+import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF1S5Activity extends AppCompatActivity {
     private static final String TAG = "SectionF1S5Activity";
@@ -63,8 +64,7 @@ public class SectionF1S5Activity extends AppCompatActivity {
         if (updateDB()) {
             finish();
             {
-//            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
                 Toast.makeText(this, "Form saved successfully", Toast.LENGTH_SHORT).show();
             }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

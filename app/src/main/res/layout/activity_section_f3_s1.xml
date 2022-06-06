@@ -186,8 +186,7 @@
                 <!-- f3102  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf3102"
-                    style="@style/cardView"
-                    android:visibility="@{form.f3101.equals(`1`) ? View.VISIBLE : View.GONE}">
+                    style="@style/cardView">
 
                     <LinearLayout
                         android:layout_width="match_parent"

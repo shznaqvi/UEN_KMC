@@ -1309,12 +1309,21 @@
                                 android:text="@string/f131204" />
 
                             <RadioButton
-                                android:id="@+id/f131205"
+                                android:id="@+id/f131206"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.f1312.equals(`5`)}"
                                 android:onClick="@{()->form.setF1312(`5`)}"
                                 android:text="@string/f131205" />
+
+                            <RadioButton
+                                android:id="@+id/f131205"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{form.f1312.equals(`6`)}"
+                                android:onClick="@{()->form.setF1312(`6`)}"
+                                android:text="@string/f131206" />
+
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

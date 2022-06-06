@@ -107,10 +107,24 @@
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/layout/activity_sync.xml" value="0.5" />
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/layout/sync_list_adapter.xml" value="0.37083333333333335" />
         <entry key="..\:/Android/UEN_KMC/app/src/main/res/menu/item_menu.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_ending.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_fc_identification.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f1_s1.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f1_s2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f1_s3.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f1_s4.xml" value="0.17438692098092642" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f1_s5.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f2_s3.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f2_s4.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f3_s1.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f3_s2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f3_s3.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f3_s4.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/ibrahim.mushtaque/AndroidStudioProjects/UEN_KMC/app/src/main/res/layout/activity_section_f3_s6.xml" value="0.22812702527543746" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

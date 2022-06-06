@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.uen_kmc.ui;
 
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.form;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import net.sqlcipher.database.SQLiteException;
 
+import edu.aku.hassannaqvi.uen_kmc.MainActivity;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
@@ -63,12 +65,11 @@ public class EndingActivity extends AppCompatActivity {
         if (UpdateDB()) {
             recordEntry();
 
-            //    cleanupProcess();
+            //cleanupProcess();
             finish();
             setResult(RESULT_OK);
-           /* Intent i = new Intent(this, MainActivity.class);
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
-           */
             Toast.makeText(this, "Data has been updated.", Toast.LENGTH_SHORT).show();
 
         } else {

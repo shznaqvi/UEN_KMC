@@ -123,6 +123,10 @@ public class FCIdentificationActivity extends AppCompatActivity {
                     healthFacilityCodes.add(tehsilCodes.get(position) + "002");
                     healthFacilityCodes.add(tehsilCodes.get(position) + "003");
                 }
+
+                healthFacilityNames.add("Other");
+                healthFacilityCodes.add("96");
+
                 // Apply the adapter to the spinner
                 bi.f1103.setAdapter(new ArrayAdapter<>(FCIdentificationActivity.this, R.layout.custom_spinner, healthFacilityNames));
 
@@ -138,7 +142,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         bi.f1103.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                bi.f110396x.setVisibility(healthFacilityCodes.get(position).equals("96") ? View.VISIBLE : View.GONE);
 /*                if (position != 0) {
 
                     bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(FCIdentificationActivity.this, R.color.colorAccent));
@@ -191,7 +195,7 @@ public class FCIdentificationActivity extends AppCompatActivity {
         form.setF1102(bi.f110201.isChecked() ? "1"
                 : bi.f110202.isChecked() ? "2"
                 : "-1");
-        form.setF1103(healthFacilityNames.get(bi.f1103.getSelectedItemPosition()));
+        form.setF1103(healthFacilityCodes.get(bi.f1103.getSelectedItemPosition()));
         MainApp.selectedFacilityCode = (healthFacilityCodes.get(bi.f1103.getSelectedItemPosition()));
         form.setF1104(tehsilNames.get(bi.f1104.getSelectedItemPosition()));
 
