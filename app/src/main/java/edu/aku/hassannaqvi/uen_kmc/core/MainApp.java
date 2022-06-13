@@ -1,5 +1,8 @@
 package edu.aku.hassannaqvi.uen_kmc.core;
 
+import static edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper.DATABASE_NAME;
+import static edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper.DATABASE_PASSWORD;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,6 +17,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+
+import com.scottyab.rootbeer.RootBeer;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -39,15 +44,16 @@ public class MainApp extends Application {
     //    public static final String _IP = "https://cls-pae-fp51764";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/uen_ph2/api/";// .TEST server;
-    public static final String _SERVER_URL = "syncenc.php";
-    public static final String _SERVER_GET_URL = "getDataenc.php";
+    public static final String _SERVER_URL = "syncGCM.php";
+    public static final String _SERVER_GET_URL = "getDataGCM.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/kmc";
     public static final String _APP_FOLDER = "../app/kmc";
     public static final String _EMPTY_ = "";
     private static final String TAG = "MainApp";
     public static String IBAHC = "";
-    public static final String _USER_URL = "resetpassword.php";
+    public static final String _USER_URL = "resetpasswordGCM.php";
+    public static int TRATS = 8;
 
     //Languages
     public static int English = 1;
@@ -165,12 +171,12 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        /*
         RootBeer rootBeer = new RootBeer(this);
         if (rootBeer.isRooted()) {
             android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(1);
-        }*/
+            throw new RuntimeException("This is a crash");
+            //System.exit(1);
+        }
 
         //Initiate DateTime
         //Initializ App info
@@ -185,14 +191,18 @@ public class MainApp extends Application {
     private void initSecure() {
         // Initialize SQLCipher library
         SQLiteDatabase.loadLibs(this);
-
+        File databaseFile = getDatabasePath(DATABASE_NAME);
+       /* databaseFile.mkdirs();
+        databaseFile.delete();*/
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
         // Prepare encryption KEY
         ApplicationInfo ai = null;
         try {
             ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
-            int TRATS = bundle.getInt("YEK_TRATS");
-            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            TRATS = bundle.getInt("YEK_TRATS");
+            //IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            IBAHC = bundle.getString("YEK_REVRES");
             Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

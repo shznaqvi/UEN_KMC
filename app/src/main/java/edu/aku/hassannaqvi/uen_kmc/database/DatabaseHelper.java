@@ -72,7 +72,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_PASSWORD = IBAHC;
+    public static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
     public DatabaseHelper(Context context) {

@@ -272,9 +272,11 @@ public class LoginActivity extends AppCompatActivity {
         if (bi.password.getTransformationMethod() == null) {
             bi.password.setTransformationMethod(new PasswordTransformationMethod());
             bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_close, 0, 0, 0);
+            bi.password.setEnabled(false);
         } else {
             bi.password.setTransformationMethod(null);
             bi.password.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_lock_open, 0, 0, 0);
+            bi.password.setEnabled(true);
         }
     }
 
@@ -350,6 +352,13 @@ public class LoginActivity extends AppCompatActivity {
             // Check for a valid username address.
             if (TextUtils.isEmpty(username)) {
                 bi.username.setError(getResources().getString(R.string.username_required));
+                focusView = bi.username;
+                return;
+            }
+
+            // Check for a valid username address.
+            if (username.equals(password)) {
+                bi.username.setError(getString(R.string.username_password_same));
                 focusView = bi.username;
                 return;
             }
