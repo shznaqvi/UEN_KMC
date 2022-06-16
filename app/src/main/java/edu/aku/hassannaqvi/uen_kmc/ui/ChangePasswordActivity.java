@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.uen_kmc.ui;
 
 
+import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.generatePassword;
 
 import android.os.Bundle;
@@ -37,7 +38,6 @@ import javax.crypto.NoSuchPaddingException;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.core.CipherSecure;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
-import edu.aku.hassannaqvi.uen_kmc.core.UserAuth;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivityChangePasswordBinding;
 import edu.aku.hassannaqvi.uen_kmc.workers.UserWorker;
@@ -245,7 +245,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     private boolean formValidation() {
         // return Validator.emptyCheckingContainer(this, bi.GrpName);
-        String hashedPasswordOld = "";
+        /*String hashedPasswordOld = "";
         try {
             hashedPasswordOld = generatePassword(bi.passwordOld.getText().toString(), null);
         } catch (NoSuchAlgorithmException e) {
@@ -260,6 +260,25 @@ public class ChangePasswordActivity extends AppCompatActivity {
             return false;
         } else {
             bi.passwordOld.setError(null);
+
+        }*/
+
+        try {
+            if (!checkPassword(bi.passwordOld.getText().toString(), MainApp.user.getPassword())) {
+                bi.passwordOld.setError("Old password do not match.");
+                Toast.makeText(this, "Old password do not match.", Toast.LENGTH_SHORT).show();
+                return false;
+            } else {
+                bi.passwordOld.setError(null);
+
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "NoSuchAlgorithmException(UserAuth.checkPassword): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "InvalidKeySpecException(UserAuth.checkPassword): " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
 
@@ -297,7 +316,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         // Check not same as previous
         try {
-            if (UserAuth.checkPassword(password, MainApp.user.getPassword())) {
+            if (checkPassword(password, MainApp.user.getPassword())) {
                 System.out.println("Password is same as previous.");
                 bi.password1.setError("Password must not be same as previous.");
                 isValid = false;
