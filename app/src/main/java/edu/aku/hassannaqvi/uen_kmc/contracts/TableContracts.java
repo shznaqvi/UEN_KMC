@@ -25,6 +25,9 @@ public class TableContracts {
         public static final String COLUMN_FORM_COMPLETE = "form_complete";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+        public static final String COLUMN_ISTATUS96x = "istatus96x";
+        public static final String COLUMN_ENDTIME = "endingtime";
+
     }
 
     public static abstract class DischargeTable implements BaseColumns {
@@ -69,6 +72,10 @@ public class TableContracts {
         public static final String COLUMN_FORM_COMPLETE = "form_complete";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+        public static final String COLUMN_ISTATUS96x = "istatus96x";
+        public static final String COLUMN_ENDTIME = "endingdatetime";
+
+
     }
 
     public static abstract class EntryLogTable implements BaseColumns {

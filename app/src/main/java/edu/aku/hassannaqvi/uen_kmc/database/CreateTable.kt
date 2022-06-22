@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.uen_kmc.database
 
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.*
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME
+import edu.aku.hassannaqvi.uen_kmc.models.Form
 
 object CreateTable {
 
@@ -28,9 +29,22 @@ object CreateTable {
             + FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + FormsTable.COLUMN_FORM_COMPLETE + " TEXT,"
             + FormsTable.COLUMN_APPVERSION + " TEXT,"
-            + FormsTable.COLUMN_SF1 + " TEXT"
+            + FormsTable.COLUMN_SF1 + " TEXT,"
+            + FormsTable.COLUMN_ISTATUS96x + " TEXT,"
+            + FormsTable.COLUMN_ENDTIME + " TEXT"
             + " );"
             )
+
+    const val SQL_ALTER_FORMS_ADD_ISTATUS_96x = ("ALTER TABLE "
+            +FormsTable.TABLE_NAME +" ADD COLUMN "
+            +FormsTable.COLUMN_ISTATUS96x +" TEXT, ADD COLUMN;" )
+
+    const val SQL_ALTER_FORMS_ADD_ENDTIME = ("ALTER TABLE "
+            +FormsTable.TABLE_NAME +" ADD COLUMN "
+            +FormsTable.COLUMN_ENDTIME +" TEXT;" )
+
+
+
 
     const val SQL_CREATE_DISCHARGE = ("CREATE TABLE "
             + DischargeTable.TABLE_NAME + "("
@@ -72,9 +86,19 @@ object CreateTable {
             + FollowUpTable.COLUMN_SYNCED_DATE + " TEXT,"
             + FollowUpTable.COLUMN_FORM_COMPLETE + " TEXT,"
             + FollowUpTable.COLUMN_APPVERSION + " TEXT,"
-            + FollowUpTable.COLUMN_SF3 + " TEXT"
+            + FollowUpTable.COLUMN_SF3 + " TEXT,"
+            + FollowUpTable.COLUMN_ISTATUS96x + " TEXT,"
+            + FollowUpTable.COLUMN_ENDTIME + " TEXT"
             + " );"
             )
+
+    const val SQL_ALTER_FOLLOWUPS_ADD_ISTATUS_96x = ("ALTER TABLE "
+            +FollowUpTable.TABLE_NAME +" ADD COLUMN "
+            +FollowUpTable.COLUMN_ISTATUS96x +" TEXT;" )
+
+    const val SQL_ALTER_FOLLOWUPS_ADD_ENDIME = ("ALTER TABLE "
+            +FollowUpTable.TABLE_NAME +" ADD COLUMN "
+            +FollowUpTable.COLUMN_ENDTIME +" TEXT;" )
 
     const val SQL_CREATE_ENTRYLOGS = ("CREATE TABLE "
             + EntryLogTable.TABLE_NAME + "("

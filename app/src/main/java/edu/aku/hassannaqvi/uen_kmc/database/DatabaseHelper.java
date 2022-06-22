@@ -3,6 +3,10 @@ package edu.aku.hassannaqvi.uen_kmc.database;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_kmc.core.UserAuth.checkPassword;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_ALTER_FOLLOWUPS_ADD_ENDIME;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_ALTER_FOLLOWUPS_ADD_ISTATUS_96x;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_ALTER_FORMS_ADD_ENDTIME;
+import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_ALTER_FORMS_ADD_ISTATUS_96x;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISCHARGE;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.SQL_CREATE_ENTRYLOGS;
@@ -71,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     public static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
@@ -98,11 +102,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         switch (oldVersion) {
             case 1:
+                db.execSQL(SQL_ALTER_FORMS_ADD_ISTATUS_96x);
+                db.execSQL(SQL_ALTER_FORMS_ADD_ENDTIME);
+                db.execSQL(SQL_ALTER_FOLLOWUPS_ADD_ISTATUS_96x);
+                db.execSQL(SQL_ALTER_FOLLOWUPS_ADD_ENDIME);
             case 2:
         }
     }
-
-
     //ADDITION in DB
     public Long addForm(Form form) throws JSONException {
 
@@ -1482,6 +1488,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         db.close();
         return disc;
+    }
+
+    public int updateEndingForm(String status, String status96x, String endTime) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_ISTATUS, status);
+        values.put(FormsTable.COLUMN_ISTATUS96x, status96x);
+        values.put(FormsTable.COLUMN_ENDTIME, endTime);
+        String selection = FormsTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
+        return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    public int updateEndingFollowUp(String status, String status96x, String endTime) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(FollowUpTable.COLUMN_ISTATUS, status);
+        values.put(FollowUpTable.COLUMN_ISTATUS96x, status96x);
+        values.put(FollowUpTable.COLUMN_ENDTIME, endTime);
+        String selection = FollowUpTable.COLUMN_ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.followup.getId())};
+        return db.update(FollowUpTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
     }
 
 }
