@@ -354,8 +354,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         c.close();
-
-        db.close();
         if (loggedInUser.getPassword().equals("")) {
             Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
             return false;
@@ -411,9 +409,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allForms;
     }
@@ -453,9 +448,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return allFC;
@@ -534,18 +526,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public int syncAppUser(JSONArray userList) {
+    public int syncAppUser(JSONArray userList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < userList.length(); i++) {
+        for (int i = 0; i < userList.length(); i++) {
 
-                JSONObject jsonObjectUser = userList.getJSONObject(i);
+            JSONObject jsonObjectUser = userList.getJSONObject(i);
 
-                Users user = new Users();
-                user.sync(jsonObjectUser);
-                ContentValues values = new ContentValues();
+            Users user = new Users();
+            user.sync(jsonObjectUser);
+            ContentValues values = new ContentValues();
 
                 values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
                 values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
@@ -558,13 +549,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
-
-        } catch (Exception e) {
-            Log.d(TAG, "syncUser(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
         return insertCount;
     }
 
@@ -585,10 +569,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(TableDistricts.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-
-
-        db.close();
-
         return insertCount;
     }
 
@@ -613,11 +593,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(TableTehsil.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-        db.close();
-
-
-        db.close();
-
         return insertCount;
     }
 
@@ -641,11 +616,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(TableHealthFacilities.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
         }
-        db.close();
-
-
-        db.close();
-
         return insertCount;
     }
 
@@ -688,8 +658,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
         c.close();
-        db.close();
-
         Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + allForms);
         return allForms;
@@ -733,7 +701,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
         c.close();
-        db.close();
 
         Log.d(TAG, "getUnsyncedDischarge: " + allDischarge.toString().length());
         Log.d(TAG, "getUnsyncedDischarge: " + allDischarge);
@@ -778,8 +745,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
         c.close();
-        db.close();
-
         Log.d(TAG, "getUnsyncedFollowups: " + allFollowup.toString().length());
         Log.d(TAG, "getUnsyncedFollowups: " + allFollowup);
         return allFollowup;
@@ -958,9 +923,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return form;
     }
@@ -1008,9 +970,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allFC;
     }
@@ -1055,9 +1014,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } finally {
             if (c != null) {
                 c.close();
-            }
-            if (db != null) {
-                db.close();
             }
         }
         return allFC;
@@ -1105,9 +1061,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (c != null) {
                 c.close();
             }
-            if (db != null) {
-                db.close();
-            }
         }
         return allFC;
     }
@@ -1147,8 +1100,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
-
         return healthFacilities;
     }
 
@@ -1185,7 +1136,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
         return allDistricts;
     }
 
@@ -1223,8 +1173,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         }
-
-        db.close();
 
         return tehsils;
     }
@@ -1308,8 +1256,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         c.close();
 
-        db.close();
-
         return allFollowupsSche;
     }
 
@@ -1341,9 +1287,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         c.close();
-
-        db.close();
-
         return allFollowupsSche;
     }
 
@@ -1374,8 +1317,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         c.close();
-
-        db.close();
 
         return allFollowupsSche;
     }
@@ -1418,7 +1359,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         c.close();
-        db.close();
         return allForm;
     }
 
@@ -1457,7 +1397,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         c.close();
-        db.close();
         return allForm;
     }
 
@@ -1486,7 +1425,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             disc = new Discharge().Hydrate(c);
         }
-        db.close();
         return disc;
     }
 
