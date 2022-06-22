@@ -107,7 +107,6 @@ public class SyncActivity extends AppCompatActivity {
                 new OneTimeWorkRequest.Builder(ReadJSONWorker.class)
                         .build();
         WorkManager.getInstance(this).enqueue(JSONWorker);*/
-        toKeepUnusedFunctions();
 
     }
 
