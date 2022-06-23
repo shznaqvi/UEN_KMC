@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable-v24/ic_date_error.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable-v24/ic_members_done.xml" value="0.21979166666666666" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable-v24/splash_screen.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/all_round_corners_stroke.xml" value="0.3880208333333333" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_alert_24.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_baseline_bloodtype.xml" value="0.36666666666666664" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_complete_star.xml" value="0.3880208333333333" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_date_error.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_done.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_home.xml" value="0.3880208333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/drawable/ic_husband.xml" value="0.3880208333333333" />
@@ -83,6 +85,7 @@
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_sync.xml" value="0.2808333333333333" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/activity_web_view.xml" value="0.35625" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/custom_spinner.xml" value="0.36770833333333336" />
+        <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/date_error_dialog.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/empty_view.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/enmwra_row.xml" value="0.371875" />
         <entry key="..\:/Android Office Work/UEN_KMC/app/src/main/res/layout/followups_list_item.xml" value="0.371875" />
