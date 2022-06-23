@@ -260,6 +260,7 @@
     <string name="f361602">No</string>
     <string name="f361698">Don’t remember</string>
     <string name="f3617">In your opinion how did skin to skin contact help?</string>
+    <string name="f3617">In your opinion how did skin to skin contact help?</string>
     <string name="f361701">Protect newborn from cold</string>
     <string name="f361702">Increase baby’s weight</string>
     <string name="f361703">Protect mothers from disease</string>
@@ -529,7 +530,7 @@
     <string name="f141702">Ghutti</string>
     <string name="f141703">Honey</string>
     <string name="f141704">Gripe water</string>
-    <string name="f141705">Goat milk</string>
+    <string name="f141705">Goat/Cow/Buffalo milk</string>
     <string name="f141706">Formula milk</string>
     <string name="f141796">Other (please specify)</string>
     <string name="f1418">Did you feed first milk (colostrum/thick milk) to your baby?</string>

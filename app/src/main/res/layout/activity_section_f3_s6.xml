@@ -1222,6 +1222,44 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <!-- f3618  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVf3618"
+                    style="@style/cardView"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" ><LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/Q_f1515"  />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/f1515" />
+
+                    </LinearLayout>
+                        <EditText
+                            android:id="@+id/f3618"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/f1515"
+                            android:text="@={form.f3618}" /> </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- f3619  Radio   -->
+
 
                 <!--EndButton LinearLayout-->
                 <LinearLayout

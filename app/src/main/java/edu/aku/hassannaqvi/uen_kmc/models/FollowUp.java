@@ -139,6 +139,11 @@ public class FollowUp extends BaseObservable implements Observable {
     private String f361796x = _EMPTY_;
     private String f361798 = _EMPTY_;
 
+
+
+    private String f3618 = _EMPTY_;
+
+
     public FollowUp() {
 
 /*        setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
@@ -1204,6 +1209,7 @@ public class FollowUp extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.f3617);
     }
 
+
     @Bindable
     public String getF361701() {
         return f361701;
@@ -1296,6 +1302,16 @@ public class FollowUp extends BaseObservable implements Observable {
         setF361705(f361798.equals("98") ? "" : this.f361705);
         setF361796(f361798.equals("98") ? "" : this.f361796);
         notifyPropertyChanged(BR.f361798);
+    }
+
+    @Bindable
+    public String getF3618() {
+        return f3618;
+    }
+
+    public void setF3618(String f3618) {
+        this.f3618 = f3618;
+        notifyPropertyChanged(BR.f3618);
     }
 
 
@@ -1410,6 +1426,8 @@ public class FollowUp extends BaseObservable implements Observable {
             this.f361796 = json.getString("f361796");
             this.f361796x = json.getString("f361796x");
             this.f361798 = json.getString("f361798");
+            this.f3618 = json.getString("f3618");
+
         }
     }
 
@@ -1499,7 +1517,8 @@ public class FollowUp extends BaseObservable implements Observable {
                 .put("f361705", f361705)
                 .put("f361796", f361796)
                 .put("f361796x", f361796x)
-                .put("f361798", f361798);
+                .put("f361798", f361798)
+                .put("f3618", f3618);
         return json.toString();
 
     }
