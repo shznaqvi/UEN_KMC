@@ -296,7 +296,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
             return false;
         } else {
             bi.password2.setError(null);
-
         }
 
         if (!isValidPassword(bi.password1.getText().toString())) {
@@ -362,6 +361,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
             System.out.println("Password must have atleast one special character among @#$%");
             isValid = false;
         }*/
+
+
+
+        if (bi.password1.getText().toString().equals(MainApp.user.getUserName())){
+            bi.password1.setError("Password Could not be same as username.");
+            Toast.makeText(this, "Password Could not be same as username.", Toast.LENGTH_SHORT).show();
+            isValid = false;
+
+        }
+
         return isValid;
     }
 }

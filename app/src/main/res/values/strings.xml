@@ -645,6 +645,9 @@
     <string name="f151403">Stool- passed (observed)</string>
     <string name="f151404">Urine- passed (observed)</string>
 
+    <string name="f1515">Interview Remarks/Observation</string>
+
+
 
     <string name='Q_f1101'>f1101</string>
     <string name='Q_f1102'>f1102</string>
@@ -735,6 +738,7 @@
     <string name='Q_f15131'>f15131</string>
     <string name='Q_f15132'>f15132</string>
     <string name='Q_f1514'>f1514</string>
+    <string name='Q_f1515'>f1515</string>
     <string name='Q_f15t2'>f15t2</string>
     <string name='Q_f15t3'>f15t3</string>
     <string name='Q_f15t4'>f15t4</string>
