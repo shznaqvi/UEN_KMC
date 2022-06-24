@@ -260,7 +260,6 @@
     <string name="f361602">No</string>
     <string name="f361698">Don’t remember</string>
     <string name="f3617">In your opinion how did skin to skin contact help?</string>
-    <string name="f3617">In your opinion how did skin to skin contact help?</string>
     <string name="f361701">Protect newborn from cold</string>
     <string name="f361702">Increase baby’s weight</string>
     <string name="f361703">Protect mothers from disease</string>
@@ -838,6 +837,7 @@
     <string name='Q_f3615'>f3615</string>
     <string name='Q_f3616'>f3616</string>
     <string name='Q_f3617'>f3617</string>
+    <string name='Q_f3618'>f3618</string>
     <string name='Q_f3date'>f3date</string>
     <string name='Q_f3icetitle'>f3icetitle</string>
     <string name='Q_f3ictitle'>f3ictitle</string>

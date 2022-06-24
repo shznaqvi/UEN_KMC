@@ -64,7 +64,7 @@ public class SectionF1S5Activity extends AppCompatActivity {
         if (updateDB()) {
             finish();
             {
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra("model", "1"));
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra("model", 1));
                 Toast.makeText(this, "Form saved successfully", Toast.LENGTH_SHORT).show();
             }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

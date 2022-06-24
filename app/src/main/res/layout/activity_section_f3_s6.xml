@@ -1241,7 +1241,7 @@
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="@string/Q_f1515"  />
+                            android:text="@string/Q_f3618"  />
 
                         <TextView
                             android:layout_width="match_parent"
