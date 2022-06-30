@@ -2,7 +2,6 @@ package edu.aku.hassannaqvi.uen_kmc.database
 
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts.*
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp.PROJECT_NAME
-import edu.aku.hassannaqvi.uen_kmc.models.Form
 
 object CreateTable {
 
@@ -34,17 +33,6 @@ object CreateTable {
             + FormsTable.COLUMN_ENDTIME + " TEXT"
             + " );"
             )
-
-    const val SQL_ALTER_FORMS_ADD_ISTATUS_96x = ("ALTER TABLE "
-            +FormsTable.TABLE_NAME +" ADD COLUMN "
-            +FormsTable.COLUMN_ISTATUS96x +" TEXT, ADD COLUMN;" )
-
-    const val SQL_ALTER_FORMS_ADD_ENDTIME = ("ALTER TABLE "
-            +FormsTable.TABLE_NAME +" ADD COLUMN "
-            +FormsTable.COLUMN_ENDTIME +" TEXT;" )
-
-
-
 
     const val SQL_CREATE_DISCHARGE = ("CREATE TABLE "
             + DischargeTable.TABLE_NAME + "("
@@ -209,5 +197,13 @@ object CreateTable {
             + FollowupsScheTable.COLUMN_FP_DATE + " TEXT"
             + " );"
             )
+
+    const val SQL_ALTER_FORMS_ADD_ISTATUS_96x = ("ALTER TABLE "
+            + FormsTable.TABLE_NAME + " ADD "
+            + FormsTable.COLUMN_ISTATUS96x + " TEXT; ")
+
+    const val SQL_ALTER_FORMS_ADD_ENDTIME = ("ALTER TABLE "
+            + FormsTable.TABLE_NAME + " ADD "
+            + FormsTable.COLUMN_ENDTIME + " TEXT; ")
 
 }
