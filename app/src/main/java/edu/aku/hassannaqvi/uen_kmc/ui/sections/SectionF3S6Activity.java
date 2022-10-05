@@ -14,7 +14,6 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import edu.aku.hassannaqvi.uen_kmc.MainActivity;
 import edu.aku.hassannaqvi.uen_kmc.R;
 import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
@@ -63,7 +62,9 @@ public class SectionF3S6Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra("model", 2));
+            startActivity(new Intent(this, EndingActivity.class)
+                    .putExtra("complete", true)
+                    .putExtra("model", 2));
             //startActivity(new Intent(this, MainActivity.class));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
@@ -71,8 +72,10 @@ public class SectionF3S6Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         finish();
-        //startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
-        startActivity(new Intent(this, EndingActivity.class).putExtra("model", 2));
+        startActivity(new Intent(this, EndingActivity.class)
+                .putExtra("complete", false)
+                .putExtra("model", 2));
+//        startActivity(new Intent(this, EndingActivity.class).putExtra("model", 2));
 
     }
 

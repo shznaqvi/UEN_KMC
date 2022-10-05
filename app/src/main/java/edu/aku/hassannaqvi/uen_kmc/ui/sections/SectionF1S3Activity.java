@@ -19,6 +19,7 @@ import edu.aku.hassannaqvi.uen_kmc.contracts.TableContracts;
 import edu.aku.hassannaqvi.uen_kmc.core.MainApp;
 import edu.aku.hassannaqvi.uen_kmc.database.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_kmc.databinding.ActivitySectionF1S3Binding;
+import edu.aku.hassannaqvi.uen_kmc.ui.EndingActivity;
 
 public class SectionF1S3Activity extends AppCompatActivity {
     private static final String TAG = "SectionF1S3Activity";
@@ -61,14 +62,16 @@ public class SectionF1S3Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionF1S4Activity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionF1S4Activity.class));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
 
     public void btnEnd(View view) {
         finish();
-//        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, EndingActivity.class)
+                .putExtra("complete", false)
+                .putExtra("model", 1));
     }
 
 

@@ -302,7 +302,7 @@
                             android:id="@+id/f3104"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789"
                             android:hint="@string/f3104"
                             android:text="@={form.f3104}" />
                     </LinearLayout>

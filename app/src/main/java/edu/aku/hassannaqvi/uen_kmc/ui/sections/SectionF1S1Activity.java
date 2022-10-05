@@ -85,7 +85,7 @@ public class SectionF1S1Activity extends AppCompatActivity {
         if (!insertNewRecord()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, SectionF1S2Activity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionF1S2Activity.class));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 

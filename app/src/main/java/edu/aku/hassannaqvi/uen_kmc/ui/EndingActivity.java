@@ -39,30 +39,32 @@ public class EndingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         bi = DataBindingUtil.setContentView(this, R.layout.activity_ending);
         bi.setForm(form);
         setSupportActionBar(bi.toolbar);
-        setSupportActionBar(bi.toolbar);
-        //setTitle(R.string.section1_mainheading);
 
         db = MainApp.appInfo.dbHelper;
         boolean check = getIntent().getBooleanExtra("complete", false);
-        //sectionMainCheck = getIntent().getIntExtra("status", 0);
+        model = getIntent().getIntExtra("model", 0);
 
         bi.istatusa.setEnabled(check);
         bi.istatusb.setEnabled(!check);
+        bi.istatusc.setEnabled(!check);
+        bi.istatusd.setEnabled(!check);
+        bi.istatuse.setEnabled(!check);
+        bi.istatusf.setEnabled(!check);
+        bi.istatus96.setEnabled(!check);
 
-        model = getIntent().getIntExtra("model", 0);
 
-        if (model == 1){
+
+        /*if (model == 1){
+            bi.istatusb.setVisibility(View.GONE);
             bi.istatusc.setVisibility(View.GONE);
             bi.istatusd.setVisibility(View.GONE);
             bi.istatuse.setVisibility(View.GONE);
             bi.istatusf.setVisibility(View.GONE);
-            bi.istatusc.setVisibility(View.GONE);
-            bi.istatusc.setVisibility(View.GONE);
-        }
+            bi.istatus96.setVisibility(View.GONE);
+        }*/
 
     }
 
