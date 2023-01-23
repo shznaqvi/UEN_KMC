@@ -109,6 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 2:
         }
     }
+
     //ADDITION in DB
     public Long addForm(Form form) throws JSONException {
 
@@ -538,17 +539,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             user.sync(jsonObjectUser);
             ContentValues values = new ContentValues();
 
-                values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
-                values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
-                values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
-                values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
-                values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
-                values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
-                values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
-                values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
-                long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
-                if (rowID != -1) insertCount++;
-            }
+            values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
+            values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
+            values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
+            values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
+            values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
+            values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
+            values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
+            values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
+            long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
+            if (rowID != -1) insertCount++;
+        }
         return insertCount;
     }
 

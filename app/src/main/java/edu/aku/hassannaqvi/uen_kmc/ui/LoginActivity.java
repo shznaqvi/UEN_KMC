@@ -7,6 +7,7 @@ import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.DATABASE_COPY;
 import static edu.aku.hassannaqvi.uen_kmc.database.CreateTable.DATABASE_NAME;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.content.res.Configuration;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -119,50 +121,69 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    @NeedsPermission(Manifest.permission.CAMERA)
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
-        super.onCreate(savedInstanceState);
-        initializingCountry();
+    public static File dbBackup(Activity activity) {
 
-        Dexter.withContext(this)
-                .withPermissions(
-                        Manifest.permission.ACCESS_NETWORK_STATE,
-                        Manifest.permission.WAKE_LOCK,
-                        Manifest.permission.INTERNET,
-                        Manifest.permission.READ_PHONE_STATE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_PHONE_STATE,
-                        Manifest.permission.CAMERA
-                ).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                if (report.areAllPermissionsGranted()) {
-                    MainApp.permissionCheck = true;
+        if (sharedPref.getBoolean("flag", true)) {
+
+            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+
+            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
+                MainApp.editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+                MainApp.editor.apply();
+            }
+
+            File folder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                folder = new File(activity.getExternalFilesDir("").getAbsolutePath() + File.separator + PROJECT_NAME);
+            } else {
+                folder = new File(Environment.getExternalStorageDirectory().toString() + File.separator);
+            }
+            boolean success = true;
+            if (!folder.exists()) {
+                success = folder.mkdirs();
+            }
+            if (success) {
+                String DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
+                folder = new File(DirectoryName);
+                if (!folder.exists()) {
+                    success = folder.mkdirs();
                 }
+                if (success) {
+
+                    try {
+                        File dbFile = new File(activity.getDatabasePath(DATABASE_NAME).getPath());
+                        FileInputStream fis = new FileInputStream(dbFile);
+                        String outFileName = DirectoryName + File.separator + DATABASE_COPY;
+
+                        // For Special case - Use when needed to extract database from local storage
+                        File file = new File(outFileName);
+                        // Open the empty db as the output stream
+                        OutputStream output = new FileOutputStream(file);
+
+//                        // Open the empty db as the output stream
+//                        OutputStream output = new FileOutputStream(outFileName);
+
+                        // Transfer bytes from the inputfile to the outputfile
+                        byte[] buffer = new byte[1024];
+                        int length;
+                        while ((length = fis.read(buffer)) > 0) {
+                            output.write(buffer, 0, length);
+                        }
+                        // Close the streams
+                        output.flush();
+                        output.close();
+                        fis.close();
+
+                        return file;
+                    } catch (IOException e) {
+                        Log.e("dbBackup:", Objects.requireNonNull(e.getMessage()));
+                    }
+                }
+            } else {
+                Toast.makeText(activity, activity.getString(R.string.folder_not_created), Toast.LENGTH_SHORT).show();
             }
-
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                token.continuePermissionRequest();
-            }
-        }).check();
-
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        bi.setCallback(this);
-
-        db = MainApp.appInfo.getDbHelper();
-
-
-        settingCountryCode();
-
-        MainApp.appInfo = new AppInfo(this);
-        MainApp.user = new Users();
-        bi.txtinstalldate.setText(MainApp.appInfo.getAppInfo());
-
-        dbBackup();
+        }
+        return null;
     }
 
     /*    private void settingCountryCode() {
@@ -211,60 +232,50 @@ public class LoginActivity extends AppCompatActivity {
         changeLanguage(1);
     }*/
 
-    public void dbBackup() {
+    @Override
+    @NeedsPermission(Manifest.permission.CAMERA)
+    protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        super.onCreate(savedInstanceState);
+        initializingCountry();
 
-
-        if (sharedPref.getBoolean("flag", false)) {
-
-            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
-
-            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
-                MainApp.editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
-                MainApp.editor.apply();
-            }
-
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
-            boolean success = true;
-            if (!folder.exists()) {
-                success = folder.mkdirs();
-            }
-            if (success) {
-
-                DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
-                folder = new File(DirectoryName);
-                if (!folder.exists()) {
-                    success = folder.mkdirs();
+        Dexter.withContext(this)
+                .withPermissions(
+                        Manifest.permission.ACCESS_NETWORK_STATE,
+                        Manifest.permission.WAKE_LOCK,
+                        Manifest.permission.INTERNET,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.CAMERA
+                ).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                if (report.areAllPermissionsGranted()) {
+                    MainApp.permissionCheck = true;
                 }
-                if (success) {
-
-                    try {
-                        File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getPath());
-                        FileInputStream fis = new FileInputStream(dbFile);
-                        String outFileName = DirectoryName + File.separator + DATABASE_COPY;
-                        // Open the empty db as the output stream
-                        OutputStream output = new FileOutputStream(outFileName);
-
-                        // Transfer bytes from the inputfile to the outputfile
-                        byte[] buffer = new byte[1024];
-                        int length;
-                        while ((length = fis.read(buffer)) > 0) {
-                            output.write(buffer, 0, length);
-                        }
-                        // Close the streams
-                        output.flush();
-                        output.close();
-                        fis.close();
-                    } catch (IOException e) {
-                        Log.e("dbBackup:", Objects.requireNonNull(e.getMessage()));
-                    }
-
-                }
-
-            } else {
-                Toast.makeText(this, getString(R.string.folder_not_created), Toast.LENGTH_SHORT).show();
             }
-        }
 
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                token.continuePermissionRequest();
+            }
+        }).check();
+
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        bi.setCallback(this);
+
+        db = MainApp.appInfo.getDbHelper();
+
+
+        settingCountryCode();
+
+        MainApp.appInfo = new AppInfo(this);
+        MainApp.user = new Users();
+        bi.txtinstalldate.setText(MainApp.appInfo.getAppInfo());
+
+        dbBackup(this);
     }
 
     public void onShowPasswordClick(View view) {
